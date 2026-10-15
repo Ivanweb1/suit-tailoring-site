@@ -85,34 +85,54 @@
   mobile.querySelector('[data-mobile-close]').addEventListener('click', () => setMobile(false));
   mobile.querySelectorAll('.mobile-menu__nav a').forEach((a) => a.addEventListener('click', () => setMobile(false)));
 
-  /* ---------- Всплывающее окно записи ---------- */
+  /* ---------- Всплывающие окна ---------- */
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
+  const caseModal = document.getElementById('caseModal');
   let lastFocus;
 
-  const openModal = (title) => {
-    lastFocus = document.activeElement;
-    modalTitle.textContent = title || 'Записаться на консультацию';
+  const openM = (m) => {
+    if (!document.querySelector('.modal.is-open')) lastFocus = document.activeElement;
+    document.querySelectorAll('.modal.is-open').forEach((o) => { o.classList.remove('is-open'); o.setAttribute('aria-hidden', 'true'); });
     setMobile(false);
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
+    m.classList.add('is-open');
+    m.setAttribute('aria-hidden', 'false');
     document.body.classList.add('is-locked');
-    modal.querySelector('.modal__close').focus();
+    m.querySelector('.modal__close').focus();
   };
-  const closeModal = () => {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
+  const closeM = (m) => {
+    m.classList.remove('is-open');
+    m.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('is-locked');
     if (lastFocus) lastFocus.focus();
   };
 
+  // Окно записи
   document.querySelectorAll('[data-modal-open]').forEach((el) =>
-    el.addEventListener('click', (e) => { e.preventDefault(); openModal(el.dataset.modalTitle); })
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalTitle.textContent = el.dataset.modalTitle || 'Записаться на консультацию';
+      openM(modal);
+    })
   );
-  modal.querySelectorAll('[data-modal-close]').forEach((el) => el.addEventListener('click', closeModal));
+
+  // История клиента — данные берутся из карточки
+  document.querySelectorAll('[data-case]').forEach((card) =>
+    card.addEventListener('click', () => {
+      document.getElementById('caseTitle').textContent = card.dataset.name;
+      document.getElementById('caseRole').textContent = card.dataset.role;
+      document.getElementById('caseMono').textContent = card.querySelector('.client__mono').textContent;
+      openM(caseModal);
+    })
+  );
+
+  document.querySelectorAll('.modal').forEach((m) =>
+    m.querySelectorAll('[data-modal-close]').forEach((el) => el.addEventListener('click', () => closeM(m)))
+  );
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
-    if (modal.classList.contains('is-open')) closeModal();
+    const open = document.querySelector('.modal.is-open');
+    if (open) closeM(open);
     else if (mobile.classList.contains('is-open')) setMobile(false);
   });
 
