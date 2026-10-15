@@ -417,7 +417,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .story { display: grid; grid-template-columns: 1fr 1fr; min-height: clamp(560px, 50vw, 760px); background: var(--ivory); color: var(--navy); }
 .story__media { margin: 0; position: relative; overflow: hidden; }
 .story__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-.story__body { align-self: center; max-width: 600px; padding: clamp(56px, 7vw, 120px) clamp(24px, 6vw, 112px); }
+.story__body { align-self: center; width: 100%; max-width: 760px; padding: clamp(56px, 7vw, 120px) clamp(24px, 5vw, 96px); }
 .story__title { margin: 20px 0 32px; font: 400 clamp(34px, 3.6vw, 52px)/1.08 var(--serif); }
 .story__body > p:not(.eyebrow):not(.story__sign):not(.gift__subtitle) { margin: 0 0 16px; font-size: 16px; line-height: 1.75; color: var(--stone); }
 .story__sign { margin: 32px 0 0; font: 400 24px/1.2 var(--serif); }
@@ -429,9 +429,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .wardrobe--women { padding-top: 0; }
 .wardrobe__title {
   margin: 0 0 clamp(40px, 4vw, 64px); padding: 0 var(--gutter); text-align: center;
-  font: 400 clamp(40px, 5vw, 72px)/1 var(--serif);
+  font: 400 clamp(40px, 5vw, 72px)/1.02 var(--serif);
 }
-.wardrobe__title span { display: block; margin-bottom: 14px; font: 500 12px/1 var(--sans); letter-spacing: .4em; text-transform: uppercase; color: var(--gold); }
+.wardrobe__title span { display: block; text-transform: uppercase; letter-spacing: .08em; padding-left: .08em; }
 .wardrobe__tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
 .tile { position: relative; display: block; aspect-ratio: 2 / 3; overflow: hidden; background: var(--ivory-2); }
 .tile img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .8s var(--ease); }
