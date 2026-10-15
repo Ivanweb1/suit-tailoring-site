@@ -121,7 +121,9 @@
     card.addEventListener('click', () => {
       document.getElementById('caseTitle').textContent = card.dataset.name;
       document.getElementById('caseRole').textContent = card.dataset.role;
-      document.getElementById('caseMono').textContent = card.querySelector('.client__mono').textContent;
+      const img = card.querySelector('img');
+      document.getElementById('caseImg').src = img.getAttribute('src');
+      document.getElementById('caseImg').alt = card.dataset.name;
       openM(caseModal);
     })
   );
