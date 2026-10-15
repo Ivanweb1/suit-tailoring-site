@@ -412,9 +412,47 @@
       <div class="section-link reveal"><a href="#">Все истории</a></div>
     </section>
 
+    <!-- 5. Примеры работ -->
+    <section class="works" id="works">
+      <div class="works__head reveal">
+        <p class="eyebrow">Примеры работ VESTORO</p>
+      </div>
+      <ul class="works__strip">
+        <li>
+          <button class="work" type="button" data-video="" data-poster="assets/img/work-1.jpg" aria-label="Смотреть видео: Ткани и детали">
+            <img src="assets/img/work-1.jpg" alt="" loading="lazy">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span>
+            <span class="work__cap">Ткани и детали</span>
+          </button>
+        </li>
+        <li>
+          <button class="work" type="button" data-video="" data-poster="assets/img/work-2.jpg" aria-label="Смотреть видео: Примерка в ателье">
+            <img src="assets/img/work-2.jpg" alt="" loading="lazy">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span>
+            <span class="work__cap">Примерка в ателье</span>
+          </button>
+        </li>
+        <li>
+          <button class="work" type="button" data-video="" data-poster="assets/img/work-3.jpg" aria-label="Смотреть видео: Индивидуальный пошив">
+            <img src="assets/img/work-3.jpg" alt="" loading="lazy">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span>
+            <span class="work__cap">Индивидуальный пошив</span>
+          </button>
+        </li>
+        <li>
+          <button class="work" type="button" data-video="" data-poster="assets/img/work-4.jpg" aria-label="Смотреть видео: Джимми Котвани">
+            <img src="assets/img/work-4.jpg" alt="" loading="lazy">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span>
+            <span class="work__cap">Джимми Котвани</span>
+          </button>
+        </li>
+      </ul>
+      <div class="section-link reveal"><a href="#">Все работы</a></div>
+    </section>
+
     <!-- Следующие блоки главной будут добавлены по порядку из ТЗ -->
     <section class="next-placeholder" id="contacts">
-      <p>Далее: 5. Примеры работ VESTORO</p>
+      <p>Далее: 6. Ткани с мировым именем</p>
     </section>
   </main>
 
@@ -493,6 +531,16 @@
         <p class="case__text">Здесь короткий рассказ о том, как проходил процесс: консультация, мерки, примерки, впечатления клиента от готового костюма. Текст кейса предоставит заказчик.</p>
         <button class="btn btn--gold" type="button" data-modal-open>Записаться на консультацию</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Просмотр видео -->
+  <div class="modal modal--video" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Видео">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="video-box">
+      <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
+      <video id="videoPlayer" playsinline controls preload="none"></video>
+      <p class="video-box__note" id="videoNote">Видео появится после загрузки роликов заказчика</p>
     </div>
   </div>
 

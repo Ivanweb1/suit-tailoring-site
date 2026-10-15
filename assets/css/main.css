@@ -307,6 +307,33 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .case__facts dd { margin: 0; color: rgba(255, 255, 255, .85); }
 .case__text { margin: 24px 0 32px; color: rgba(255, 255, 255, .7); }
 
+/* ---------- 5. Примеры работ ---------- */
+.works { padding: clamp(96px, 11vw, 160px) 0; color: var(--navy); }
+.works__head { text-align: center; margin-bottom: clamp(36px, 4vw, 56px); padding: 0 var(--gutter); }
+.works__strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+.work { position: relative; display: block; width: 100%; aspect-ratio: 9 / 16; max-height: 86vh; overflow: hidden; background: var(--navy-deep); }
+.work img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.work::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .65), rgba(11, 21, 52, .05) 45%); transition: background var(--t) var(--ease); }
+.work:hover img { transform: scale(1.04); }
+.work:hover::after { background: linear-gradient(to top, rgba(11, 21, 52, .75), rgba(11, 21, 52, .2) 45%); }
+.play { position: absolute; z-index: 1; left: 50%; top: 50%; width: 88px; height: 88px; transform: translate(-50%, -50%); transition: transform var(--t) var(--ease); }
+.play svg { width: 100%; height: 100%; fill: rgba(255, 255, 255, .08); stroke: #fff; stroke-width: 1; }
+.play .play__tri { fill: #fff; stroke: none; }
+.work:hover .play { transform: translate(-50%, -50%) scale(1.08); }
+.work__cap {
+  position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 26px; text-align: left; color: #fff;
+  font: 500 10px/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase;
+}
+
+.modal--video .modal__backdrop { background: rgba(11, 21, 52, .92); }
+.video-box { position: relative; display: grid; place-items: center; width: min(480px, 100%); max-height: calc(100vh - 48px); }
+.video-box video { width: 100%; max-height: calc(100vh - 48px); aspect-ratio: 9 / 16; object-fit: cover; background: #000; }
+.video-box .modal__close { top: 16px; right: 16px; z-index: 1; background: rgba(11, 21, 52, .5); }
+.video-box__note {
+  position: absolute; left: 24px; right: 24px; bottom: 28px; margin: 0; text-align: center; color: #fff;
+  font: 500 10px/1.6 var(--sans); letter-spacing: .2em; text-transform: uppercase;
+}
+
 .next-placeholder {
   padding: 120px var(--gutter); text-align: center;
   font: 500 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
@@ -451,6 +478,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .why__icons li + li { border-left: 0; border-top: 1px solid var(--line); }
   .why__icons h3 { margin-top: 18px; }
   .why .btn { width: 100%; max-width: 360px; padding: 0 20px; }
+
+  .works__strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .works__strip::-webkit-scrollbar { display: none; }
+  .works__strip li { flex: 0 0 72vw; scroll-snap-align: start; }
+  .work { max-height: none; }
+  .play { width: 64px; height: 64px; }
 
   .clients__top { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .client--big .client__info { margin-top: -96px; min-height: 96px; padding: 0 14px 14px; }

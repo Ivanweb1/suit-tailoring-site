@@ -101,6 +101,7 @@
     m.querySelector('.modal__close').focus();
   };
   const closeM = (m) => {
+    m.querySelectorAll('video').forEach((v) => v.pause());
     m.classList.remove('is-open');
     m.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('is-locked');
@@ -125,6 +126,21 @@
       document.getElementById('caseImg').src = img.getAttribute('src');
       document.getElementById('caseImg').alt = card.dataset.name;
       openM(caseModal);
+    })
+  );
+
+  // Примеры работ: видео в окне (data-video — путь к ролику)
+  const videoModal = document.getElementById('videoModal');
+  const player = document.getElementById('videoPlayer');
+  const videoNote = document.getElementById('videoNote');
+  document.querySelectorAll('[data-video]').forEach((tile) =>
+    tile.addEventListener('click', () => {
+      const src = tile.dataset.video;
+      player.poster = tile.dataset.poster;
+      videoNote.hidden = !!src;
+      if (src) { player.src = src; player.controls = true; } else { player.removeAttribute('src'); player.controls = false; }
+      openM(videoModal);
+      if (src) player.play().catch(() => {});
     })
   );
 
