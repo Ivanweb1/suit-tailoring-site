@@ -334,6 +334,21 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   font: 500 10px/1.6 var(--sans); letter-spacing: .2em; text-transform: uppercase;
 }
 
+/* ---------- 6. Ткани ---------- */
+.fabrics { padding: clamp(80px, 9vw, 140px) 0; background: var(--ivory-2); color: var(--navy); border-top: 1px solid var(--line); }
+.fabrics__logos {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.fabrics__logos li { display: grid; place-items: center; height: clamp(120px, 12vw, 180px); padding: 0 24px; }
+.fabrics__logos li + li { border-left: 1px solid var(--line); }
+.fabrics__logos img { max-width: 70%; max-height: 52%; object-fit: contain; opacity: .85; transition: opacity var(--t) var(--ease); }
+.fabrics__logos li:hover img { opacity: 1; }
+.fabrics__body { max-width: 880px; margin: 0 auto; padding: clamp(64px, 7vw, 104px) var(--gutter); text-align: center; }
+.fabrics__text { margin: 28px auto 0; max-width: 720px; font-size: 16px; line-height: 1.75; color: var(--stone); }
+.fabrics__list { margin: 28px auto 0; font: 400 19px/1.7 var(--serif); color: var(--navy); opacity: .8; }
+
 .next-placeholder {
   padding: 120px var(--gutter); text-align: center;
   font: 500 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
@@ -478,6 +493,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .why__icons li + li { border-left: 0; border-top: 1px solid var(--line); }
   .why__icons h3 { margin-top: 18px; }
   .why .btn { width: 100%; max-width: 360px; padding: 0 20px; }
+
+  .fabrics__logos { grid-template-columns: repeat(2, 1fr); }
+  .fabrics__logos li { height: 110px; }
+  .fabrics__logos li + li { border-left: 0; }
+  .fabrics__logos li:nth-child(even) { border-left: 1px solid var(--line); }
+  .fabrics__logos li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .fabrics__list { font-size: 17px; }
 
   .works__strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
   .works__strip::-webkit-scrollbar { display: none; }
