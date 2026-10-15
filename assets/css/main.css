@@ -374,6 +374,24 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .step:nth-child(even) .step__text { justify-self: start; }
 .step__media img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Короткая версия процесса */
+.process__sub, .timeline { display: none; }
+.process-short .process__steps { display: none; }
+.process-short .process__sub { display: block; margin: calc(clamp(48px, 5vw, 80px) * -1 + 20px) 0 clamp(56px, 6vw, 88px); text-align: center; color: var(--stone); }
+.process-short .timeline { display: grid; }
+.timeline {
+  position: relative; list-style: none; margin: 0 calc(var(--gutter) * -1); padding: 0 var(--gutter);
+  grid-template-columns: repeat(8, 1fr); gap: 8px;
+}
+.timeline::before { content: ""; position: absolute; left: 0; right: 0; top: 66px; height: 1px; background: var(--gold); opacity: .7; }
+.timeline li { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.timeline__num { height: 48px; font: 400 36px/48px var(--serif); }
+.timeline__dot {
+  position: relative; width: 19px; height: 19px; margin: 8px 0 22px; border: 1px solid var(--gold); border-radius: 50%; background: var(--ivory);
+}
+.timeline__dot::after { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: var(--gold); }
+.timeline__title { max-width: 150px; font: 500 11px/1.5 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+
 .visit { max-width: 1240px; margin: clamp(56px, 6vw, 96px) auto 0; }
 .visit__cta { text-align: center; margin-bottom: clamp(48px, 5vw, 72px); }
 .visit__box {
@@ -667,6 +685,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .atelier__big { grid-column: 1 / -1; grid-row: auto; }
   .atelier__bar { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 18px; padding: 28px 16px; }
   .atelier__phone { justify-self: center; }
+
+  .timeline { grid-template-columns: 1fr; gap: 0; margin: 0; padding: 0 0 0 4px; }
+  .timeline::before { left: 13px; right: auto; top: 10px; bottom: 10px; width: 1px; height: auto; }
+  .timeline li { flex-direction: row; align-items: center; gap: 16px; text-align: left; padding: 14px 0; }
+  .timeline__dot { order: -1; flex: none; margin: 0; }
+  .timeline__num { height: auto; width: 40px; flex: none; font-size: 26px; line-height: 1; }
+  .timeline__title { max-width: none; }
 
   .process__steps::before { left: 6px; }
   .step { grid-template-columns: 1fr; gap: 24px; padding-left: 32px; }

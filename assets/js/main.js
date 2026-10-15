@@ -8,6 +8,10 @@
   // Вариант первого экрана меняет и блок «Почему выбирают VESTORO»
   if (params.get('hero') === 'long') document.body.classList.add('v-long');
 
+  // Блок «Как создаётся костюм»: ?process=short|long, по умолчанию — как вариант страницы
+  const processMode = params.get('process') || (params.get('hero') === 'long' ? 'short' : 'long');
+  if (processMode === 'short') document.body.classList.add('process-short');
+
   /* ---------- Плавное появление блоков ---------- */
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
