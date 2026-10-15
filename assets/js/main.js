@@ -178,4 +178,10 @@
     e.preventDefault();
     visitForm.innerHTML = '<p class="visit__done">Спасибо! Менеджер свяжется с вами, чтобы согласовать время визита портного.</p>';
   });
+
+  const subscribeForm = document.getElementById('subscribeForm');
+  subscribeForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    subscribeForm.innerHTML = '<p class="subscribe__done">Спасибо! Вы подписаны на новости VESTORO.</p>';
+  });
 })();

@@ -21,10 +21,10 @@
       </button>
 
       <nav class="nav nav--left" aria-label="Основная навигация">
-        <a class="nav__link" href="#" data-menu="atelier">Ателье</a>
-        <a class="nav__link" href="#" data-menu="men">Мужчинам</a>
-        <a class="nav__link" href="#" data-menu="women">Женщинам</a>
-        <a class="nav__link" href="#" data-menu="collection">Коллекция</a>
+        <a class="nav__link" href="#atelier" data-menu="atelier">Ателье</a>
+        <a class="nav__link" href="#men" data-menu="men">Мужчинам</a>
+        <a class="nav__link" href="#women" data-menu="women">Женщинам</a>
+        <a class="nav__link" href="#works" data-menu="collection">Коллекция</a>
       </nav>
 
       <a class="brand" href="./" aria-label="VESTORO — на главную">
@@ -34,9 +34,9 @@
       </a>
 
       <nav class="nav nav--right" aria-label="Дополнительная навигация">
-        <a class="nav__link" href="#" data-menu="fabrics">Ткани</a>
-        <a class="nav__link" href="#" data-menu="certificates">Сертификаты</a>
-        <a class="nav__link" href="#" data-menu="journal">Статьи</a>
+        <a class="nav__link" href="#fabrics" data-menu="fabrics">Ткани</a>
+        <a class="nav__link" href="#gift" data-menu="certificates">Сертификаты</a>
+        <a class="nav__link" href="#journal" data-menu="journal">Статьи</a>
         <a class="nav__link" href="#contacts">Контакты</a>
       </nav>
 
@@ -213,13 +213,13 @@
       <span></span>
     </div>
     <nav class="mobile-menu__nav">
-      <a href="#">Ателье</a>
-      <a href="#">Мужчинам</a>
-      <a href="#">Женщинам</a>
-      <a href="#">Коллекция</a>
-      <a href="#">Ткани</a>
-      <a href="#">Сертификаты</a>
-      <a href="#">Статьи</a>
+      <a href="#atelier">Ателье</a>
+      <a href="#men">Мужчинам</a>
+      <a href="#women">Женщинам</a>
+      <a href="#works">Коллекция</a>
+      <a href="#fabrics">Ткани</a>
+      <a href="#gift">Сертификаты</a>
+      <a href="#journal">Статьи</a>
       <a href="#contacts">Контакты</a>
     </nav>
     <div class="mobile-menu__bottom">
@@ -685,11 +685,70 @@
       <div class="section-link reveal"><a href="#">Все статьи</a></div>
     </section>
 
-    <!-- Следующие блоки главной будут добавлены по порядку из ТЗ -->
-    <section class="next-placeholder" id="contacts">
-      <p>Далее: 14. Подписка</p>
+    <!-- 14. Подписка -->
+    <section class="subscribe" id="subscribe">
+      <div class="subscribe__inner reveal">
+        <div class="subscribe__intro">
+          <p class="subscribe__brand">VESTORO</p>
+          <h2 class="subscribe__title">Подписка</h2>
+          <p class="subscribe__text">Укажите свой email, чтобы получать эксклюзивные новости VESTORO.</p>
+        </div>
+        <form class="subscribe__form" id="subscribeForm">
+          <div class="subscribe__row">
+            <input type="email" name="email" placeholder="Ваш email" autocomplete="email" required aria-label="Ваш email">
+            <button type="submit">Подписаться</button>
+          </div>
+          <p class="subscribe__note">Подписываясь, вы соглашаетесь с политикой конфиденциальности. Отписаться можно в любой момент.</p>
+        </form>
+      </div>
     </section>
   </main>
+
+  <!-- 15. Подвал -->
+  <footer class="footer" id="contacts">
+    <p class="footer__brand">VESTORO</p>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <p class="footer__heading">Контакты</p>
+        <a href="tel:+74957250564">+7 (495) 725-05-64</a>
+        <a href="mailto:zayavka@vestoro.ru">zayavka@vestoro.ru</a>
+        <span>Москва, Новолесная 5</span>
+        <span>Пн–Сб 10:00–21:00 · Вс 10:00–19:00</span>
+        <div class="footer__social">
+          <a href="#">Telegram</a><a href="#">WhatsApp</a><a href="#">ВКонтакте</a><a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">О компании</p>
+        <a href="#story">История компании</a>
+        <a href="#process">Индивидуальный пошив</a>
+        <a href="#clients">Наши клиенты</a>
+        <a href="#">Наши достижения</a>
+        <a href="#works">Наши работы</a>
+        <a href="#atelier">Ателье VESTORO</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Покупателям</p>
+        <a href="#journal">Журнал</a>
+        <a href="#">Ответы на вопросы</a>
+        <a href="#">Акции и скидки</a>
+        <a href="#gift">Подарочный сертификат</a>
+        <a href="#">Корректировка по фигуре</a>
+        <a href="#">Доставка</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Общая информация</p>
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Публичная оферта</a>
+        <a href="#">Обработка персональных данных</a>
+        <a href="#">Политика использования cookies</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 1993–2026 VESTORO</span>
+      <span>ИП Котвани Джитендра Дхалумал · ИНН 772973972953 · ОГРНИП 322774600077985</span>
+    </div>
+  </footer>
 
   <!-- Всплывающее окно записи -->
   <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
