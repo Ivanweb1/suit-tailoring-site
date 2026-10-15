@@ -351,12 +351,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- 7. Как создаётся костюм ---------- */
 .process { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
-.process__head { text-align: center; margin-bottom: clamp(56px, 7vw, 112px); }
+.process__head { text-align: center; margin-bottom: clamp(48px, 5vw, 80px); }
 .process__steps { position: relative; list-style: none; margin: 0 auto; padding: 0; max-width: 1240px; }
 .process__steps::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--line); }
 
-.step { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 8vw, 128px); align-items: center; }
-.step + .step { margin-top: clamp(64px, 8vw, 120px); }
+.step { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 7vw, 112px); align-items: center; }
+.step + .step { margin-top: clamp(28px, 3vw, 48px); }
 .step::before {
   content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin: -4px 0 0 -4px;
   border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 6px var(--ivory);
@@ -364,14 +364,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .step:nth-child(even) .step__text { order: 2; }
 .step__num {
   display: block; margin-bottom: -.32em;
-  font: 400 clamp(96px, 11vw, 168px)/1 var(--serif); color: var(--gold); opacity: .35; letter-spacing: .02em;
+  font: 400 clamp(72px, 7vw, 112px)/1 var(--serif); color: var(--gold); opacity: .35; letter-spacing: .02em;
 }
-.step__title { position: relative; margin: 0; font: 400 clamp(28px, 2.8vw, 40px)/1.1 var(--serif); }
-.step__text p { margin: 20px 0 0; max-width: 440px; font-size: 16px; line-height: 1.75; color: var(--stone); }
-.step__media { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: var(--ivory-2); }
+.step__title { position: relative; margin: 0; font: 400 clamp(26px, 2.4vw, 34px)/1.1 var(--serif); }
+.step__text p { margin: 14px 0 0; max-width: 440px; font-size: 15px; line-height: 1.7; color: var(--stone); }
+.step__media { margin: 0; width: 100%; max-width: 480px; aspect-ratio: 3 / 2; overflow: hidden; background: var(--ivory-2); }
+.step:nth-child(even) .step__media { justify-self: end; }
+.step:nth-child(even) .step__text { justify-self: start; }
 .step__media img { width: 100%; height: 100%; object-fit: cover; }
 
-.visit { max-width: 1240px; margin: clamp(80px, 9vw, 140px) auto 0; }
+.visit { max-width: 1240px; margin: clamp(56px, 6vw, 96px) auto 0; }
 .visit__cta { text-align: center; margin-bottom: clamp(48px, 5vw, 72px); }
 .visit__box {
   display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: center;
@@ -538,8 +540,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .step { grid-template-columns: 1fr; gap: 24px; padding-left: 32px; }
   .step::before { left: 6px; top: 40px; }
   .step:nth-child(even) .step__text { order: 0; }
-  .step__num { font-size: 88px; }
-  .step__media { aspect-ratio: 4 / 3; }
+  .step__num { font-size: 64px; }
+  .step + .step { margin-top: 48px; }
+  .step:nth-child(even) .step__media { justify-self: start; }
   .visit__box { grid-template-columns: 1fr; gap: 28px; padding: 28px 20px; }
   .visit__form { grid-template-columns: 1fr; }
   .visit__form .btn { width: 100%; }
