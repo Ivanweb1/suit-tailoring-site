@@ -412,6 +412,17 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .atelier__phone { justify-self: end; transition: color var(--t) var(--ease); }
 .atelier__phone:hover { color: var(--gold); }
 
+/* ---------- 9. История ---------- */
+.story { display: grid; grid-template-columns: 1fr 1fr; min-height: clamp(560px, 50vw, 760px); background: var(--ivory); color: var(--navy); }
+.story__media { margin: 0; position: relative; overflow: hidden; }
+.story__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.story__body { align-self: center; max-width: 600px; padding: clamp(56px, 7vw, 120px) clamp(24px, 6vw, 112px); }
+.story__title { margin: 20px 0 32px; font: 400 clamp(34px, 3.6vw, 52px)/1.08 var(--serif); }
+.story__body > p:not(.eyebrow):not(.story__sign) { margin: 0 0 16px; font-size: 16px; line-height: 1.75; color: var(--stone); }
+.story__sign { margin: 32px 0 0; font: 400 24px/1.2 var(--serif); }
+.story__sign span { display: block; margin-top: 8px; font: 500 10px/1.4 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.story .section-link { text-align: left; margin-top: 36px; }
+
 .next-placeholder {
   padding: 120px var(--gutter); text-align: center;
   font: 500 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
@@ -557,6 +568,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .why__icons li + li { border-left: 0; border-top: 1px solid var(--line); }
   .why__icons h3 { margin-top: 18px; }
   .why .btn { width: 100%; max-width: 360px; padding: 0 20px; }
+
+  .story { grid-template-columns: 1fr; }
+  .story__media { aspect-ratio: 4 / 5; }
+  .story__body { padding: 48px 16px 64px; }
 
   .atelier__grid { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 140px 140px; gap: 4px; }
   .atelier__big { grid-column: 1 / -1; grid-row: auto; }
