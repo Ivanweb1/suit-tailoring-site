@@ -349,6 +349,45 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .fabrics__text { margin: 28px auto 0; max-width: 720px; font-size: 16px; line-height: 1.75; color: var(--stone); }
 .fabrics__list { margin: 28px auto 0; font: 400 19px/1.7 var(--serif); color: var(--navy); opacity: .8; }
 
+/* ---------- 7. Как создаётся костюм ---------- */
+.process { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
+.process__head { text-align: center; margin-bottom: clamp(56px, 7vw, 112px); }
+.process__steps { position: relative; list-style: none; margin: 0 auto; padding: 0; max-width: 1240px; }
+.process__steps::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--line); }
+
+.step { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 8vw, 128px); align-items: center; }
+.step + .step { margin-top: clamp(64px, 8vw, 120px); }
+.step::before {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 9px; height: 9px; margin: -4px 0 0 -4px;
+  border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 6px var(--ivory);
+}
+.step:nth-child(even) .step__text { order: 2; }
+.step__num {
+  display: block; margin-bottom: -.32em;
+  font: 400 clamp(96px, 11vw, 168px)/1 var(--serif); color: var(--gold); opacity: .35; letter-spacing: .02em;
+}
+.step__title { position: relative; margin: 0; font: 400 clamp(28px, 2.8vw, 40px)/1.1 var(--serif); }
+.step__text p { margin: 20px 0 0; max-width: 440px; font-size: 16px; line-height: 1.75; color: var(--stone); }
+.step__media { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: var(--ivory-2); }
+.step__media img { width: 100%; height: 100%; object-fit: cover; }
+
+.visit { max-width: 1240px; margin: clamp(80px, 9vw, 140px) auto 0; }
+.visit__cta { text-align: center; margin-bottom: clamp(48px, 5vw, 72px); }
+.visit__box {
+  display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: center;
+  padding: clamp(32px, 4vw, 56px); background: var(--navy); color: #fff;
+}
+.visit__title { margin: 16px 0 0; font: 400 clamp(28px, 3vw, 40px)/1.1 var(--serif); }
+.visit__form { display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px 24px; align-items: end; }
+.visit__form input {
+  width: 100%; padding: 14px 0; background: none; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .35);
+  color: #fff; font: inherit; outline: none; transition: border-color var(--t) var(--ease);
+}
+.visit__form input::placeholder { color: rgba(255, 255, 255, .5); }
+.visit__form input:focus { border-color: var(--gold-light); }
+.visit__note { grid-column: 1 / -1; margin: 0; font-size: 13px; color: rgba(255, 255, 255, .55); }
+.visit__done { margin: 0; color: var(--gold-light); }
+
 .next-placeholder {
   padding: 120px var(--gutter); text-align: center;
   font: 500 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
@@ -467,6 +506,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .mega { display: none; }
   .why__icons { grid-template-columns: 1fr; max-width: 520px; }
   .clients__top { grid-template-columns: repeat(2, 1fr); }
+  .visit__box { grid-template-columns: 1fr; }
   .clients__bottom { grid-template-columns: repeat(3, 1fr); row-gap: 32px; }
 }
 
@@ -493,6 +533,17 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .why__icons li + li { border-left: 0; border-top: 1px solid var(--line); }
   .why__icons h3 { margin-top: 18px; }
   .why .btn { width: 100%; max-width: 360px; padding: 0 20px; }
+
+  .process__steps::before { left: 6px; }
+  .step { grid-template-columns: 1fr; gap: 24px; padding-left: 32px; }
+  .step::before { left: 6px; top: 40px; }
+  .step:nth-child(even) .step__text { order: 0; }
+  .step__num { font-size: 88px; }
+  .step__media { aspect-ratio: 4 / 3; }
+  .visit__box { grid-template-columns: 1fr; gap: 28px; padding: 28px 20px; }
+  .visit__form { grid-template-columns: 1fr; }
+  .visit__form .btn { width: 100%; }
+  .visit .btn--line { width: 100%; max-width: 360px; padding: 0 20px; }
 
   .fabrics__logos { grid-template-columns: repeat(2, 1fr); }
   .fabrics__logos li { height: 110px; }

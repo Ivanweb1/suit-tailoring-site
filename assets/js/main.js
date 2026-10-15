@@ -172,4 +172,10 @@
     form.classList.add('is-sent');
     form.innerHTML = '<p>Спасибо! Мы перезвоним вам в ближайшее время.</p>';
   });
+
+  const visitForm = document.getElementById('visitForm');
+  visitForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    visitForm.innerHTML = '<p class="visit__done">Спасибо! Менеджер свяжется с вами, чтобы согласовать время визита портного.</p>';
+  });
 })();
