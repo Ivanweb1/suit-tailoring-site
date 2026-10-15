@@ -164,7 +164,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .hero__text { display: none; max-width: 640px; margin-top: 36px; font-size: 16px; line-height: 1.7; color: rgba(255, 255, 255, .88); }
 .hero__text p { margin: 0 0 12px; }
-.hero--long .hero__text { display: block; }
+.v-long .hero__text { display: block; }
 
 .hero__actions { display: flex; flex-direction: column; align-items: center; gap: 26px; margin-top: 52px; }
 .hero__links { display: flex; gap: 34px; }
@@ -188,6 +188,60 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .hero__dots button::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 1px; background: rgba(255, 255, 255, .4); transition: background var(--t) var(--ease); }
 .hero__dots button.is-active::before { background: var(--gold-light); }
 .hero--photo .hero__dots { visibility: hidden; }
+
+/* ---------- Общие элементы секций ---------- */
+.eyebrow {
+  margin: 0;
+  font: 500 11px/1.4 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--gold);
+}
+.btn--line { border: 1px solid var(--navy); color: var(--navy); }
+.btn--line:hover { background: var(--navy); color: #fff; }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* ---------- 3. Почему выбирают VESTORO ---------- */
+.why { padding: clamp(96px, 12vw, 180px) var(--gutter) clamp(88px, 10vw, 150px); text-align: center; color: var(--navy); }
+.why__head { margin-bottom: clamp(36px, 4vw, 56px); }
+
+.why__lead {
+  max-width: 1100px; margin: 0 auto;
+  font: 400 clamp(32px, 4.4vw, 64px)/1.08 var(--serif); letter-spacing: .01em;
+}
+.why__text {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px);
+  max-width: 1120px; margin: clamp(48px, 5vw, 72px) auto 0;
+  text-align: justify; -webkit-hyphens: auto; hyphens: auto; color: var(--stone); font-size: 16px; line-height: 1.75;
+}
+.why__text p { margin: 0; }
+
+.why__facts {
+  list-style: none; padding: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px; margin: clamp(64px, 7vw, 104px) auto 0;
+  border-top: 1px solid var(--line);
+}
+.why__facts li { padding: 36px 16px 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.why__facts li + li { border-left: 1px solid var(--line); }
+.why__num { font: 400 clamp(40px, 4vw, 56px)/1 var(--serif); }
+.why__cap { font: 500 10px/1.5 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+
+.why__icons {
+  display: none; list-style: none; padding: 0;
+  grid-template-columns: repeat(5, 1fr); gap: 0;
+  max-width: 1440px; margin: 0 auto;
+}
+.why__icons li { padding: 8px clamp(16px, 2vw, 32px); }
+.why__icons li + li { border-left: 1px solid var(--line); }
+.why__icons svg { width: 48px; height: 48px; fill: none; stroke: var(--gold); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.why__icons h3 { margin: 28px 0 14px; font: 400 24px/1.15 var(--serif); }
+.why__icons p { margin: 0; font-size: 14px; line-height: 1.65; color: var(--stone); }
+
+.v-long .why__short { display: none; }
+.v-long .why__icons { display: grid; }
+
+.why__cta { margin-top: clamp(56px, 6vw, 88px); }
 
 .next-placeholder {
   padding: 120px var(--gutter); text-align: center;
@@ -305,6 +359,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .brand__micro:last-child { margin-top: 8px; }
   .header.is-solid .brand__name { font-size: 26px; }
   .mega { display: none; }
+  .why__icons { grid-template-columns: 1fr; max-width: 520px; }
 }
 
 @media (max-width: 720px) {
@@ -319,6 +374,17 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero__phone, .hero__hours { justify-self: center; }
   .hero__hours { display: none; }
   .hero__dots { order: -1; }
+
+  .why__text { grid-template-columns: 1fr; gap: 20px; font-size: 15px; text-align: left; }
+  .why__facts { grid-template-columns: 1fr 1fr; }
+  .why__facts li { padding: 28px 8px; }
+  .why__facts li + li { border-left: 0; }
+  .why__facts li:nth-child(even) { border-left: 1px solid var(--line); }
+  .why__facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .why__icons li { padding: 32px 0; }
+  .why__icons li + li { border-left: 0; border-top: 1px solid var(--line); }
+  .why__icons h3 { margin-top: 18px; }
+  .why .btn { width: 100%; max-width: 360px; padding: 0 20px; }
 
   .modal { padding: 0; place-items: end stretch; }
   .modal__dialog { grid-template-columns: 1fr; max-height: 92vh; width: 100%; }

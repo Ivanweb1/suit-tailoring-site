@@ -5,7 +5,19 @@
 
   // Варианты первого экрана для показа заказчику:
   // ?hero=long — с большим текстом, ?bg=photo — одно фото вместо слайдера
-  if (params.get('hero') === 'long') hero.classList.add('hero--long');
+  // Вариант первого экрана меняет и блок «Почему выбирают VESTORO»
+  if (params.get('hero') === 'long') document.body.classList.add('v-long');
+
+  /* ---------- Плавное появление блоков ---------- */
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+    }), { threshold: 0.15 });
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('is-visible'));
+  }
   const isPhoto = params.get('bg') === 'photo';
   if (isPhoto) hero.classList.add('hero--photo');
 
