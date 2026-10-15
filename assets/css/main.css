@@ -449,6 +449,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .gift__subtitle { margin: 18px 0 28px; font: 500 12px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
 .gift .btn--dark { width: auto; margin-top: 20px; }
 .gift .btn--dark:hover { background: var(--navy-deep); }
+.gift { min-height: 0; align-items: center; }
+.gift .story__media { aspect-ratio: 3 / 2; align-self: center; }
 .gift .story__media img { object-position: center; }
 
 /* ---------- 13. Журнал ---------- */
