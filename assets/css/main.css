@@ -437,28 +437,37 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* ---------- 10–11. Гардероб ---------- */
 .wardrobe { padding: clamp(96px, 11vw, 160px) 0; color: var(--navy); }
 .wardrobe--women { padding-top: 0; }
-.wardrobe__head { position: relative; margin: 0 var(--gutter) clamp(40px, 4vw, 64px); }
+.wardrobe__head { max-width: 760px; margin: 0 auto clamp(40px, 4vw, 64px); padding: 0 var(--gutter); text-align: center; }
 .wardrobe__title {
-  margin: 0; text-align: center;
-  font: var(--serif-w) calc(clamp(40px, 5vw, 72px) * var(--serif-scale))/1.02 var(--serif);
+  margin: 0; text-transform: uppercase; letter-spacing: .06em;
+  font: var(--serif-w) calc(clamp(36px, 4.4vw, 64px) * var(--serif-scale))/1.05 var(--serif);
 }
-.wardrobe__title span { display: block; text-transform: uppercase; letter-spacing: .08em; padding-left: .08em; }
-/* Гардероб листается вбок, как у Gieves & Hawkes: видно 4 плитки и край следующей */
+.wardrobe__title em { font-style: italic; text-transform: none; letter-spacing: 0; }
+.wardrobe__lead { margin: 18px auto 0; max-width: 560px; font-size: 15px; line-height: 1.7; color: var(--stone); }
+
+/* Мозаика, как «A complete wardrobe» у Gieves & Hawkes: крупный костюм слева, вокруг плитки разного размера */
 .wardrobe__tiles {
-  list-style: none; margin: 0; padding: 0 var(--gutter);
-  display: flex; gap: 4px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--gutter);
-  scrollbar-width: none; overscroll-behavior-x: contain;
+  list-style: none; margin: 0 auto; padding: 0 var(--gutter); max-width: 1440px;
+  display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, clamp(220px, 21vw, 320px)); gap: 8px;
 }
-.wardrobe__tiles::-webkit-scrollbar { display: none; }
-.wardrobe__tiles li { flex: 0 0 calc((100% - 3 * 4px) / 4.3); scroll-snap-align: start; }
-.tile { position: relative; display: block; aspect-ratio: 2 / 3; overflow: hidden; background: var(--ivory-2); }
-.tile img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .8s var(--ease); }
-.tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .6), rgba(11, 21, 52, 0) 40%); }
-.tile:hover img { transform: scale(1.02); }
-.tile__cap {
-  position: absolute; z-index: 1; left: 0; right: 0; bottom: 26px; text-align: center; color: #fff;
-  font: 500 12px/1.3 var(--sans); letter-spacing: .24em; text-transform: uppercase;
+.bento__1 { grid-column: 1 / 3; grid-row: 1 / 3; }
+.bento__2 { grid-column: 3; grid-row: 1; }
+.bento__3 { grid-column: 4; grid-row: 1; }
+.bento__4 { grid-column: 3; grid-row: 2 / 4; }
+.bento__5 { grid-column: 4; grid-row: 2 / 4; }
+.bento__6 { grid-column: 1 / 3; grid-row: 3; }
+.tile { position: relative; display: block; height: 100%; overflow: hidden; background: var(--ivory-2); }
+.tile img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 1.2s var(--ease); }
+.tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .65), rgba(11, 21, 52, 0) 45%); transition: opacity var(--t) var(--ease); }
+.tile:hover img { transform: scale(1.04); }
+.tile__cap { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 22px; color: #fff; }
+.tile__name { display: block; font: var(--serif-w) calc(clamp(24px, 2.2vw, 34px) * var(--serif-scale))/1.1 var(--serif); }
+.bento__1 .tile__name { font-size: calc(clamp(32px, 3.2vw, 48px) * var(--serif-scale)); }
+.tile__sub {
+  display: block; margin-top: 8px; font: 500 10px/1.4 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light);
+  opacity: .85; transition: opacity var(--t) var(--ease);
 }
+.tile:hover .tile__sub { opacity: 1; }
 
 /* ---------- 11a. Аксессуары ---------- */
 .accessories__list { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
@@ -674,15 +683,23 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .journal__list::-webkit-scrollbar { display: none; }
   .journal__list li { flex: 0 0 76vw; scroll-snap-align: start; }
 
-  .wardrobe__tiles { padding: 0 16px; scroll-padding: 0 16px; }
-  .wardrobe__tiles li { flex: 0 0 62vw; }
+  .wardrobe__tiles { padding: 0 16px; gap: 4px; grid-template-columns: 1fr 1fr; grid-template-rows: 380px repeat(2, 200px) 160px; }
+  .bento__1 { grid-column: 1 / -1; grid-row: 1; }
+  .bento__2 { grid-column: 1; grid-row: 2; }
+  .bento__3 { grid-column: 2; grid-row: 2; }
+  .bento__4 { grid-column: 1; grid-row: 3; }
+  .bento__5 { grid-column: 2; grid-row: 3; }
+  .bento__6 { grid-column: 1 / -1; grid-row: 4; }
+  .tile__cap { left: 14px; right: 14px; bottom: 14px; }
+  .tile__name { font-size: 21px; }
+  .bento__1 .tile__name { font-size: 30px; }
+  .tile__sub { font-size: 9px; letter-spacing: .14em; }
   .carousel-nav { display: none; }
   .clients__track { gap: 12px; padding: 0 16px; scroll-padding: 0 16px; }
   .clients__track li { flex: 0 0 56vw; min-width: 0; }
   .client__name { font-size: 19px; margin-top: 14px; }
   .client__role { font-size: 9px; letter-spacing: .12em; }
   .accessories__list a { font-size: 19px; }
-  .tile__cap { font-size: 11px; bottom: 20px; }
 
   .story { grid-template-columns: 1fr; }
   .story__media { aspect-ratio: 4 / 5; }
