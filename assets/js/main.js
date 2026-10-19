@@ -76,6 +76,22 @@
   dots.forEach((d, n) => d.addEventListener('click', () => { show(n); play(); }));
   play();
 
+  /* ---------- Карусели: стрелки листают на ширину видимой части ---------- */
+  document.querySelectorAll('[data-carousel-nav]').forEach((nav) => {
+    const track = document.getElementById(nav.dataset.carouselNav);
+    const [prev, next] = nav.querySelectorAll('button');
+    const update = () => {
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    };
+    nav.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => {
+      track.scrollBy({ left: Number(b.dataset.dir) * track.clientWidth * 0.8, behavior: 'smooth' });
+    }));
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+
   /* ---------- Мобильное меню ---------- */
   const mobile = document.getElementById('mobileMenu');
   const burger = header.querySelector('[data-mobile-open]');
@@ -92,7 +108,6 @@
   /* ---------- Всплывающие окна ---------- */
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
-  const caseModal = document.getElementById('caseModal');
   let lastFocus;
 
   const openM = (m) => {
@@ -118,18 +133,6 @@
       e.preventDefault();
       modalTitle.textContent = el.dataset.modalTitle || 'Записаться на консультацию';
       openM(modal);
-    })
-  );
-
-  // История клиента — данные берутся из карточки
-  document.querySelectorAll('[data-case]').forEach((card) =>
-    card.addEventListener('click', () => {
-      document.getElementById('caseTitle').textContent = card.dataset.name;
-      document.getElementById('caseRole').textContent = card.dataset.role;
-      const img = card.querySelector('img');
-      document.getElementById('caseImg').src = img.getAttribute('src');
-      document.getElementById('caseImg').alt = card.dataset.name;
-      openM(caseModal);
     })
   );
 

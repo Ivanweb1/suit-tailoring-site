@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-font-switch>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,8 +8,9 @@
   <meta name="description" content="Ателье VESTORO: индивидуальный пошив мужской и женской одежды в Москве с 1993 года.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/fonts.js"></script>
 </head>
 <body>
 
@@ -24,7 +25,7 @@
         <a class="nav__link" href="#atelier" data-menu="atelier">Ателье</a>
         <a class="nav__link" href="#men" data-menu="men">Мужчинам</a>
         <a class="nav__link" href="#women" data-menu="women">Женщинам</a>
-        <a class="nav__link" href="#works" data-menu="collection">Коллекция</a>
+        <a class="nav__link" href="#accessories" data-menu="accessories">Аксессуары</a>
       </nav>
 
       <a class="brand" href="./" aria-label="VESTORO — на главную">
@@ -34,10 +35,10 @@
       </a>
 
       <nav class="nav nav--right" aria-label="Дополнительная навигация">
+        <a class="nav__link" href="#works" data-menu="collection">Коллекция</a>
         <a class="nav__link" href="#fabrics" data-menu="fabrics">Ткани</a>
         <a class="nav__link" href="#gift" data-menu="certificates">Сертификаты</a>
         <a class="nav__link" href="#journal" data-menu="journal">Статьи</a>
-        <a class="nav__link" href="#contacts">Контакты</a>
       </nav>
 
       <button class="header__cta" type="button" data-modal-open>Запись</button>
@@ -119,6 +120,34 @@
             <p class="mega__heading">Сервис</p>
             <a href="#">Корректировка по фигуре</a>
             <a href="#">Доставка</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="accessories">
+        <figure class="mega__media">
+          <img src="assets/img/journal/accessories.jpg" alt="Аксессуары VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Аксессуары</span><span class="mega__media-link">Детали, которые завершают образ</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">К костюму</p>
+            <a href="#">Галстуки</a>
+            <a href="#">Бабочки</a>
+            <a href="#">Запонки</a>
+            <a href="#">Платки-паше</a>
+            <a href="#">Зажимы для галстука</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Кожа</p>
+            <a href="#">Ремни</a>
+            <a href="#">Подтяжки</a>
+            <a href="#">Перчатки</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Подарок</p>
+            <a href="#gift">Подарочный сертификат</a>
+            <a href="#">Все аксессуары</a>
           </div>
         </div>
       </div>
@@ -216,6 +245,7 @@
       <a href="#atelier">Ателье</a>
       <a href="#men">Мужчинам</a>
       <a href="#women">Женщинам</a>
+      <a href="#accessories">Аксессуары</a>
       <a href="#works">Коллекция</a>
       <a href="#fabrics">Ткани</a>
       <a href="#gift">Сертификаты</a>
@@ -239,8 +269,8 @@
       </div>
 
       <div class="hero__content">
-        <h1 class="hero__title">VESTORO</h1>
-        <p class="hero__subtitle">Индивидуальный пошив с 1993 года</p>
+        <p class="hero__subtitle">Ателье VESTORO</p>
+        <h1 class="hero__title">Индивидуальный пошив <span>с 1993 года</span></h1>
 
         <div class="hero__text">
           <p>33 года экспертизы в пошиве мужской и женской одежды для тех, кто формирует будущее.</p>
@@ -252,7 +282,7 @@
           <button class="btn btn--outline" type="button" data-modal-open>Записаться на консультацию</button>
           <div class="hero__links">
             <a href="#" data-modal-open data-modal-title="Получить каталог">Получить каталог</a>
-            <a href="#" data-modal-open data-modal-title="Записаться в ателье">Записаться в ателье</a>
+            <a href="#gift">Подарочный сертификат</a>
           </div>
         </div>
       </div>
@@ -324,94 +354,105 @@
       </div>
     </section>
 
-    <!-- 4. Клиенты VESTORO -->
+    <!-- 4. Клиенты VESTORO: карусель в одну строку, подробности — на странице «Клиенты» -->
     <section class="clients" id="clients">
       <div class="clients__head reveal">
         <p class="eyebrow">Наши клиенты</p>
-        <h2 class="section-title">Истории безупречного стиля клиентов VESTORO</h2>
+        <h2 class="section-title">Клиенты VESTORO</h2>
+        <div class="carousel-nav" data-carousel-nav="clientsTrack">
+          <button type="button" data-dir="-1" aria-label="Назад">←</button>
+          <button type="button" data-dir="1" aria-label="Вперёд">→</button>
+        </div>
       </div>
 
-      <ul class="clients__top reveal">
-          <li>
-            <button class="client client--big" type="button" data-case data-name="Нарендра Моди" data-role="Премьер-министр Индии">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Нарендра Моди</span><span class="client__role">Премьер-министр Индии</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--big" type="button" data-case data-name="Эмомали Рахмон" data-role="Президент Таджикистана">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Эмомали Рахмон</span><span class="client__role">Президент Таджикистана</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--big" type="button" data-case data-name="Бадра Гунба" data-role="Президент Абхазии">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Бадра Гунба</span><span class="client__role">Президент Абхазии</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--big" type="button" data-case data-name="Нурсултан Назарбаев" data-role="Первый Президент Казахстана">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Нурсултан Назарбаев</span><span class="client__role">Первый Президент Казахстана</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--big" type="button" data-case data-name="Серж Саргсян" data-role="Экс-президент Армении">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Серж Саргсян</span><span class="client__role">Экс-президент Армении</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--big" type="button" data-case data-name="Михаил Мишустин" data-role="Председатель Правительства РФ">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Михаил Мишустин</span><span class="client__role">Председатель Правительства РФ</span></span>
-            </button>
-          </li>
+      <ul class="clients__track reveal" id="clientsTrack">
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Нарендра Моди</span>
+            <span class="client__role">Премьер-министр Индии</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Эмомали Рахмон</span>
+            <span class="client__role">Президент Таджикистана</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Бадра Гунба</span>
+            <span class="client__role">Президент Абхазии</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Нурсултан Назарбаев</span>
+            <span class="client__role">Первый Президент Казахстана</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Серж Саргсян</span>
+            <span class="client__role">Экс-президент Армении</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Михаил Мишустин</span>
+            <span class="client__role">Председатель Правительства РФ</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Иосиф Кобзон</span>
+            <span class="client__role">Народный артист СССР</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Никас Сафронов</span>
+            <span class="client__role">Художник</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Сергей Миронов</span>
+            <span class="client__role">Политик</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Владимир Ресин</span>
+            <span class="client__role">Градостроитель</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Арсен Каноков</span>
+            <span class="client__role">Государственный деятель</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="#">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Ковальчук</span>
+            <span class="client__role">Подпись уточнить</span>
+          </a>
+        </li>
       </ul>
 
-      <div class="gold-line" role="presentation"></div>
-
-      <ul class="clients__bottom reveal">
-          <li>
-            <button class="client client--small" type="button" data-case data-name="Иосиф Кобзон" data-role="Народный артист СССР">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Иосиф Кобзон</span><span class="client__role">Народный артист СССР</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--small" type="button" data-case data-name="Никас Сафронов" data-role="Художник">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Никас Сафронов</span><span class="client__role">Художник</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--small" type="button" data-case data-name="Сергей Миронов" data-role="Политик">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Сергей Миронов</span><span class="client__role">Политик</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--small" type="button" data-case data-name="Владимир Ресин" data-role="Градостроитель">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Владимир Ресин</span><span class="client__role">Градостроитель</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--small" type="button" data-case data-name="Арсен Каноков" data-role="Государственный деятель">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Арсен Каноков</span><span class="client__role">Государственный деятель</span></span>
-            </button>
-          </li>
-          <li>
-            <button class="client client--small" type="button" data-case data-name="Ковальчук" data-role="Подпись уточнить">
-              <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
-              <span class="client__info"><span class="client__name">Ковальчук</span><span class="client__role">Подпись уточнить</span></span>
-            </button>
-          </li>
-      </ul>
-
-      <div class="section-link reveal"><a href="#">Все истории</a></div>
+      <div class="section-link reveal"><a href="#">Все клиенты</a></div>
     </section>
 
     <!-- 5. Примеры работ -->
@@ -456,10 +497,10 @@
     <!-- 6. Ткани с мировым именем -->
     <section class="fabrics" id="fabrics">
       <ul class="fabrics__logos reveal">
-        <li><img src="assets/img/fabrics/loro-piana.png" alt="Loro Piana" loading="lazy"></li>
-        <li><img src="assets/img/fabrics/zegna.png" alt="Ermenegildo Zegna" loading="lazy"></li>
-        <li><img src="assets/img/fabrics/scabal.png" alt="Scabal" loading="lazy"></li>
-        <li><img src="assets/img/fabrics/dormeuil.png" alt="Dormeuil" loading="lazy"></li>
+        <li><a href="#" title="Loro Piana"><img src="assets/img/fabrics/loro-piana.png" alt="Loro Piana" loading="lazy"></a></li>
+        <li><a href="#" title="Ermenegildo Zegna"><img src="assets/img/fabrics/zegna.png" alt="Ermenegildo Zegna" loading="lazy"></a></li>
+        <li><a href="#" title="Scabal"><img src="assets/img/fabrics/scabal.png" alt="Scabal" loading="lazy"></a></li>
+        <li><a href="#" title="Dormeuil"><img src="assets/img/fabrics/dormeuil.png" alt="Dormeuil" loading="lazy"></a></li>
       </ul>
 
       <div class="fabrics__body reveal">
@@ -470,10 +511,10 @@
       </div>
 
       <ul class="fabrics__logos reveal">
-        <li><img src="assets/img/fabrics/holland-sherry.png" alt="Holland &amp; Sherry" loading="lazy"></li>
-        <li><img src="assets/img/fabrics/drago.png" alt="Drago" loading="lazy"></li>
-        <li><img src="assets/img/fabrics/thomas-mason.png" alt="Thomas Mason" loading="lazy"></li>
-        <li><img src="assets/img/fabrics/charles-clayton.png" alt="Charles Clayton" loading="lazy"></li>
+        <li><a href="#" title="Holland &amp; Sherry"><img src="assets/img/fabrics/holland-sherry.png" alt="Holland &amp; Sherry" loading="lazy"></a></li>
+        <li><a href="#" title="Drago"><img src="assets/img/fabrics/drago.png" alt="Drago" loading="lazy"></a></li>
+        <li><a href="#" title="Thomas Mason"><img src="assets/img/fabrics/thomas-mason.png" alt="Thomas Mason" loading="lazy"></a></li>
+        <li><a href="#" title="Charles Clayton"><img src="assets/img/fabrics/charles-clayton.png" alt="Charles Clayton" loading="lazy"></a></li>
       </ul>
 
       <div class="section-link reveal"><a href="#">Ткани с мировым именем</a></div>
@@ -624,28 +665,61 @@
 
     <!-- 10. Мужской гардероб -->
     <section class="wardrobe wardrobe--men" id="men">
-      <h2 class="wardrobe__title reveal"><span>Мужской</span>гардероб</h2>
-      <ul class="wardrobe__tiles reveal">
+      <div class="wardrobe__head reveal">
+        <h2 class="wardrobe__title"><span>Мужской</span>гардероб</h2>
+        <div class="carousel-nav" data-carousel-nav="menTiles">
+          <button type="button" data-dir="-1" aria-label="Назад">←</button>
+          <button type="button" data-dir="1" aria-label="Вперёд">→</button>
+        </div>
+      </div>
+      <ul class="wardrobe__tiles reveal" id="menTiles">
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/men-suit.jpg" alt="Деловой костюм" loading="lazy"><span class="tile__cap">Деловой костюм</span></a></li>
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/men-jackets.jpg" alt="Пиджаки" loading="lazy"><span class="tile__cap">Пиджаки</span></a></li>
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/men-shirts.jpg" alt="Рубашки" loading="lazy"><span class="tile__cap">Рубашки</span></a></li>
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/men-trousers.jpg" alt="Брюки" loading="lazy"><span class="tile__cap">Брюки</span></a></li>
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/men-shoes.jpg" alt="Обувь" loading="lazy"><span class="tile__cap">Обувь</span></a></li>
+        <li><a class="tile" href="#accessories"><img src="assets/img/journal/accessories.jpg" alt="Аксессуары" loading="lazy"><span class="tile__cap">Аксессуары</span></a></li>
       </ul>
       <div class="section-link reveal"><a href="#">Весь гардероб</a></div>
     </section>
 
     <!-- 11. Женский гардероб -->
     <section class="wardrobe wardrobe--women" id="women">
-      <h2 class="wardrobe__title reveal"><span>Женский</span>гардероб</h2>
-      <ul class="wardrobe__tiles reveal">
+      <div class="wardrobe__head reveal">
+        <h2 class="wardrobe__title"><span>Женский</span>гардероб</h2>
+        <div class="carousel-nav" data-carousel-nav="womenTiles">
+          <button type="button" data-dir="-1" aria-label="Назад">←</button>
+          <button type="button" data-dir="1" aria-label="Вперёд">→</button>
+        </div>
+      </div>
+      <ul class="wardrobe__tiles reveal" id="womenTiles">
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/women-suit.jpg" alt="Деловой костюм" loading="lazy"><span class="tile__cap">Деловой костюм</span></a></li>
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/women-coat.jpg" alt="Пальто" loading="lazy"><span class="tile__cap">Пальто</span></a></li>
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/women-shirts.jpg" alt="Рубашки" loading="lazy"><span class="tile__cap">Рубашки</span></a></li>
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/women-trousers.jpg" alt="Брюки" loading="lazy"><span class="tile__cap">Брюки</span></a></li>
         <li><a class="tile" href="#"><img src="assets/img/wardrobe/women-skirts.jpg" alt="Юбки" loading="lazy"><span class="tile__cap">Юбки</span></a></li>
+        <li><a class="tile" href="#accessories"><img src="assets/img/atelier/belts.jpg" alt="Аксессуары" loading="lazy"><span class="tile__cap">Аксессуары</span></a></li>
       </ul>
       <div class="section-link reveal"><a href="#">Весь гардероб</a></div>
+    </section>
+
+    <!-- 11a. Аксессуары -->
+    <section class="story accessories" id="accessories">
+      <figure class="story__media"><img src="assets/img/journal/accessories.jpg" alt="Галстуки, запонки и платки VESTORO" loading="lazy"></figure>
+      <div class="story__body reveal">
+        <p class="eyebrow">Аксессуары</p>
+        <h2 class="story__title">Детали, которые завершают образ</h2>
+        <p>Галстуки, бабочки, запонки, платки-паше и ремни подбираем к ткани и характеру костюма прямо на примерке — чтобы образ был цельным до последней детали.</p>
+        <ul class="accessories__list">
+          <li><a href="#">Галстуки</a></li>
+          <li><a href="#">Бабочки</a></li>
+          <li><a href="#">Запонки</a></li>
+          <li><a href="#">Платки-паше</a></li>
+          <li><a href="#">Ремни</a></li>
+          <li><a href="#">Подтяжки</a></li>
+        </ul>
+        <div class="section-link"><a href="#">Все аксессуары</a></div>
+      </div>
     </section>
 
     <!-- 12. Подарочный сертификат -->
@@ -817,30 +891,6 @@
         </ul>
 
         <p class="modal__footnote">Ежедневно · Москва, Новолесная 5 · бесплатная парковка</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Всплывающее окно истории клиента -->
-  <div class="modal modal--case" id="caseModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="caseTitle">
-    <div class="modal__backdrop" data-modal-close></div>
-    <div class="modal__dialog">
-      <figure class="modal__media case__media">
-        <img id="caseImg" src="assets/img/client-placeholder.jpg" alt="">
-        <figcaption>Фото из ателье после финальной примерки</figcaption>
-      </figure>
-      <div class="modal__body">
-        <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
-        <p class="modal__eyebrow">История клиента</p>
-        <h2 class="modal__title" id="caseTitle"></h2>
-        <p class="case__role" id="caseRole"></p>
-        <dl class="case__facts">
-          <div><dt>Что шили</dt><dd>Текст предоставит заказчик</dd></div>
-          <div><dt>Ткань</dt><dd>Текст предоставит заказчик</dd></div>
-          <div><dt>Повод</dt><dd>Текст предоставит заказчик</dd></div>
-        </dl>
-        <p class="case__text">Здесь короткий рассказ о том, как проходил процесс: консультация, мерки, примерки, впечатления клиента от готового костюма. Текст кейса предоставит заказчик.</p>
-        <button class="btn btn--gold" type="button" data-modal-open>Записаться на консультацию</button>
       </div>
     </div>
   </div>
