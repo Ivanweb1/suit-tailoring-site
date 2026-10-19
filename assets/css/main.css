@@ -469,11 +469,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .tile:hover .tile__sub { opacity: 1; }
 
-/* ---------- 11a. Аксессуары ---------- */
-.accessories__list { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
-.accessories__list a { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); font: var(--serif-w) 22px/1.2 var(--serif); transition: color var(--t) var(--ease); }
-.accessories__list a:hover { color: var(--gold); }
-
 /* ---------- 12. Сертификат ---------- */
 .gift { background: var(--ivory-2); }
 .story--reverse .story__body { justify-self: end; }
@@ -699,7 +694,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .clients__track li { flex: 0 0 56vw; min-width: 0; }
   .client__name { font-size: 19px; margin-top: 14px; }
   .client__role { font-size: 9px; letter-spacing: .12em; }
-  .accessories__list a { font-size: 19px; }
 
   .story { grid-template-columns: 1fr; }
   .story__media { aspect-ratio: 4 / 5; }
