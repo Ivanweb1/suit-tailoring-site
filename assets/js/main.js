@@ -23,7 +23,7 @@
     reveals.forEach((el) => el.classList.add('is-visible'));
   }
   const isPhoto = params.get('bg') === 'photo';
-  if (isPhoto) hero.classList.add('hero--photo');
+  if (isPhoto && hero) hero.classList.add('hero--photo');
 
   /* ---------- Шапка: фон после прокрутки ---------- */
   const onScroll = () => header.classList.toggle('is-solid', window.scrollY > 40);
@@ -59,8 +59,9 @@
   header.addEventListener('mouseenter', () => clearTimeout(closeTimer));
 
   /* ---------- Слайдер первого экрана ---------- */
-  const slides = hero.querySelectorAll('.hero__slide');
-  const dots = hero.querySelectorAll('.hero__dots button');
+  // На внутренних страницах слайдера нет — пустые списки, и код ниже ничего не делает
+  const slides = hero ? hero.querySelectorAll('.hero__slide') : [];
+  const dots = hero ? hero.querySelectorAll('.hero__dots button') : [];
   let current = 0;
   let slideTimer;
 
@@ -71,7 +72,7 @@
   };
   const play = () => {
     clearInterval(slideTimer);
-    if (!isPhoto) slideTimer = setInterval(() => show(current + 1), 6000);
+    if (!isPhoto && slides.length > 1) slideTimer = setInterval(() => show(current + 1), 6000);
   };
   dots.forEach((d, n) => d.addEventListener('click', () => { show(n); play(); }));
   play();
@@ -174,20 +175,20 @@
 
   // Заглушка отправки заявки — подключить к CRM/почте на этапе разработки
   const form = document.getElementById('requestForm');
-  form.addEventListener('submit', (e) => {
+  if (form) form.addEventListener('submit', (e) => {
     e.preventDefault();
     form.classList.add('is-sent');
     form.innerHTML = '<p>Спасибо! Мы перезвоним вам в ближайшее время.</p>';
   });
 
   const visitForm = document.getElementById('visitForm');
-  visitForm.addEventListener('submit', (e) => {
+  if (visitForm) visitForm.addEventListener('submit', (e) => {
     e.preventDefault();
     visitForm.innerHTML = '<p class="visit__done">Спасибо! Менеджер свяжется с вами, чтобы согласовать время визита портного.</p>';
   });
 
   const subscribeForm = document.getElementById('subscribeForm');
-  subscribeForm.addEventListener('submit', (e) => {
+  if (subscribeForm) subscribeForm.addEventListener('submit', (e) => {
     e.preventDefault();
     subscribeForm.innerHTML = '<p class="subscribe__done">Спасибо! Вы подписаны на новости VESTORO.</p>';
   });
