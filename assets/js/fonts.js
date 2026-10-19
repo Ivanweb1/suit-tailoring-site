@@ -29,6 +29,31 @@ window.VESTORO_FONTS = [
     key: 'tenor', name: 'Tenor Sans', note: 'Без засечек, тонкий и вытянутый — современная сдержанная элегантность',
     family: '"Tenor Sans"', weight: 400, scale: 0.8, css: 'Tenor+Sans',
   },
+  // В духе Gieves & Hawkes: контрастная антиква, прописные вперемешку с курсивом
+  {
+    key: 'playfair-2', group: 'gh', name: 'Playfair (новая версия)', note: 'Ближе всего к заголовкам Gieves & Hawkes: острые засечки, высокий контраст, живой курсив',
+    family: '"Playfair"', weight: 400, scale: 0.88, css: 'Playfair:ital,opsz,wght@0,96,400;1,96,400',
+  },
+  {
+    key: 'bona-nova', group: 'gh', name: 'Bona Nova', note: 'Классическая книжная антиква с изящным курсивом — спокойно и благородно',
+    family: '"Bona Nova"', weight: 400, scale: 0.9, css: 'Bona+Nova:ital,wght@0,400;1,400',
+  },
+  {
+    key: 'brygada', group: 'gh', name: 'Brygada 1918', note: 'Антиква начала XX века — характерные засечки, ощущение старого дома',
+    family: '"Brygada 1918"', weight: 400, scale: 0.8, css: 'Brygada+1918:ital,wght@0,400;1,400',
+  },
+  {
+    key: 'source-display', group: 'gh', name: 'Source Serif Display', note: 'Строгая контрастная антиква для крупных заголовков, хорошо читается в прописных',
+    family: '"Source Serif 4"', weight: 400, scale: 0.9, css: 'Source+Serif+4:ital,opsz,wght@0,60,400;1,60,400',
+  },
+  {
+    key: 'literata-display', group: 'gh', name: 'Literata Display Light', note: 'Тонкая дисплейная антиква — лёгкая, но с характером',
+    family: '"Literata"', weight: 300, scale: 0.8, css: 'Literata:ital,opsz,wght@0,72,300;1,72,300',
+  },
+  {
+    key: 'old-standard', group: 'gh', name: 'Old Standard TT', note: 'Классический типографский шрифт XIX века — как вывески старых ателье',
+    family: '"Old Standard TT"', weight: 400, scale: 0.9, css: 'Old+Standard+TT:ital@0;1',
+  },
 ];
 
 window.vestoroLoadFont = (font) => {

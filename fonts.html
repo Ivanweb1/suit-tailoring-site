@@ -31,6 +31,11 @@
     .demo__title { margin: 16px 0 0; font-size: calc(clamp(34px, 4vw, 56px) * var(--serif-scale)); line-height: 1.04; }
     .demo__title span { display: block; font-style: italic; }
     .demo__body { padding: 40px 36px; }
+    .demo .demo__body p.demo__caps { color: var(--navy); margin: 0 0 28px; padding-bottom: 24px; border-bottom: 1px solid var(--line); text-transform: uppercase; font-size: calc(clamp(30px, 3.2vw, 46px) * var(--serif-scale)); line-height: 1.05; }
+    .demo .demo__body p.demo__caps em { font-style: italic; }
+    .group-title { max-width: 1240px; margin: 80px auto 32px; text-align: center; }
+    .group-title h2 { margin: 12px 0 0; font: 400 clamp(28px, 3vw, 40px)/1.1 "Cormorant Garamond", serif; }
+    .group-title p:not(.eyebrow) { margin: 10px 0 0; color: var(--stone); }
     .demo__h2 { margin: 12px 0 0; font-size: calc(clamp(30px, 3vw, 44px) * var(--serif-scale)); line-height: 1.08; }
     .demo__body p:not(.eyebrow) { margin: 16px 0 0; font-size: 15px; line-height: 1.7; color: var(--stone); }
     .demo__list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
@@ -71,6 +76,7 @@
           <h2 class="demo__title f">Индивидуальный пошив <span>с 1993 года</span></h2>
         </div>
         <div class="demo__body">
+          <p class="demo__caps f">Мужской <em>гардероб</em></p>
           <p class="eyebrow">Более 7 000 тканей</p>
           <h3 class="demo__h2 f">Ткани с мировым именем</h3>
           <p>С 2000-х годов VESTORO является официальным партнёром ведущих мировых производителей тканей: Loro Piana, Ermenegildo Zegna, Scabal, Dormeuil.</p>
@@ -88,7 +94,19 @@
   <script>
     const wrap = document.getElementById('variants');
     const tpl = document.getElementById('tpl');
+    const groups = {
+      gh: ['По референсу', 'В духе Gieves & Hawkes', 'Контрастная антиква: прописные вперемешку с курсивом, как «AW26 <i>Echoes of a</i> Landscape»'],
+    };
+    let lastGroup;
     window.VESTORO_FONTS.forEach((font, i) => {
+      if (font.group && font.group !== lastGroup) {
+        const [eyebrow, title, text] = groups[font.group];
+        const head = document.createElement('div');
+        head.className = 'group-title';
+        head.innerHTML = `<p class="eyebrow">${eyebrow}</p><h2>${title}</h2><p>${text}</p>`;
+        wrap.appendChild(head);
+      }
+      lastGroup = font.group;
       window.vestoroLoadFont(font);
       const node = tpl.content.cloneNode(true);
       node.querySelector('.variant').style.setProperty('--serif-scale', font.scale || 1);
