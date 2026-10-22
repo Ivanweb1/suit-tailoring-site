@@ -92,6 +92,17 @@
     update();
   });
 
+  /* ---------- Ленты тканей: копии логотипов для бегущей строки на мобильном ---------- */
+  document.querySelectorAll('.fabric-strip__logos').forEach((list) => {
+    [...list.children].forEach((li) => {
+      const copy = li.cloneNode(true);
+      copy.classList.add('is-clone');
+      copy.setAttribute('aria-hidden', 'true');
+      copy.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
+      list.appendChild(copy);
+    });
+  });
+
   /* ---------- Мобильное меню ---------- */
   const mobile = document.getElementById('mobileMenu');
   const burger = header.querySelector('[data-mobile-open]');

@@ -347,6 +347,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   transition: opacity var(--t) var(--ease);
 }
 .fabric-strip__word:hover { opacity: 1; }
+.fabric-strip__logos .is-clone { display: none; } /* копии нужны только бегущей строке на мобильном */
+@keyframes fabric-marquee { to { transform: translateX(-50%); } }
 
 /* ---------- 7. Как создаётся костюм ---------- */
 .process { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
@@ -764,7 +766,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
   .fabric-strip { grid-template-columns: 1fr; }
   .fabric-strip__label { flex-direction: row; gap: 6px; padding: 16px 16px 0; border-right: 0; }
-  .fabric-strip__logos { justify-content: flex-start; gap: 28px; padding: 0 16px; }
+  /* Бегущая строка: логотипы идут по кругу (вторая половина — копии), нижняя лента навстречу верхней */
+  .fabric-strip { overflow: hidden; }
+  .fabric-strip__logos { width: max-content; justify-content: flex-start; gap: 0; padding: 0; overflow: visible; animation: fabric-marquee 38s linear infinite; }
+  .fabric-strip--reverse .fabric-strip__logos { animation-direction: reverse; }
+  .fabric-strip__logos .is-clone { display: block; }
+  .fabric-strip__logos li { padding-right: 36px; }
   .fabric-strip__logos a { height: 84px; min-width: 0; }
   .fabric-strip__logos img { max-width: 108px; max-height: 40px; }
   .fabric-strip__word { font-size: 17px; }
@@ -785,6 +792,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; }
+  .fabric-strip__logos { animation: none !important; }
 }
 
 /* Переключатель шрифта для показа заказчику (только при ?font=...) */
