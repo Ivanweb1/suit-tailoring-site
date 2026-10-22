@@ -466,6 +466,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .bento__7 { grid-column: 3 / 5; grid-row: 3; }
 .tile { position: relative; display: block; height: 100%; overflow: hidden; background: var(--ivory-2); }
 .tile img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 1.2s var(--ease); }
+.tile .tile__img--top { object-position: center top; } /* лица у верхнего края кадра — не срезать головы */
 .tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .65), rgba(11, 21, 52, 0) 45%); transition: opacity var(--t) var(--ease); }
 .tile:hover img { transform: scale(1.04); }
 .tile__cap { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 22px; color: #fff; }
