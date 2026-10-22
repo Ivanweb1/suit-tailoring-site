@@ -315,30 +315,38 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- 6. Ткани ---------- */
 .fabrics { padding: clamp(80px, 9vw, 140px) 0; background: var(--ivory-2); color: var(--navy); border-top: 1px solid var(--line); }
-.fabrics__body { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter) clamp(56px, 6vw, 88px); text-align: center; }
+.fabrics__body { max-width: 880px; margin: 0 auto; padding: clamp(64px, 7vw, 104px) var(--gutter); text-align: center; }
 .fabrics__text { margin: 28px auto 0; max-width: 720px; font-size: 16px; line-height: 1.75; color: var(--stone); }
 
-/* Категории тканей: две строки под общей шапкой, слева название, справа логотипы и бренды */
-.fabrics__cats { max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter); }
-.fabric-cat {
-  display: grid; grid-template-columns: minmax(220px, 1fr) 3fr; gap: clamp(24px, 4vw, 64px);
-  padding: clamp(36px, 4vw, 52px) 0; border-top: 1px solid var(--line);
+.fabrics__list { margin: 24px auto 0; font: var(--serif-w) 17px/1.7 var(--serif); color: var(--navy); opacity: .7; }
+
+/* Ленты логотипов: подпись категории слева, логотипы в одну строку. Не влезают — листаются свайпом */
+.fabric-strip {
+  /* Колонка подписи одной ширины у обеих лент — разделители стоят на одной вертикали */
+  display: grid; grid-template-columns: calc(var(--gutter) + clamp(140px, 12vw, 180px)) 1fr; align-items: center;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
 }
-.fabric-cat:last-child { border-bottom: 1px solid var(--line); }
-.fabric-cat__num { display: block; font: var(--serif-w) 20px/1 var(--serif); color: var(--gold); }
-.fabric-cat__title { margin: 14px 0 0; font: var(--serif-w) calc(clamp(26px, 2.4vw, 34px) * var(--serif-scale))/1.1 var(--serif); }
-.fabric-cat__note { margin: 12px 0 0; font: 500 10px/1.6 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-.fabric-cat__body { align-self: center; }
-/* Четыре логотипа в ряд с воздухом: в одну строку из семи они слипались */
-.fabric-cat__logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px clamp(32px, 4vw, 64px); }
-.fabric-cat__logos a { display: grid; place-items: center; height: 96px; }
-.fabric-cat__logos img { max-width: min(150px, 100%); max-height: 60px; object-fit: contain; opacity: .8; transition: opacity var(--t) var(--ease); }
-.fabric-cat__logos a:hover img { opacity: 1; }
-/* Сорочечные: один логотип — ставим его в строку со списком, чтобы не висел над пустотой */
-.fabric-cat--inline .fabric-cat__body { display: flex; align-items: center; gap: clamp(32px, 4vw, 64px); }
-.fabric-cat--inline .fabric-cat__logos { display: block; flex: none; width: 150px; }
-.fabric-cat--inline .fabric-cat__list { margin: 0; padding: 4px 0 4px clamp(32px, 4vw, 64px); border-top: 0; border-left: 1px solid rgba(179, 153, 102, .25); }
-.fabric-cat__list { margin: 40px 0 0; padding-top: 28px; border-top: 1px solid rgba(179, 153, 102, .25); font: var(--serif-w) 18px/1.8 var(--serif); color: var(--navy); opacity: .8; }
+.fabric-strip__label {
+  margin: 0; padding: 0 16px 0 var(--gutter); align-self: stretch;
+  display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--line);
+  font: 500 11px/1.5 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--gold);
+}
+.fabric-strip__label span { color: var(--muted); }
+.fabric-strip__logos {
+  list-style: none; margin: 0; padding: 0 var(--gutter) 0 clamp(16px, 2vw, 32px);
+  display: flex; justify-content: space-between; gap: clamp(16px, 2vw, 40px);
+  overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.fabric-strip__logos::-webkit-scrollbar { display: none; }
+.fabric-strip__logos li { flex: none; }
+.fabric-strip__logos a { display: flex; align-items: center; justify-content: center; height: clamp(96px, 9vw, 128px); min-width: 96px; }
+.fabric-strip__logos img { max-width: 132px; max-height: 50px; object-fit: contain; opacity: .8; transition: opacity var(--t) var(--ease); }
+.fabric-strip__logos a:hover img { opacity: 1; }
+.fabric-strip__word {
+  font: var(--serif-w) 19px/1.2 var(--serif); white-space: nowrap; color: var(--navy); opacity: .8;
+  transition: opacity var(--t) var(--ease);
+}
+.fabric-strip__word:hover { opacity: 1; }
 
 /* ---------- 7. Как создаётся костюм ---------- */
 .process { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
@@ -754,15 +762,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .visit__form .btn { width: 100%; }
   .visit .btn--line { width: 100%; max-width: 360px; padding: 0 20px; }
 
-  .fabric-cat { grid-template-columns: 1fr; gap: 24px; padding: 32px 0; }
-  .fabric-cat__logos { grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
-  .fabric-cat__logos a { height: 72px; }
-  .fabric-cat__logos img { max-height: 48px; }
-  .fabric-cat__list { margin-top: 28px; padding-top: 20px; }
-  .fabric-cat--inline .fabric-cat__body { flex-direction: column; align-items: stretch; gap: 0; }
-  .fabric-cat--inline .fabric-cat__logos { width: calc(50% - 12px); }
-  .fabric-cat--inline .fabric-cat__list { margin-top: 28px; padding: 20px 0 0; border-left: 0; border-top: 1px solid rgba(179, 153, 102, .25); }
-  .fabric-cat__list { font-size: 17px; }
+  .fabric-strip { grid-template-columns: 1fr; }
+  .fabric-strip__label { flex-direction: row; gap: 6px; padding: 16px 16px 0; border-right: 0; }
+  .fabric-strip__logos { justify-content: flex-start; gap: 28px; padding: 0 16px; }
+  .fabric-strip__logos a { height: 84px; min-width: 0; }
+  .fabric-strip__logos img { max-width: 108px; max-height: 40px; }
+  .fabric-strip__word { font-size: 17px; }
+  .fabrics__list { font-size: 16px; }
 
   .works__strip { gap: 8px; padding: 0 16px; scroll-padding: 0 16px; }
   .works__strip li { flex: 0 0 72vw; min-width: 0; }
