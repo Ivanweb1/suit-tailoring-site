@@ -329,11 +329,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .fabric-cat__title { margin: 14px 0 0; font: var(--serif-w) calc(clamp(26px, 2.4vw, 34px) * var(--serif-scale))/1.1 var(--serif); }
 .fabric-cat__note { margin: 12px 0 0; font: 500 10px/1.6 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
 .fabric-cat__body { align-self: center; }
-.fabric-cat__logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 16px; }
-.fabric-cat__logos a { display: grid; place-items: center; height: 84px; }
-.fabric-cat__logos img { max-width: 100%; max-height: 64px; object-fit: contain; opacity: .8; transition: opacity var(--t) var(--ease); }
+/* Четыре логотипа в ряд с воздухом: в одну строку из семи они слипались */
+.fabric-cat__logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px clamp(32px, 4vw, 64px); }
+.fabric-cat__logos a { display: grid; place-items: center; height: 96px; }
+.fabric-cat__logos img { max-width: min(150px, 100%); max-height: 60px; object-fit: contain; opacity: .8; transition: opacity var(--t) var(--ease); }
 .fabric-cat__logos a:hover img { opacity: 1; }
-.fabric-cat__list { margin: 24px 0 0; font: var(--serif-w) 18px/1.7 var(--serif); color: var(--navy); opacity: .8; }
+/* Сорочечные: один логотип — ставим его в строку со списком, чтобы не висел над пустотой */
+.fabric-cat--inline .fabric-cat__body { display: flex; align-items: center; gap: clamp(32px, 4vw, 64px); }
+.fabric-cat--inline .fabric-cat__logos { display: block; flex: none; width: 150px; }
+.fabric-cat--inline .fabric-cat__list { margin: 0; padding: 4px 0 4px clamp(32px, 4vw, 64px); border-top: 0; border-left: 1px solid rgba(179, 153, 102, .25); }
+.fabric-cat__list { margin: 40px 0 0; padding-top: 28px; border-top: 1px solid rgba(179, 153, 102, .25); font: var(--serif-w) 18px/1.8 var(--serif); color: var(--navy); opacity: .8; }
 
 /* ---------- 7. Как создаётся костюм ---------- */
 .process { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
@@ -650,7 +655,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .brand__micro:last-child { margin-top: 8px; }
   .header.is-solid .brand__name { font-size: 26px; }
   .mega { display: none; }
-  .fabric-cat__logos { grid-template-columns: repeat(4, 1fr); }
   .visit__box { grid-template-columns: 1fr; }
   .journal__list { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
   .footer__cols { grid-template-columns: repeat(2, 1fr); }
@@ -750,9 +754,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .visit .btn--line { width: 100%; max-width: 360px; padding: 0 20px; }
 
   .fabric-cat { grid-template-columns: 1fr; gap: 24px; padding: 32px 0; }
-  .fabric-cat__logos { grid-template-columns: repeat(3, 1fr); gap: 8px 16px; }
-  .fabric-cat__logos a { height: 64px; }
-  .fabric-cat__logos img { max-height: 40px; }
+  .fabric-cat__logos { grid-template-columns: repeat(2, 1fr); gap: 16px 24px; }
+  .fabric-cat__logos a { height: 72px; }
+  .fabric-cat__logos img { max-height: 48px; }
+  .fabric-cat__list { margin-top: 28px; padding-top: 20px; }
+  .fabric-cat--inline .fabric-cat__body { flex-direction: column; align-items: stretch; gap: 0; }
+  .fabric-cat--inline .fabric-cat__logos { width: calc(50% - 12px); }
+  .fabric-cat--inline .fabric-cat__list { margin-top: 28px; padding: 20px 0 0; border-left: 0; border-top: 1px solid rgba(179, 153, 102, .25); }
   .fabric-cat__list { font-size: 17px; }
 
   .works__strip { gap: 8px; padding: 0 16px; scroll-padding: 0 16px; }
