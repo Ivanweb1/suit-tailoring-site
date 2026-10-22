@@ -5,7 +5,6 @@
 
   // Варианты первого экрана для показа заказчику:
   // ?hero=long — с большим текстом, ?bg=photo — одно фото вместо слайдера
-  // Вариант первого экрана меняет и блок «Почему выбирают VESTORO»
   if (params.get('hero') === 'long') document.body.classList.add('v-long');
 
   // Блок «Как создаётся костюм»: заказчик выбрал расширенную версию (шаги в шахматном порядке).
@@ -137,18 +136,30 @@
     })
   );
 
-  // Примеры работ: видео в окне (data-video — путь к ролику)
+  // Примеры работ: видео и фото в одном окне (data-video — путь к ролику, data-photo — к фото)
   const videoModal = document.getElementById('videoModal');
   const player = document.getElementById('videoPlayer');
   const videoNote = document.getElementById('videoNote');
+  const photoViewer = document.getElementById('photoViewer');
   document.querySelectorAll('[data-video]').forEach((tile) =>
     tile.addEventListener('click', () => {
       const src = tile.dataset.video;
+      photoViewer.hidden = true;
+      player.hidden = false;
       player.poster = tile.dataset.poster;
       videoNote.hidden = !!src;
       if (src) { player.src = src; player.controls = true; } else { player.removeAttribute('src'); player.controls = false; }
       openM(videoModal);
       if (src) player.play().catch(() => {});
+    })
+  );
+  document.querySelectorAll('[data-photo]').forEach((tile) =>
+    tile.addEventListener('click', () => {
+      player.hidden = true;
+      videoNote.hidden = true;
+      photoViewer.src = tile.dataset.photo;
+      photoViewer.hidden = false;
+      openM(videoModal);
     })
   );
 

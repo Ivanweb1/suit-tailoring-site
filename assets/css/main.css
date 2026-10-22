@@ -208,41 +208,24 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .why { padding: clamp(96px, 12vw, 180px) var(--gutter) clamp(88px, 10vw, 150px); text-align: center; color: var(--navy); }
 .why__head { margin-bottom: clamp(36px, 4vw, 56px); }
 
+.why__intro { max-width: 900px; margin: 0 auto clamp(56px, 6vw, 96px); }
 .why__lead {
-  max-width: 900px; margin: 0 auto;
+  margin: 0;
   font: var(--serif-w) clamp(24px, 2.6vw, 36px)/1.3 var(--serif); letter-spacing: .01em; color: var(--stone);
 }
-.why__text {
-  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px);
-  max-width: 1120px; margin: clamp(48px, 5vw, 72px) auto 0;
-  text-align: justify; -webkit-hyphens: auto; hyphens: auto; color: var(--stone); font-size: 16px; line-height: 1.75;
-}
-.why__text p { margin: 0; }
+.why__sub { margin: 20px auto 0; max-width: 620px; font-size: 16px; line-height: 1.7; color: var(--stone); }
 
-.why__facts {
-  list-style: none; padding: 0;
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  max-width: 1200px; margin: clamp(64px, 7vw, 104px) auto 0;
-  border-top: 1px solid var(--line);
-}
-.why__facts li { padding: 36px 16px 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.why__facts li + li { border-left: 1px solid var(--line); }
-.why__num { font: var(--serif-w) clamp(40px, 4vw, 56px)/1 var(--serif); }
-.why__cap { font: 500 10px/1.5 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
-
+/* Шесть преимуществ в одну строку, на планшете — две строки по три */
 .why__icons {
-  display: none; list-style: none; padding: 0;
-  grid-template-columns: repeat(5, 1fr); gap: 0;
+  display: grid; list-style: none; padding: 0;
+  grid-template-columns: repeat(6, 1fr); gap: 0;
   max-width: 1440px; margin: 0 auto;
 }
-.why__icons li { padding: 8px clamp(16px, 2vw, 32px); }
+.why__icons li { padding: 8px clamp(14px, 1.5vw, 28px); }
 .why__icons li + li { border-left: 1px solid var(--line); }
 .why__icons svg { width: 48px; height: 48px; fill: none; stroke: var(--gold); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
-.why__icons h3 { margin: 28px 0 14px; font: var(--serif-w) 24px/1.15 var(--serif); }
+.why__icons h3 { margin: 28px 0 14px; font: var(--serif-w) calc(clamp(20px, 1.6vw, 24px) * var(--serif-scale))/1.15 var(--serif); }
 .why__icons p { margin: 0; font-size: 14px; line-height: 1.65; color: var(--stone); }
-
-.v-long .why__short { display: none; }
-.v-long .why__icons { display: grid; }
 
 .why__cta { margin-top: clamp(56px, 6vw, 88px); }
 
@@ -295,10 +278,18 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- 5. Примеры работ ---------- */
 .works { padding: clamp(96px, 11vw, 160px) 0; color: var(--navy); }
-.works__head { text-align: center; margin-bottom: clamp(36px, 4vw, 56px); padding: 0 var(--gutter); }
-.works__strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); }
-.work { position: relative; display: block; width: 100%; aspect-ratio: 9 / 16; max-height: 86vh; overflow: hidden; background: var(--navy-deep); }
-.work img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.works__head { position: relative; text-align: center; margin: 0 var(--gutter) clamp(36px, 4vw, 56px); }
+/* Карусель как у клиентов: четыре карточки в кадре, листается стрелками и свайпом */
+.works__strip {
+  list-style: none; margin: 0; padding: 0 var(--gutter);
+  display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--gutter);
+  scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.works__strip::-webkit-scrollbar { display: none; }
+.works__strip li { flex: 0 0 calc((100% - 3 * 12px) / 4); min-width: 240px; scroll-snap-align: start; }
+.work { position: relative; display: block; width: 100%; aspect-ratio: 9 / 16; max-height: 82vh; overflow: hidden; background: var(--navy-deep); }
+.work img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform .8s var(--ease); }
+.work--photo::after { background: linear-gradient(to top, rgba(11, 21, 52, .55), rgba(11, 21, 52, 0) 35%); }
 .work::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .65), rgba(11, 21, 52, .05) 45%); transition: background var(--t) var(--ease); }
 .work:hover img { transform: scale(1.04); }
 .work:hover::after { background: linear-gradient(to top, rgba(11, 21, 52, .75), rgba(11, 21, 52, .2) 45%); }
@@ -314,6 +305,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .modal--video .modal__backdrop { background: rgba(11, 21, 52, .92); }
 .video-box { position: relative; display: grid; place-items: center; width: min(480px, 100%); max-height: calc(100vh - 48px); }
 .video-box video { width: 100%; max-height: calc(100vh - 48px); aspect-ratio: 9 / 16; object-fit: cover; background: #000; }
+.video-box__photo { width: 100%; max-height: calc(100vh - 48px); object-fit: contain; }
+.video-box:has(.video-box__photo:not([hidden])) { width: min(720px, 100%); }
 .video-box .modal__close { top: 16px; right: 16px; z-index: 1; background: rgba(11, 21, 52, .5); }
 .video-box__note {
   position: absolute; left: 24px; right: 24px; bottom: 28px; margin: 0; text-align: center; color: #fff;
@@ -322,19 +315,25 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- 6. Ткани ---------- */
 .fabrics { padding: clamp(80px, 9vw, 140px) 0; background: var(--ivory-2); color: var(--navy); border-top: 1px solid var(--line); }
-.fabrics__logos {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-}
-.fabrics__logos li { display: grid; place-items: center; height: clamp(120px, 12vw, 180px); padding: 0 24px; }
-.fabrics__logos li + li { border-left: 1px solid var(--line); }
-.fabrics__logos img { max-width: 70%; max-height: 52%; object-fit: contain; opacity: .85; transition: opacity var(--t) var(--ease); }
-.fabrics__logos li:hover img { opacity: 1; }
-.fabrics__logos a { display: grid; place-items: center; width: 100%; height: 100%; }
-.fabrics__body { max-width: 880px; margin: 0 auto; padding: clamp(64px, 7vw, 104px) var(--gutter); text-align: center; }
+.fabrics__body { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter) clamp(56px, 6vw, 88px); text-align: center; }
 .fabrics__text { margin: 28px auto 0; max-width: 720px; font-size: 16px; line-height: 1.75; color: var(--stone); }
-.fabrics__list { margin: 28px auto 0; font: var(--serif-w) 19px/1.7 var(--serif); color: var(--navy); opacity: .8; }
+
+/* Категории тканей: две строки под общей шапкой, слева название, справа логотипы и бренды */
+.fabrics__cats { max-width: 1320px; margin: 0 auto; padding: 0 var(--gutter); }
+.fabric-cat {
+  display: grid; grid-template-columns: minmax(220px, 1fr) 3fr; gap: clamp(24px, 4vw, 64px);
+  padding: clamp(36px, 4vw, 52px) 0; border-top: 1px solid var(--line);
+}
+.fabric-cat:last-child { border-bottom: 1px solid var(--line); }
+.fabric-cat__num { display: block; font: var(--serif-w) 20px/1 var(--serif); color: var(--gold); }
+.fabric-cat__title { margin: 14px 0 0; font: var(--serif-w) calc(clamp(26px, 2.4vw, 34px) * var(--serif-scale))/1.1 var(--serif); }
+.fabric-cat__note { margin: 12px 0 0; font: 500 10px/1.6 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+.fabric-cat__body { align-self: center; }
+.fabric-cat__logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 16px; }
+.fabric-cat__logos a { display: grid; place-items: center; height: 84px; }
+.fabric-cat__logos img { max-width: 100%; max-height: 64px; object-fit: contain; opacity: .8; transition: opacity var(--t) var(--ease); }
+.fabric-cat__logos a:hover img { opacity: 1; }
+.fabric-cat__list { margin: 24px 0 0; font: var(--serif-w) 18px/1.7 var(--serif); color: var(--navy); opacity: .8; }
 
 /* ---------- 7. Как создаётся костюм ---------- */
 .process { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
@@ -456,6 +455,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .bento__4 { grid-column: 3; grid-row: 2 / 4; }
 .bento__5 { grid-column: 4; grid-row: 2 / 4; }
 .bento__6 { grid-column: 1 / 3; grid-row: 3; }
+/* Семь плиток (мужской гардероб с верхней одеждой): нижний ряд делится пополам */
+.wardrobe__tiles--7 .bento__4 { grid-row: 2; }
+.wardrobe__tiles--7 .bento__5 { grid-row: 2; }
+.bento__7 { grid-column: 3 / 5; grid-row: 3; }
 .tile { position: relative; display: block; height: 100%; overflow: hidden; background: var(--ivory-2); }
 .tile img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; transition: transform 1.2s var(--ease); }
 .tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .65), rgba(11, 21, 52, 0) 45%); transition: opacity var(--t) var(--ease); }
@@ -506,6 +509,18 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .subscribe__row button:hover { color: var(--gold); }
 .subscribe__note { margin: 14px 0 0; font-size: 12px; color: var(--muted); }
 .subscribe__done { margin: 0; font: var(--serif-w) 24px/1.3 var(--serif); }
+/* Соцсети — второй способ подписаться, отдельной строкой под формой */
+.subscribe__social {
+  grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px;
+  padding-top: 28px; border-top: 1px solid var(--line);
+}
+.subscribe__social-title { margin: 0 auto 0 0; font: 500 11px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+.subscribe__social a {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 500 11px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; transition: color var(--t) var(--ease);
+}
+.subscribe__social svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linejoin: round; }
+.subscribe__social a:hover { color: var(--gold); }
 
 /* ---------- 15. Подвал ---------- */
 .footer { padding: clamp(72px, 8vw, 120px) var(--gutter) 32px; background: var(--navy); color: #fff; }
@@ -613,6 +628,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* ---------- Адаптив ---------- */
 @media (max-width: 1280px) {
+  .why__icons { grid-template-columns: repeat(3, 1fr); max-width: 1000px; }
+  .why__icons li:nth-child(3n+1) { border-left: 0; }
+  .why__icons li:nth-child(n+4) { margin-top: 32px; padding-top: 40px; border-top: 1px solid var(--line); }
   .nav { gap: 22px; }
   .nav__link { font-size: 11px; letter-spacing: .12em; }
   .brand { padding: 0 24px; }
@@ -632,7 +650,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .brand__micro:last-child { margin-top: 8px; }
   .header.is-solid .brand__name { font-size: 26px; }
   .mega { display: none; }
-  .why__icons { grid-template-columns: 1fr; max-width: 520px; }
+  .fabric-cat__logos { grid-template-columns: repeat(4, 1fr); }
   .visit__box { grid-template-columns: 1fr; }
   .journal__list { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
   .footer__cols { grid-template-columns: repeat(2, 1fr); }
@@ -652,14 +670,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .hero__hours { display: none; }
   .hero__dots { order: -1; }
 
-  .why__text { grid-template-columns: 1fr; gap: 20px; font-size: 15px; text-align: left; }
-  .why__facts { grid-template-columns: 1fr 1fr; }
-  .why__facts li { padding: 28px 8px; }
-  .why__facts li + li { border-left: 0; }
-  .why__facts li:nth-child(even) { border-left: 1px solid var(--line); }
-  .why__facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .why__icons li { padding: 32px 0; }
-  .why__icons li + li { border-left: 0; border-top: 1px solid var(--line); }
+  .why__sub { font-size: 15px; }
+  .why__icons { grid-template-columns: 1fr; max-width: 520px; }
+  .why__icons li { padding: 32px 0; margin-top: 0; }
+  .why__icons li:nth-child(n) { border-left: 0; }
+  .why__icons li + li { border-top: 1px solid var(--line); padding-top: 32px; margin-top: 0; }
   .why__icons h3 { margin-top: 18px; }
   .why .btn { width: 100%; max-width: 360px; padding: 0 20px; }
 
@@ -667,6 +682,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .subscribe__row { flex-direction: column; align-items: stretch; gap: 18px; border-bottom: 0; }
   .subscribe__row input { border-bottom: 1px solid var(--navy); }
   .subscribe__row button { align-self: flex-start; padding: 0; }
+  .subscribe__social { gap: 18px 24px; }
+  .subscribe__social-title { flex-basis: 100%; }
   .footer__cols { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
   .footer__cols .footer__col:first-child, .footer__cols .footer__col:last-child { grid-column: 1 / -1; }
   .footer__bottom { flex-direction: column; margin-top: 48px; }
@@ -684,6 +701,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .bento__4 { grid-column: 1; grid-row: 3; }
   .bento__5 { grid-column: 2; grid-row: 3; }
   .bento__6 { grid-column: 1 / -1; grid-row: 4; }
+  .wardrobe__tiles--7 { grid-template-rows: 380px repeat(3, 200px); }
+  .wardrobe__tiles--7 .bento__4 { grid-row: 3; }
+  .wardrobe__tiles--7 .bento__5 { grid-row: 3; }
+  .wardrobe__tiles--7 .bento__6 { grid-column: 1; }
+  .bento__7 { grid-column: 2; grid-row: 4; }
   .tile__cap { left: 14px; right: 14px; bottom: 14px; }
   .tile__name { font-size: 21px; }
   .bento__1 .tile__name { font-size: 30px; }
@@ -727,17 +749,14 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .visit__form .btn { width: 100%; }
   .visit .btn--line { width: 100%; max-width: 360px; padding: 0 20px; }
 
-  .fabrics__logos { grid-template-columns: repeat(2, 1fr); }
-  .fabrics__logos li { height: 110px; }
-  .fabrics__logos li + li { border-left: 0; }
-  .fabrics__logos li:nth-child(even) { border-left: 1px solid var(--line); }
-  .fabrics__logos li:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .fabrics__list { font-size: 17px; }
+  .fabric-cat { grid-template-columns: 1fr; gap: 24px; padding: 32px 0; }
+  .fabric-cat__logos { grid-template-columns: repeat(3, 1fr); gap: 8px 16px; }
+  .fabric-cat__logos a { height: 64px; }
+  .fabric-cat__logos img { max-height: 40px; }
+  .fabric-cat__list { font-size: 17px; }
 
-  .works__strip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-  .works__strip::-webkit-scrollbar { display: none; }
-  .works__strip li { flex: 0 0 72vw; scroll-snap-align: start; }
-  .work { max-height: none; }
+  .works__strip { gap: 8px; padding: 0 16px; scroll-padding: 0 16px; }
+  .works__strip li { flex: 0 0 72vw; min-width: 0; }
   .play { width: 64px; height: 64px; }
 
 
