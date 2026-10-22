@@ -340,7 +340,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .fabric-strip__logos::-webkit-scrollbar { display: none; }
 .fabric-strip__logos li { flex: none; }
 .fabric-strip__logos a { display: flex; align-items: center; justify-content: center; height: clamp(96px, 9vw, 128px); min-width: 96px; }
-.fabric-strip__logos img { max-width: 132px; max-height: 50px; object-fit: contain; opacity: .8; transition: opacity var(--t) var(--ease); }
+.fabric-strip__logos img { max-width: 150px; max-height: 50px; object-fit: contain; opacity: .8; transition: opacity var(--t) var(--ease); }
 .fabric-strip__logos a:hover img { opacity: 1; }
 .fabric-strip__word {
   font: var(--serif-w) 19px/1.2 var(--serif); white-space: nowrap; color: var(--navy); opacity: .8;
