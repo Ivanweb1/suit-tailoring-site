@@ -214,4 +214,13 @@
     e.preventDefault();
     subscribeForm.innerHTML = '<p class="subscribe__done">Спасибо! Вы подписаны на новости VESTORO.</p>';
   });
+
+  // История: схема костюма — деталь и её точка на фото подсвечиваются вместе
+  document.querySelectorAll('.scheme').forEach((scheme) =>
+    scheme.querySelectorAll('[data-dot]').forEach((el) => {
+      const pair = scheme.querySelectorAll(`[data-dot="${el.dataset.dot}"]`);
+      el.addEventListener('mouseenter', () => pair.forEach((p) => p.classList.add('is-active')));
+      el.addEventListener('mouseleave', () => pair.forEach((p) => p.classList.remove('is-active')));
+    })
+  );
 })();

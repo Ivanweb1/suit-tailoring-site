@@ -43,6 +43,17 @@
 .h-intro { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(32px, 6vw, 112px); align-items: center; max-width: 1340px; margin: 0 auto; padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
 .h-intro__media { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; }
 .h-intro__media img { width: 100%; height: 100%; object-fit: cover; }
+/* Видео от первого лица: обложка с кнопкой, ролик открывается в окне как «Примеры работ» на главной */
+.h-intro__video { position: relative; display: block; width: 100%; padding: 0; border: 0; background: var(--navy-deep); cursor: pointer; }
+.h-intro__video img { position: absolute; inset: 0; transition: transform .8s var(--ease); }
+.h-intro__video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .7), rgba(11, 21, 52, .05) 45%); }
+.h-intro__video:hover img { transform: scale(1.04); }
+.h-intro__video:hover .play { transform: translate(-50%, -50%) scale(1.08); }
+.h-intro__video-cap {
+  position: absolute; z-index: 1; left: 28px; right: 28px; bottom: 28px; text-align: left; color: #fff;
+  font: 500 10px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase;
+}
+.h-intro__video-cap span { display: block; margin-top: 10px; font: italic var(--serif-w) calc(22px * var(--serif-scale))/1.25 var(--serif); letter-spacing: 0; text-transform: none; color: rgba(255, 255, 255, .9); }
 .h-intro__body .h-title { margin-bottom: 32px; }
 .h-intro__body > p:not(.eyebrow):not(.h-intro__sign) { margin: 0 0 18px; font-size: 17px; line-height: 1.8; color: var(--stone); }
 .h-intro__body > p:not(.eyebrow):not(.h-intro__sign):first-of-type::first-letter { float: left; margin: 6px 12px 0 0; font: 400 64px/.8 var(--serif); color: var(--gold); }
@@ -96,6 +107,39 @@
 .h-bespoke__part li { position: relative; padding: 10px 0 10px 22px; border-bottom: 1px solid rgba(255, 255, 255, .1); font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, .78); }
 .h-bespoke__part li::before { content: ""; position: absolute; left: 0; top: 19px; width: 8px; height: 1px; background: var(--gold); }
 .h-bespoke__part--honest { background: #0f1c44; }
+.h-bespoke__part--wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.6fr; gap: clamp(24px, 5vw, 80px); align-items: end; }
+.h-bespoke__part--wide p { margin: 0; font-size: 17px; }
+.h-bespoke__part--scheme { grid-column: 1 / -1; }
+.h-bespoke__gains strong { display: block; margin-bottom: 6px; font: var(--serif-w) calc(21px * var(--serif-scale))/1.3 var(--serif); color: #fff; }
+.h-bespoke__part .h-bespoke__gains li { padding-top: 16px; padding-bottom: 16px; color: rgba(255, 255, 255, .7); }
+.h-bespoke__part .h-bespoke__gains li::before { top: 28px; }
+
+/* Схема костюма: детали с фото по сторонам, точки на фото */
+.scheme { display: grid; grid-template-columns: 1fr minmax(220px, 300px) 1fr; gap: clamp(24px, 3.4vw, 52px); align-items: center; margin-top: clamp(40px, 4vw, 64px); }
+.scheme__col { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(32px, 3.4vw, 56px); }
+.h-bespoke__part .scheme__item { display: flex; align-items: center; gap: 22px; padding: 0; border: 0; cursor: default; }
+.h-bespoke__part .scheme__item::before { display: none; }
+.scheme__col--left .scheme__item { flex-direction: row-reverse; text-align: right; }
+.scheme__thumb {
+  flex: none; width: clamp(80px, 7vw, 104px); aspect-ratio: 1; border-radius: 50%; object-fit: cover;
+  outline: 1px solid rgba(179, 153, 102, .5); outline-offset: 5px; transition: outline-color var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.scheme__n { font: 400 13px/1 var(--serif); letter-spacing: .1em; color: var(--gold-light); }
+.scheme__item h4 { margin: 8px 0 0; font: var(--serif-w) calc(clamp(17px, 1.4vw, 20px) * var(--serif-scale))/1.2 var(--serif); letter-spacing: .08em; text-transform: uppercase; color: #fff; }
+.scheme__item p { margin: 8px 0 0; font-size: 13px; line-height: 1.6; color: rgba(255, 255, 255, .62); }
+.scheme__item.is-active .scheme__thumb { outline-color: var(--gold-light); transform: scale(1.05); }
+.scheme__photo { position: relative; margin: 0; }
+.scheme__photo::before { content: ""; position: absolute; inset: -18px -18px 18px 18px; border: 1px solid var(--gold); opacity: .7; pointer-events: none; }
+.scheme__photo img { position: relative; width: 100%; aspect-ratio: 436 / 879; object-fit: cover; }
+.scheme__dot {
+  position: absolute; z-index: 1; left: var(--x); top: var(--y); display: grid; place-items: center; width: 26px; height: 26px; margin: -13px 0 0 -13px;
+  border: 1px solid var(--gold-light); border-radius: 50%; background: rgba(11, 21, 52, .85); color: var(--gold-light);
+  font: 500 11px/1 var(--sans); cursor: default; transition: background var(--t) var(--ease), color var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.scheme__dot::after { content: ""; position: absolute; inset: -6px; border: 1px solid rgba(238, 205, 157, .45); border-radius: 50%; animation: scheme-pulse 2.4s var(--ease) infinite; }
+.scheme__dot.is-active { background: var(--gold-light); color: var(--navy-deep); transform: scale(1.15); }
+@keyframes scheme-pulse { 0% { opacity: .9; transform: scale(.8); } 100% { opacity: 0; transform: scale(1.5); } }
+@media (prefers-reduced-motion: reduce) { .scheme__dot::after { animation: none; } }
 .h-bespoke .section-link a:hover { color: var(--gold-light); }
 
 /* 7. Ткани */
@@ -149,6 +193,10 @@
   .h-fabrics__logos { grid-template-columns: repeat(3, 1fr); }
   .h-fabrics__logos li:nth-child(4) { border-left: 0; }
   .h-fabrics__logos li:nth-child(n+4) { border-top: 1px solid var(--line); }
+
+  .scheme { grid-template-columns: 1fr 1fr; row-gap: 56px; }
+  .scheme__photo { grid-column: 1 / -1; order: -1; justify-self: center; width: min(340px, 78%); }
+  .scheme__col--left .scheme__item { flex-direction: row; text-align: left; }
 }
 
 @media (max-width: 720px) {
@@ -181,6 +229,13 @@
   .h-bespoke { padding-left: 16px; padding-right: 16px; }
   .h-bespoke__grid { grid-template-columns: 1fr; }
   .h-bespoke__part { padding: 28px 20px; }
+  .h-bespoke__part--wide { grid-template-columns: 1fr; gap: 18px; }
+  .h-bespoke__part--wide p { font-size: 15px; }
+  .scheme { grid-template-columns: 1fr; row-gap: 28px; }
+  .scheme__photo { width: min(280px, 84%); margin-top: 18px; }
+  .h-bespoke__part .scheme__item { gap: 18px; }
+  .scheme__thumb { width: 72px; outline-offset: 4px; }
+  .h-intro__video-cap { left: 20px; right: 20px; bottom: 20px; }
 
   .h-fabrics__logos { grid-template-columns: 1fr 1fr; }
   .h-fabrics__logos li { border-left: 0 !important; border-top: 0 !important; }
