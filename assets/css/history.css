@@ -78,6 +78,24 @@
 .tl__item:nth-child(even) .tl__text { order: 2; }
 .tl__item:nth-child(even) .tl__media { order: 1; }
 
+/* Из архива: лента снимков без точной даты, в том же тёмном тоне, что и таймлайн */
+.h-archive { margin-top: clamp(96px, 10vw, 144px); }
+.h-archive__head { position: relative; max-width: 1240px; margin: 0 auto clamp(32px, 3vw, 48px); padding: 0 var(--gutter); }
+.h-archive__title { margin: 14px 0 0; font: var(--serif-w) calc(clamp(28px, 3vw, 44px) * var(--serif-scale))/1.1 var(--serif); }
+.h-archive__title em { color: var(--gold-light); }
+.h-archive__head .carousel-nav { right: var(--gutter); color: #fff; }
+.h-archive__track {
+  list-style: none; margin: 0; padding: 0 var(--gutter);
+  display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--gutter);
+  scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.h-archive__track::-webkit-scrollbar { display: none; }
+.h-archive__track li { flex: none; scroll-snap-align: start; }
+.h-archive__track figure { margin: 0; }
+.h-archive__track img { height: clamp(220px, 20vw, 300px); width: auto; filter: grayscale(1) sepia(.25) contrast(1.05) brightness(.85); transition: filter 1s var(--ease); }
+.h-archive__track li:hover img { filter: grayscale(.4) sepia(.15) brightness(.95); }
+.h-archive__track figcaption { margin-top: 14px; font: 500 10px/1.5 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
+
 /* 4. Цифры */
 .h-numbers { padding: clamp(72px, 8vw, 112px) var(--gutter); background: var(--ivory-2); border-bottom: 1px solid var(--line); color: var(--navy); }
 .h-numbers__list { list-style: none; margin: 0 auto; padding: 0; max-width: 1240px; display: grid; grid-template-columns: repeat(5, 1fr); }
@@ -217,6 +235,10 @@
   .tl__year { justify-self: start; padding: 0; margin-bottom: 0; background: none; }
   .tl__item:nth-child(odd) .tl__text { text-align: left; }
   .tl__item:nth-child(even) .tl__text, .tl__item:nth-child(even) .tl__media { order: 0; }
+
+  .h-archive__head, .h-archive__track { padding-left: 16px; padding-right: 16px; }
+  .h-archive__head .carousel-nav { display: none; }
+  .h-archive__track { gap: 10px; scroll-padding: 0 16px; }
 
   .h-numbers__list { grid-template-columns: 1fr 1fr; }
   .h-numbers__list li { border-left: 0 !important; }
