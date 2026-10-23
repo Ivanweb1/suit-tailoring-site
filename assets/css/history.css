@@ -13,12 +13,14 @@
   position: relative; min-height: 100vh; min-height: 100svh; overflow: hidden;
   display: flex; align-items: center; background: #0d0f16; color: #fff;
 }
-.h-hero__media { position: absolute; top: 0; right: 0; bottom: 0; width: 58%; margin: 0; }
-.h-hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: saturate(.85) contrast(1.05); }
+/* Фото начинается под шапкой, чтобы голова не уходила под меню; верхний край растворяется в фоне */
+.h-hero__media { position: absolute; top: 150px; right: 0; bottom: 0; width: 58%; margin: 0; }
+.h-hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: saturate(.85) contrast(1.05); }
 .h-hero__media::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(to right, #0d0f16 0%, rgba(13, 15, 22, .55) 30%, rgba(13, 15, 22, 0) 60%),
-              linear-gradient(to top, rgba(13, 15, 22, .7), rgba(13, 15, 22, 0) 35%);
+              linear-gradient(to top, rgba(13, 15, 22, .7), rgba(13, 15, 22, 0) 35%),
+              linear-gradient(to bottom, #0d0f16 0%, rgba(13, 15, 22, 0) 12%);
 }
 .h-hero__content { position: relative; z-index: 1; width: 100%; max-width: 760px; padding: 160px var(--gutter) 140px; }
 .h-hero__role { margin: 0; font: 500 11px/1.4 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: rgba(255, 255, 255, .75); }
@@ -170,22 +172,28 @@
 .scheme__photo { position: relative; margin: 0; }
 .scheme__photo::before { content: ""; position: absolute; inset: -18px -18px 18px 18px; border: 1px solid var(--gold); opacity: .7; pointer-events: none; }
 .scheme__photo img { position: relative; width: 100%; aspect-ratio: 436 / 879; object-fit: cover; }
-/* Точки: золотая заливка — тёмные кружки терялись на сером костюме; пульс по очереди, чтобы взгляд цеплялся */
+/* Точки: тонкое золотое кольцо, тёмное стекло, цифра шрифтом заголовков. Взгляд цепляют не цветом,
+   а появлением по одной, когда фото попадает в кадр, и редким мягким бликом */
 .scheme__dot {
-  position: absolute; z-index: 1; left: var(--x); top: var(--y); display: grid; place-items: center; width: 32px; height: 32px; margin: -16px 0 0 -16px;
-  border: 2px solid #fff; border-radius: 50%; background: var(--gold-light); color: var(--navy-deep);
-  box-shadow: 0 4px 14px rgba(11, 21, 52, .55);
-  font: 600 13px/1 var(--sans); cursor: default; transition: background var(--t) var(--ease), color var(--t) var(--ease), transform var(--t) var(--ease);
+  position: absolute; z-index: 1; left: var(--x); top: var(--y); display: grid; place-items: center; width: 30px; height: 30px; margin: -15px 0 0 -15px;
+  border: 1px solid rgba(238, 205, 157, .9); border-radius: 50%; background: rgba(11, 21, 52, .6); color: var(--gold-light);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); box-shadow: 0 6px 18px rgba(11, 21, 52, .35);
+  font: italic var(--serif-w) calc(16px * var(--serif-scale))/1 var(--serif); cursor: default;
+  transition: background var(--t) var(--ease), color var(--t) var(--ease), transform var(--t) var(--ease);
 }
-.scheme__dot::after { content: ""; position: absolute; inset: -4px; border: 2px solid var(--gold-light); border-radius: 50%; opacity: 0; animation: scheme-pulse 3s var(--ease) infinite; animation-delay: calc(var(--i, 0) * .5s); }
+.scheme__dot::before { content: ""; position: absolute; inset: -6px; border: 1px solid rgba(238, 205, 157, .28); border-radius: 50%; pointer-events: none; }
+.scheme__dot::after { content: ""; position: absolute; inset: -1px; border: 1px solid var(--gold-light); border-radius: 50%; opacity: 0; pointer-events: none; }
 .scheme__dot:nth-of-type(2) { --i: 1; }
 .scheme__dot:nth-of-type(3) { --i: 2; }
 .scheme__dot:nth-of-type(4) { --i: 3; }
 .scheme__dot:nth-of-type(5) { --i: 4; }
 .scheme__dot:nth-of-type(6) { --i: 5; }
-.scheme__dot.is-active { background: #fff; transform: scale(1.2); }
-@keyframes scheme-pulse { 0% { opacity: 1; transform: scale(1); } 60%, 100% { opacity: 0; transform: scale(2); } }
-@media (prefers-reduced-motion: reduce) { .scheme__dot::after { animation: none; } }
+.scheme__photo.is-visible .scheme__dot { animation: scheme-dot-in .8s var(--ease) both; animation-delay: calc(.5s + var(--i, 0) * .18s); }
+.scheme__photo.is-visible .scheme__dot::after { animation: scheme-glint 5s var(--ease) infinite; animation-delay: calc(2s + var(--i, 0) * .8s); }
+.scheme__dot.is-active { background: var(--gold-light); color: var(--navy-deep); transform: scale(1.12); }
+@keyframes scheme-dot-in { from { opacity: 0; scale: .4; } to { opacity: 1; scale: 1; } }
+@keyframes scheme-glint { 0% { opacity: .8; transform: scale(1); } 30%, 100% { opacity: 0; transform: scale(1.8); } }
+@media (prefers-reduced-motion: reduce) { .scheme__photo.is-visible .scheme__dot, .scheme__photo.is-visible .scheme__dot::after { animation: none; } }
 .h-bespoke .section-link a:hover { color: var(--gold-light); }
 
 /* 7. Ткани */
@@ -250,8 +258,8 @@
 
 @media (max-width: 720px) {
   .h-hero { align-items: flex-end; }
-  .h-hero__media { width: 100%; }
-  .h-hero__media::after { background: linear-gradient(to top, #0d0f16 0%, rgba(13, 15, 22, .7) 40%, rgba(13, 15, 22, .1) 75%); }
+  .h-hero__media { top: 96px; width: 100%; }
+  .h-hero__media::after { background: linear-gradient(to top, #0d0f16 0%, rgba(13, 15, 22, .7) 40%, rgba(13, 15, 22, .1) 75%), linear-gradient(to bottom, #0d0f16 0%, rgba(13, 15, 22, 0) 10%); }
   .h-hero__content { padding: 120px 16px 96px; }
   .h-hero__quote { margin-top: 28px; padding-left: 16px; }
   .h-hero__scroll { left: 16px; bottom: 24px; }
@@ -289,7 +297,7 @@
   .scheme__photo { width: min(280px, 84%); margin-top: 18px; }
   .h-bespoke__part .scheme__item { gap: 18px; }
   .scheme__thumb { width: 72px; outline-offset: 4px; }
-  .scheme__dot { width: 28px; height: 28px; margin: -14px 0 0 -14px; font-size: 12px; }
+  .scheme__dot { width: 26px; height: 26px; margin: -13px 0 0 -13px; font-size: 14px; }
   .gains { grid-template-columns: 1fr; margin-top: 20px; }
   .h-bespoke__part .gains li, .h-bespoke__part .gains li:first-child, .h-bespoke__part .gains li:last-child { padding: 28px 0; }
   .h-bespoke__part .gains li + li { border-left: 0; border-top: 1px solid rgba(179, 153, 102, .35); }
