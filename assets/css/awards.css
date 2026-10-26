@@ -1,0 +1,49 @@
+/* VESTORO — страница «Достижения VESTORO». Общие стили — в main.css; заголовки секций, ткани, подписка, запись и SEO — в history.css */
+
+/* Заголовок */
+.a-hero { padding: clamp(190px, 16vw, 240px) var(--gutter) clamp(88px, 9vw, 136px); background: var(--navy-deep); color: #fff; text-align: center; }
+.a-hero .eyebrow { color: var(--gold-light); }
+.a-hero__title {
+  margin: 24px 0 0; text-transform: uppercase; letter-spacing: .04em;
+  font: var(--serif-w) calc(clamp(40px, 5.6vw, 88px) * var(--serif-scale))/1.02 var(--serif);
+}
+.a-hero__title span { color: var(--gold-light); }
+.a-hero__lead { margin: 32px auto 0; max-width: 760px; font: italic var(--serif-w) calc(clamp(20px, 1.9vw, 26px) * var(--serif-scale))/1.45 var(--serif); color: rgba(255, 255, 255, .85); }
+
+/* Сетка наград: много воздуха, дипломы не жмутся друг к другу */
+.a-awards { padding: clamp(104px, 12vw, 176px) var(--gutter); color: var(--navy); }
+.a-awards__list {
+  list-style: none; margin: 0 auto; padding: 0; max-width: 1160px;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(72px, 8vw, 120px) clamp(40px, 6vw, 104px);
+}
+.a-award { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.a-award__frame {
+  position: relative; display: block; width: 100%; padding: clamp(16px, 1.6vw, 24px); background: #fff;
+  box-shadow: 0 24px 48px rgba(16, 30, 74, .08); transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease);
+}
+button.a-award__frame { cursor: zoom-in; }
+button.a-award__frame:hover { transform: translateY(-4px); box-shadow: 0 32px 64px rgba(16, 30, 74, .14); }
+.a-award__frame img { width: 100%; aspect-ratio: 7 / 10; object-fit: cover; }
+/* Скан ещё не прислан: та же рамка, внутри — пустое поле с отметкой */
+.a-award__empty {
+  display: grid; place-content: center; gap: 14px; aspect-ratio: 7 / 10; padding: 24px;
+  border: 1px dashed var(--line); background: var(--ivory-2);
+  font: 500 10px/1.6 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
+}
+.a-award__empty svg { justify-self: center; width: 44px; height: 44px; fill: none; stroke: var(--gold); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.a-award__title { margin: 32px 0 0; max-width: 300px; font: var(--serif-w) calc(clamp(20px, 1.6vw, 24px) * var(--serif-scale))/1.25 var(--serif); }
+.a-award__meta { margin: 12px 0 0; font: 500 10px/1.6 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+
+/* Ткани: сертификаты партнёров на светлом фоне */
+.a-fabrics { background: var(--ivory-2); border-top: 1px solid var(--line); }
+.a-fabrics .h-certs li { background: #fff; }
+
+@media (max-width: 1080px) {
+  .a-awards__list { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; }
+}
+
+@media (max-width: 720px) {
+  .a-hero { padding: 140px 16px 72px; }
+  .a-awards { padding-left: 16px; padding-right: 16px; }
+  .a-awards__list { grid-template-columns: minmax(0, 1fr); max-width: 320px; gap: 72px; }
+}
