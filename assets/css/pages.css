@@ -90,6 +90,8 @@
 @media (max-width: 720px) {
   .c-hero { padding-top: 140px; }
   .c-hero__inner { padding: 0 16px; }
+  /* Длинные слова в заголовке (ПРЕДЛОЖЕНИЯ, ИНДИВИДУАЛЬНЫЙ) не должны быть шире экрана */
+  .c-hero__title { font-size: calc(min(38px, 8.6vw) * var(--serif-scale)); }
   .c-hero__count { letter-spacing: .2em; }
   .c-filter { margin-top: 48px; }
   .c-filter__list { padding: 0 6px; }

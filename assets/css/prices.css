@@ -114,8 +114,6 @@
 }
 
 @media (max-width: 720px) {
-  /* «ИНДИВИДУАЛЬНЫЙ» — длинное слово, на телефоне иначе шире экрана */
-  .page-prices .c-hero__title { font-size: calc(min(38px, 8.4vw) * var(--serif-scale)); }
   .p-factors, .p-process, .p-price, .p-exp, .p-quote { padding-left: 16px; padding-right: 16px; }
   .p-factors__list { grid-template-columns: 1fr; }
   .p-factors__img { aspect-ratio: 4 / 3; }
