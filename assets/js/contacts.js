@@ -32,7 +32,7 @@
       ${l.note ? `<p class="k-note">${esc(l.note)}</p>` : ''}
       <div class="k-actions">
         <button class="btn btn--gold" type="button" data-modal-open data-modal-title="Записаться в ателье">Записаться в ателье</button>
-        ${l.address ? `<a class="k-route" href="https://yandex.ru/maps/?rtext=~${q(l.map)}&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>` : ''}
+        ${l.address ? `<a class="k-route" href="https://yandex.ru/maps/?rtext=~${l.coords ? l.coords.join(',') : q(l.map)}&rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>` : ''}
       </div>
     </div>`).join('');
 
@@ -46,8 +46,12 @@
     const l = L.find((x) => x.key === key) || L[0];
     tabs.querySelectorAll('.k-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.city === l.key)));
     root.querySelectorAll('[data-city]:not(.k-tab)').forEach((el) => { el.hidden = el.dataset.city !== l.key; });
-    // Карта Яндекса: поиск по адресу ставит метку, по городу — показывает город
-    const src = `https://yandex.ru/map-widget/v1/?text=${q(l.map)}&z=${l.address ? 16 : 11}`;
+    // Яндекс.Карта в режиме поиска по адресу показывает рекламную ленту, поэтому:
+    // есть координаты — Яндекс.Карта с меткой (без рекламы); нет — встроенная Google-карта по адресу (тоже без рекламы)
+    const z = l.address ? 16 : 11;
+    const src = l.coords
+      ? `https://yandex.ru/map-widget/v1/?ll=${l.coords[1]},${l.coords[0]}&z=${z}&pt=${l.coords[1]},${l.coords[0]},pm2dbm`
+      : `https://maps.google.com/maps?q=${q(l.map)}&hl=ru&z=${z}&output=embed`;
     if (map.getAttribute('src') !== src) map.src = src;
     map.title = `Карта: ${l.city}`;
     if (byClick) {
