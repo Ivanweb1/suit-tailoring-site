@@ -1,0 +1,65 @@
+/* VESTORO — «Специальные предложения» (specials.html). Карточки строит offers.js из offers-data.js.
+   Общие стили — в main.css и pages.css; подписка, запись и SEO — в history.css */
+
+/* Акции крупными строками в шахматном порядке: фото и текст меняются местами */
+.o-section { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
+.o-list { list-style: none; margin: 0 auto; padding: 0; max-width: 1240px; display: grid; gap: clamp(48px, 6vw, 96px); scroll-margin-top: 96px; }
+.o-offer { display: grid; grid-template-columns: 1fr 1fr; background: #fff; border: 1px solid rgba(179, 153, 102, .35); box-shadow: 0 30px 60px rgba(16, 30, 74, .06); }
+.o-offer.is-in { animation: c-in .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 60ms); }
+.o-offer--flip .o-offer__media { order: 2; }
+.o-offer__media { position: relative; margin: 0; min-height: clamp(360px, 36vw, 520px); overflow: hidden; }
+.o-offer__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease), filter var(--t) var(--ease); }
+.o-offer:hover .o-offer__media img { transform: scale(1.04); }
+/* Тонкая золотая рамка внутри кадра */
+.o-offer__media::after { content: ""; position: absolute; inset: 16px; border: 1px solid rgba(238, 205, 157, .6); pointer-events: none; }
+.o-offer__body { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(32px, 5vw, 80px); }
+.o-offer__status { display: flex; align-items: center; gap: 12px; margin: 0; font: 500 10px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+.o-offer__status span { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+.o-offer__status span::after { content: ""; position: absolute; inset: -4px; border: 1px solid var(--gold); border-radius: 50%; animation: o-pulse 2.4s var(--ease) infinite; }
+@keyframes o-pulse { 0% { opacity: .9; transform: scale(.6); } 100% { opacity: 0; transform: scale(1.6); } }
+.o-offer__title { margin: 22px 0 0; font: var(--serif-w) calc(clamp(30px, 3.2vw, 46px) * var(--serif-scale))/1.1 var(--serif); }
+.o-offer__text { margin: 22px 0 0; max-width: 480px; font-size: 16px; line-height: 1.75; color: var(--stone); }
+.o-offer__cta { width: auto; margin-top: 36px; padding: 0 44px; }
+.o-offer__cta:hover { background: var(--navy-deep); }
+
+/* Завершённая акция: чёрно-белая, приглушённая, без кнопки */
+.o-offer.is-ended { background: #f7f7f5; border-color: rgba(124, 124, 122, .3); box-shadow: none; }
+.o-offer.is-ended .o-offer__media img { filter: grayscale(1) contrast(.95) brightness(.95); opacity: .85; }
+.o-offer.is-ended:hover .o-offer__media img { transform: none; }
+.o-offer.is-ended .o-offer__media::after { border-color: rgba(255, 255, 255, .5); }
+.o-offer.is-ended .o-offer__status { color: var(--muted); }
+.o-offer.is-ended .o-offer__status span { background: var(--muted); }
+.o-offer.is-ended .o-offer__status span::after { display: none; }
+.o-offer.is-ended .o-offer__title, .o-offer.is-ended .o-offer__text { color: var(--muted); }
+
+/* Окно «Участвовать»: та же раскладка, что у окна записи */
+.o-modal .modal__media img { object-position: center; }
+.o-modal__status { margin: 0 0 14px; font: 500 10px/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--gold-light); }
+.o-modal .modal__title { font-size: clamp(26px, 3vw, 36px); line-height: 1.12; text-transform: none; letter-spacing: 0; }
+.o-form { display: grid; gap: 14px; margin-top: 8px; }
+.o-form input[type=text], .o-form input[type=tel] {
+  width: 100%; padding: 12px 0; background: none; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .3);
+  color: #fff; font: inherit; outline: none; transition: border-color var(--t) var(--ease);
+}
+.o-form input::placeholder { color: rgba(255, 255, 255, .45); }
+.o-form input:focus { border-color: var(--gold-light); }
+.o-form__agree { display: flex; gap: 10px; align-items: flex-start; margin-top: 4px; font-size: 12px; line-height: 1.5; color: rgba(255, 255, 255, .55); cursor: pointer; }
+.o-form__agree input { flex: none; width: 16px; height: 16px; margin: 1px 0 0; accent-color: var(--gold); }
+.o-form .btn { justify-self: start; margin-top: 8px; }
+.o-form__done { margin: 8px 0 0; font: var(--serif-w) 22px/1.4 var(--serif); color: var(--gold-light); }
+
+@media (max-width: 900px) {
+  .o-offer { grid-template-columns: 1fr; }
+  .o-offer--flip .o-offer__media { order: 0; }
+  .o-offer__media { min-height: 0; aspect-ratio: 4 / 3; }
+}
+
+@media (max-width: 720px) {
+  .o-section { padding-left: 16px; padding-right: 16px; }
+  .o-offer__body { padding: 28px 20px 32px; }
+  .o-offer__text { font-size: 15px; }
+  .o-offer__cta { width: 100%; }
+  .o-form .btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) { .o-offer__status span::after, .o-offer.is-in { animation: none; } }
