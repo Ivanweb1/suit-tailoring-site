@@ -8,10 +8,21 @@
 /* Что входит в цену: четыре фактора */
 .p-factors { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
 .p-factors__list { list-style: none; margin: 0 auto; padding: 0; max-width: 1240px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-.p-factors__list li { padding: clamp(32px, 3vw, 48px) clamp(20px, 2vw, 32px); background: #fff; border: 1px solid rgba(179, 153, 102, .3); text-align: center; transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
-.p-factors__list li:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(16, 30, 74, .06); }
-.p-factors__n { font: 400 14px/1 var(--serif); letter-spacing: .1em; color: var(--gold); }
-.p-factors__list h3 { margin: 18px 0 0; text-transform: uppercase; letter-spacing: .08em; font: var(--serif-w) calc(clamp(22px, 1.9vw, 26px) * var(--serif-scale))/1.15 var(--serif); }
+.p-factors__list li { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(179, 153, 102, .3); text-align: center; transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.p-factors__list li:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(16, 30, 74, .08); }
+/* Фото фактора; номер — в золотом круге на нижней границе кадра */
+.p-factors__img { position: relative; display: block; aspect-ratio: 4 / 3; }
+.p-factors__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.p-factors__img::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .35), rgba(11, 21, 52, 0) 50%); }
+.p-factors__n {
+  position: absolute; left: 50%; bottom: 0; display: grid; place-items: center; width: 48px; height: 48px; transform: translate(-50%, 50%);
+  border: 1px solid var(--gold); border-radius: 50%; background: #fff; outline: 6px solid #fff;
+  font: 400 15px/1 var(--serif); letter-spacing: .06em; color: var(--gold); font-variant-numeric: lining-nums;
+}
+.p-factors__img img { transition: filter var(--t) var(--ease); filter: saturate(.85); }
+.p-factors__list li:hover .p-factors__img img { filter: none; }
+.p-factors__body { display: block; padding: 44px clamp(20px, 2vw, 32px) clamp(28px, 2.6vw, 40px); }
+.p-factors__list h3 { margin: 0; text-transform: uppercase; letter-spacing: .08em; font: var(--serif-w) calc(clamp(22px, 1.9vw, 26px) * var(--serif-scale))/1.15 var(--serif); }
 .p-factors__list p { margin: 14px 0 0; font-size: 14px; line-height: 1.7; color: var(--stone); }
 
 /* Процесс создания изделия: горизонтальная линия этапов */
@@ -107,6 +118,7 @@
   .page-prices .c-hero__title { font-size: calc(min(38px, 8.4vw) * var(--serif-scale)); }
   .p-factors, .p-process, .p-price, .p-exp, .p-quote { padding-left: 16px; padding-right: 16px; }
   .p-factors__list { grid-template-columns: 1fr; }
+  .p-factors__img { aspect-ratio: 16 / 9; }
   /* Этапы — вертикальной линией */
   .p-steps { grid-template-columns: 1fr; row-gap: 0; padding-left: 4px; }
   .p-steps::before { content: ""; position: absolute; left: 12px; top: 8px; bottom: 8px; width: 1px; background: var(--gold); opacity: .6; }
