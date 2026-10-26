@@ -1,0 +1,158 @@
+/* VESTORO — «Ткани с мировым именем» (fabrics.html) и страница дома (fabric.html). Карточки строит fabrics.js из fabric-houses.js.
+   Общие стили — в main.css и pages.css; заголовки секций, подписка, запись и SEO — в history.css */
+
+/* Цифры под заголовком */
+.f-stats { list-style: none; margin: clamp(40px, 4vw, 56px) auto 0; padding: 0; display: flex; justify-content: center; }
+.f-stats li { padding: 0 clamp(20px, 3vw, 48px); text-align: center; }
+.f-stats li + li { border-left: 1px solid rgba(179, 153, 102, .35); }
+.f-stats__num { display: block; font: var(--serif-w) calc(clamp(34px, 3.4vw, 52px) * var(--serif-scale))/1 var(--serif); color: var(--gold-light); }
+.f-stats__cap { display: block; margin-top: 12px; font: 500 10px/1.5 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
+
+/* Категория: костюмные или сорочечные */
+.f-cat { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
+.f-cat--alt { background: var(--ivory-2); border-top: 1px solid var(--line); }
+.f-cat__head {
+  display: grid; grid-template-columns: 1fr minmax(0, 520px); gap: 24px 64px; align-items: end;
+  max-width: 1440px; margin: 0 auto clamp(48px, 5vw, 80px); padding-bottom: 32px; border-bottom: 1px solid var(--line);
+}
+.f-cat__title { margin: 16px 0 0; font: var(--serif-w) calc(clamp(36px, 4.4vw, 64px) * var(--serif-scale))/1.05 var(--serif); }
+.f-cat__title em { font-style: italic; }
+.f-cat__lead { margin: 0; font-size: 15px; line-height: 1.75; color: var(--stone); }
+.f-cat__lead span { display: block; margin-top: 14px; font: 500 10px/1.5 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+
+.f-grid {
+  list-style: none; margin: 0 auto; padding: 0; max-width: 1440px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(56px, 5vw, 80px) clamp(16px, 2vw, 32px);
+}
+.f-grid li { scroll-margin-top: 96px; }
+.f-grid li.is-in { animation: c-in .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 50ms); }
+
+/* Карточка дома: кадр с логотипом, ниже страна и год, описание, ссылка на страницу дома */
+.f-house { display: flex; flex-direction: column; height: 100%; color: inherit; }
+.f-house__media { position: relative; display: grid; place-items: center; aspect-ratio: 4 / 3; overflow: hidden; background: var(--navy-deep); }
+.f-house__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+.f-house__media::before { content: ""; position: absolute; inset: 0; background: rgba(11, 21, 52, .55); transition: background var(--t) var(--ease); }
+.f-house__media::after {
+  content: ""; position: absolute; inset: 12px; border: 1px solid rgba(238, 205, 157, .5); opacity: 0; transform: scale(1.02);
+  transition: opacity var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.f-house__logo { position: relative; z-index: 1; max-width: 62%; max-height: 34%; object-fit: contain; filter: brightness(0) invert(1); }
+.f-house__word { position: relative; z-index: 1; padding: 0 20px; text-align: center; font: var(--serif-w) calc(clamp(24px, 2vw, 30px) * var(--serif-scale))/1.15 var(--serif); letter-spacing: .04em; color: #fff; }
+.f-house:hover .f-house__photo { transform: scale(1.05); }
+.f-house:hover .f-house__media::before { background: rgba(11, 21, 52, .4); }
+.f-house:hover .f-house__media::after { opacity: 1; transform: none; }
+
+/* Без фото: светлая карточка с тонкой «сорочечной» фактурой */
+.f-house--plain .f-house__media {
+  background-color: #fff;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(16, 30, 74, .045) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgba(16, 30, 74, .03) 0 1px, transparent 1px 5px);
+  box-shadow: inset 0 0 0 1px rgba(179, 153, 102, .3);
+}
+.f-house--plain .f-house__media::before { display: none; }
+.f-house--plain .f-house__media::after { border-color: var(--gold); }
+.f-house--plain .f-house__logo { filter: none; }
+.f-house--plain .f-house__word { color: var(--navy); }
+
+.f-house__meta { margin-top: 24px; font: 500 10px/1.5 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--gold); }
+.f-house__name { margin: 10px 0 0; font: var(--serif-w) calc(clamp(22px, 1.8vw, 26px) * var(--serif-scale))/1.2 var(--serif); transition: color var(--t) var(--ease); }
+.f-house:hover .f-house__name { color: var(--gold); }
+.f-house__text { flex: 1; margin: 12px 0 0; font-size: 14px; line-height: 1.7; color: var(--stone); }
+.f-house__text.is-empty { font-style: italic; color: var(--muted); }
+.f-house__link {
+  align-self: flex-start; margin-top: 20px; padding-bottom: 6px; border-bottom: 1px solid currentColor;
+  font: 500 10px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; transition: color var(--t) var(--ease);
+}
+.f-house:hover .f-house__link { color: var(--gold); }
+
+/* Последняя карточка ряда — приглашение посмотреть ткани вживую */
+.f-invite { position: relative; display: flex; width: 100%; flex-direction: column; justify-content: flex-end; height: 100%; min-height: 360px; padding: 28px; overflow: hidden; color: #fff; text-align: left; background: var(--navy); }
+.f-invite img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .45; transition: transform 1.4s var(--ease); }
+.f-invite:hover img { transform: scale(1.05); }
+.f-invite > span { position: relative; z-index: 1; }
+.f-invite__eyebrow { font: 500 10px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--gold-light); }
+.f-invite__title { margin-top: 14px; font: var(--serif-w) calc(clamp(26px, 2.2vw, 32px) * var(--serif-scale))/1.15 var(--serif); }
+.f-invite__link { align-self: flex-start; margin-top: 20px; padding-bottom: 6px; border-bottom: 1px solid currentColor; font: 500 10px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; }
+.f-invite:hover .f-invite__link { color: var(--gold-light); }
+
+/* Сертификаты партнёра на тёмном фоне */
+.f-certs { padding: clamp(96px, 11vw, 160px) var(--gutter); background: var(--navy); color: #fff; }
+.f-certs .h-title em { color: var(--gold-light); }
+.f-certs .h-lead { color: rgba(255, 255, 255, .7); }
+.f-certs .h-certs li { background: rgba(255, 255, 255, .03); border-color: rgba(238, 205, 157, .35); color: #fff; }
+.f-certs .h-certs span { color: var(--gold-light); }
+
+/* ---------- Страница дома (fabric.html) ---------- */
+.fh-hero { position: relative; display: grid; place-items: center; min-height: clamp(560px, 70vh, 760px); overflow: hidden; background: var(--navy-deep); color: #fff; text-align: center; }
+.fh-hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fh-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(11, 21, 52, .75), rgba(11, 21, 52, .45) 45%, rgba(11, 21, 52, .85)); }
+.fh-hero--plain::after {
+  background:
+    repeating-linear-gradient(90deg, rgba(238, 205, 157, .05) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(0deg, rgba(238, 205, 157, .035) 0 1px, transparent 1px 6px);
+}
+.fh-hero__content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; padding: 180px var(--gutter) 96px; }
+.fh-crumbs { display: flex; gap: 12px; font: 500 10px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
+.fh-crumbs a { transition: color var(--t) var(--ease); }
+.fh-crumbs a:hover { color: var(--gold-light); }
+.fh-crumbs span { color: var(--gold); }
+.fh-hero__logo { width: auto; max-width: min(360px, 70vw); max-height: 120px; margin-top: 48px; filter: brightness(0) invert(1); }
+.fh-hero__name { margin: 36px 0 0; text-transform: uppercase; letter-spacing: .06em; font: var(--serif-w) calc(clamp(40px, 5.4vw, 80px) * var(--serif-scale))/1.05 var(--serif); }
+.fh-hero__logo + .fh-hero__name { font-size: calc(clamp(26px, 2.6vw, 38px) * var(--serif-scale)); }
+.fh-hero__meta { margin: 20px 0 0; font: 500 11px/1.4 var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--gold-light); }
+
+.fh-about { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(32px, 6vw, 112px); max-width: 1240px; margin: 0 auto; padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
+.fh-about__body p:not(.fh-empty) { margin: 0 0 18px; font-size: 17px; line-height: 1.8; color: var(--stone); }
+.fh-about__body .btn { margin-top: 20px; }
+.fh-empty { margin: 0 0 18px; padding: 20px 24px; border: 1px dashed var(--line); font-size: 14px; line-height: 1.7; font-style: italic; color: var(--muted); }
+
+.fh-features { padding: clamp(96px, 11vw, 160px) var(--gutter); background: var(--navy); color: #fff; }
+.fh-features .h-title em { color: var(--gold-light); }
+.fh-features .fh-empty { max-width: 760px; margin: 0 auto; border-color: rgba(238, 205, 157, .35); color: rgba(255, 255, 255, .55); text-align: center; }
+.fh-features__list { list-style: none; margin: 0 auto; padding: 0; max-width: 1240px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); border-top: 1px solid rgba(179, 153, 102, .35); }
+.fh-features__list li { padding: 40px clamp(20px, 2.6vw, 44px) 8px 0; }
+.fh-features__list li + li { padding-left: clamp(20px, 2.6vw, 44px); border-left: 1px solid rgba(179, 153, 102, .35); }
+.fh-features__n { font: 400 14px/1 var(--serif); letter-spacing: .1em; color: var(--gold-light); }
+.fh-features__list h3 { margin: 16px 0 0; font: var(--serif-w) calc(clamp(24px, 2.2vw, 30px) * var(--serif-scale))/1.15 var(--serif); }
+.fh-features__list p { margin: 14px 0 0; font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, .7); }
+
+.fh-collections { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
+.fh-collections__list { list-style: none; margin: 0 auto; padding: 0; max-width: 1240px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 3vw, 48px); }
+.fh-col__media { display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--ivory-2) repeating-linear-gradient(90deg, rgba(16, 30, 74, .045) 0 1px, transparent 1px 7px); }
+.fh-col__media img { width: 100%; height: 100%; object-fit: cover; }
+.fh-col--empty .fh-col__media img { opacity: .35; filter: grayscale(.4); }
+.fh-col__title { margin: 22px 0 0; font: var(--serif-w) calc(24px * var(--serif-scale))/1.2 var(--serif); }
+.fh-col__text { margin: 10px 0 0; font-size: 14px; line-height: 1.7; color: var(--stone); }
+.fh-col--empty .fh-col__title, .fh-col--empty .fh-col__text { font-style: italic; color: var(--muted); }
+
+.fh-more { padding: clamp(96px, 11vw, 160px) var(--gutter); background: var(--ivory-2); border-top: 1px solid var(--line); color: var(--navy); }
+.fh-more .f-cat__lead a { border-bottom: 1px solid currentColor; }
+
+@media (max-width: 1280px) {
+  .f-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 1080px) {
+  .fh-collections__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .f-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .f-cat__head { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .fh-hero__content { padding: 140px 16px 72px; }
+  .fh-about { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
+  .fh-about__body p:not(.fh-empty) { font-size: 16px; }
+  .fh-features, .fh-collections, .fh-more { padding-left: 16px; padding-right: 16px; }
+  .fh-features__list { grid-template-columns: 1fr; }
+  .fh-features__list li, .fh-features__list li + li { padding: 28px 0; border-left: 0; }
+  .fh-features__list li + li { border-top: 1px solid rgba(179, 153, 102, .35); }
+  .fh-collections__list { grid-template-columns: 1fr; }
+  .f-stats li { padding: 0 14px; }
+  .f-stats__cap { font-size: 9px; letter-spacing: .14em; }
+  .f-cat { padding-left: 16px; padding-right: 16px; }
+  .f-grid { grid-template-columns: minmax(0, 1fr); gap: 56px; }
+  .f-invite { min-height: 300px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .f-grid li.is-in { animation: none; } }

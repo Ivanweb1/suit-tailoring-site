@@ -1,0 +1,108 @@
+/* VESTORO — общие блоки внутренних страниц: заголовок на тёмном фоне, фильтр-теги, окно с фото и фактами.
+   Подключается после main.css и history.css на «Клиентах», «Работах», «Тканях» и следующих страницах */
+
+/* Заголовок */
+.c-hero { padding: clamp(190px, 16vw, 240px) 0 0; background: var(--navy-deep); color: #fff; text-align: center; }
+.c-hero__inner { max-width: 1100px; margin: 0 auto; padding: 0 var(--gutter); }
+.c-hero .eyebrow { color: var(--gold-light); }
+.c-hero__title {
+  margin: 24px 0 0; text-transform: uppercase; letter-spacing: .04em;
+  font: var(--serif-w) calc(clamp(38px, 5.4vw, 84px) * var(--serif-scale))/1.02 var(--serif);
+}
+.c-hero__title span { display: block; color: var(--gold-light); }
+.c-hero__sub { margin: 28px auto 0; max-width: 820px; font: italic var(--serif-w) calc(clamp(20px, 2vw, 28px) * var(--serif-scale))/1.35 var(--serif); color: rgba(255, 255, 255, .85); }
+.c-hero__count { margin: 36px 0 0; font: 500 11px/1.4 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
+.c-hero__count span { display: block; margin-bottom: 12px; font: var(--serif-w) calc(clamp(40px, 4.4vw, 64px) * var(--serif-scale))/1 var(--serif); letter-spacing: .02em; color: var(--gold-light); }
+
+/* Фильтр: теги капсом в одну линию, счётчик в скобках */
+.c-filter { margin-top: clamp(56px, 6vw, 88px); border-top: 1px solid rgba(179, 153, 102, .35); }
+.c-filter__list {
+  list-style: none; margin: 0; padding: 0 var(--gutter);
+  display: flex; justify-content: center; align-items: center;
+  overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.c-filter__list::-webkit-scrollbar { display: none; }
+.c-filter__list li { flex: none; display: flex; align-items: center; }
+.c-filter__list li + li::before { content: "·"; color: var(--gold); opacity: .8; }
+.c-filter__tag {
+  position: relative; padding: 24px clamp(14px, 1.6vw, 26px);
+  font: 500 11px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; white-space: nowrap;
+  color: rgba(255, 255, 255, .6); transition: color var(--t) var(--ease);
+}
+.c-filter__tag::after {
+  content: ""; position: absolute; left: clamp(14px, 1.6vw, 26px); right: clamp(14px, 1.6vw, 26px); bottom: 14px; height: 1px;
+  background: var(--gold-light); transform: scaleX(0); transform-origin: left; transition: transform var(--t) var(--ease);
+}
+.c-filter__tag:hover, .c-filter__tag[aria-pressed="true"] { color: #fff; }
+.c-filter__tag[aria-pressed="true"]::after { transform: scaleX(1); }
+.c-filter__n { margin-left: .4em; color: var(--gold-light); letter-spacing: .1em; }
+
+/* Появление карточек после фильтра */
+@keyframes c-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* Окно с фото и фактами (история костюма, мини-кейс работы): слева фото и миниатюры, справа факты */
+.story-box {
+  position: relative; display: grid; grid-template-columns: 1.1fr 1fr;
+  width: min(1120px, 100%); max-height: calc(100vh - 48px); overflow: auto;
+  background: var(--navy); color: #fff;
+  transform: translateY(16px); transition: transform var(--t) var(--ease);
+}
+.modal.is-open .story-box { transform: none; }
+.story-box > .modal__close { z-index: 2; background: rgba(11, 21, 52, .5); }
+.story-box__gallery { display: grid; grid-template-columns: 64px 1fr; gap: 14px; padding: 24px; background: var(--navy-deep); }
+.story-box__thumbs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.story-box__thumbs button {
+  display: block; width: 64px; aspect-ratio: 3 / 4; overflow: hidden; opacity: .5;
+  outline: 1px solid transparent; outline-offset: 3px; transition: opacity var(--t) var(--ease), outline-color var(--t) var(--ease);
+}
+.story-box__thumbs button:hover, .story-box__thumbs button.is-active { opacity: 1; }
+.story-box__thumbs button.is-active { outline-color: var(--gold-light); }
+.story-box__thumbs img { width: 100%; height: 100%; object-fit: cover; }
+.story-box__main { position: relative; margin: 0; min-height: 560px; overflow: hidden; }
+.story-box__main img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+.story-box__body { display: flex; flex-direction: column; padding: 56px clamp(28px, 3.6vw, 52px) 40px; }
+.story-box__name { margin: 0; text-transform: uppercase; letter-spacing: .04em; font: var(--serif-w) calc(clamp(30px, 3vw, 42px) * var(--serif-scale))/1.05 var(--serif); }
+.story-box__role { margin: 12px 0 0; font: 500 10px/1.5 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
+.story-box__facts { margin: 32px 0 0; border-top: 1px solid rgba(255, 255, 255, .14); }
+.story-box__facts div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255, 255, 255, .14); }
+.story-box__facts dt { font: 500 10px/1.9 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); }
+.story-box__facts dd { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, .88); }
+.story-box__quote {
+  margin: 28px 0 0; padding-left: 20px; border-left: 1px solid var(--gold);
+  font: italic var(--serif-w) calc(20px * var(--serif-scale))/1.45 var(--serif); color: rgba(255, 255, 255, .92);
+}
+.story-box .is-empty { font-style: italic; color: rgba(255, 255, 255, .4); }
+.story-box__year { margin: 18px 0 0; font: 500 10px/1.5 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: rgba(255, 255, 255, .5); }
+.story-box__year span { color: var(--gold-light); }
+.story-box__cta { margin-top: auto; padding-top: 36px; }
+
+/* Окно видео: горизонтальные ролики шире */
+.modal--video.is-wide .video-box { width: min(1120px, 100%); }
+.modal--video.is-wide video { aspect-ratio: 16 / 9; }
+
+/* Адаптив */
+@media (max-width: 1080px) {
+  .c-filter__list { justify-content: flex-start; }
+  .story-box { grid-template-columns: 1fr 1fr; }
+  .story-box__main { min-height: 460px; }
+}
+
+@media (max-width: 720px) {
+  .c-hero { padding-top: 140px; }
+  .c-hero__inner { padding: 0 16px; }
+  .c-hero__count { letter-spacing: .2em; }
+  .c-filter { margin-top: 48px; }
+  .c-filter__list { padding: 0 6px; }
+  .c-filter__tag { padding: 20px 12px; letter-spacing: .16em; }
+  .c-filter__tag::after { left: 12px; right: 12px; bottom: 12px; }
+
+  /* Окно истории: снизу на весь экран, миниатюры строкой под фото */
+  .story-box { grid-template-columns: 1fr; width: 100%; max-height: 92vh; }
+  .story-box__gallery { grid-template-columns: 1fr; padding: 0 0 12px; gap: 12px; }
+  .story-box__main { order: -1; min-height: 0; aspect-ratio: 4 / 5; }
+  .story-box__thumbs { flex-direction: row; padding: 0 16px; overflow-x: auto; }
+  .story-box__thumbs button { width: 56px; flex: none; }
+  .story-box__body { padding: 28px 20px 32px; }
+  .story-box__facts div { grid-template-columns: 96px 1fr; gap: 12px; }
+  .story-box__cta .btn { width: 100%; }
+}
