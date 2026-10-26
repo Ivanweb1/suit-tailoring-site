@@ -1,5 +1,9 @@
 /* VESTORO — страница «Работы VESTORO». Общие стили — в main.css; заголовок, фильтр и окно мини-кейса — в clients.css; подписка, запись и SEO — в history.css */
 
+/* Заголовок «Работы VESTORO» — в одну строку (на «Клиентах» — в две) */
+.page-works .c-hero__title span { display: inline; }
+@media (max-width: 400px) { .page-works .c-hero__title { font-size: 32px; } }
+
 /* Блоки работ: манекены, люди и видео — отдельно, не перемешиваются */
 .w-block { padding: clamp(88px, 10vw, 144px) 0; background: var(--navy-deep); color: #fff; }
 .w-block--alt { background: var(--navy); }
