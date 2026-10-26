@@ -11,7 +11,7 @@
 .p-factors__list li { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(179, 153, 102, .3); text-align: center; transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
 .p-factors__list li:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(16, 30, 74, .08); }
 /* Фото фактора; номер — в золотом круге на нижней границе кадра */
-.p-factors__img { position: relative; display: block; aspect-ratio: 4 / 3; }
+.p-factors__img { position: relative; display: block; aspect-ratio: 4 / 5; }
 .p-factors__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .p-factors__img::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .35), rgba(11, 21, 52, 0) 50%); }
 .p-factors__n {
@@ -118,7 +118,7 @@
   .page-prices .c-hero__title { font-size: calc(min(38px, 8.4vw) * var(--serif-scale)); }
   .p-factors, .p-process, .p-price, .p-exp, .p-quote { padding-left: 16px; padding-right: 16px; }
   .p-factors__list { grid-template-columns: 1fr; }
-  .p-factors__img { aspect-ratio: 16 / 9; }
+  .p-factors__img { aspect-ratio: 4 / 3; }
   /* Этапы — вертикальной линией */
   .p-steps { grid-template-columns: 1fr; row-gap: 0; padding-left: 4px; }
   .p-steps::before { content: ""; position: absolute; left: 12px; top: 8px; bottom: 8px; width: 1px; background: var(--gold); opacity: .6; }
