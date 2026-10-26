@@ -1,0 +1,89 @@
+/* VESTORO — страница «Работы VESTORO». Общие стили — в main.css; заголовок, фильтр и окно мини-кейса — в clients.css; подписка, запись и SEO — в history.css */
+
+/* Блоки работ: манекены, люди и видео — отдельно, не перемешиваются */
+.w-block { padding: clamp(88px, 10vw, 144px) 0; background: var(--navy-deep); color: #fff; }
+.w-block--alt { background: var(--navy); }
+.w-block__head {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+  max-width: 1440px; margin: 0 auto clamp(40px, 4.4vw, 72px); padding: 0 var(--gutter);
+}
+.w-block__head .eyebrow { color: var(--gold-light); }
+.w-block__title { margin: 16px 0 0; font: var(--serif-w) calc(clamp(34px, 4vw, 58px) * var(--serif-scale))/1.08 var(--serif); }
+.w-block__title em { color: var(--gold-light); }
+.w-block__count { flex: none; margin: 0 0 8px; font: 500 10px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: rgba(255, 255, 255, .5); }
+
+/* Сетка с воздухом: крупные вертикальные кадры, подпись под фото */
+.w-grid {
+  list-style: none; margin: 0 auto; padding: 0 var(--gutter); max-width: calc(1440px + 2 * var(--gutter));
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(48px, 5vw, 80px) clamp(16px, 2vw, 32px);
+}
+.w-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.w-grid li.is-in { animation: c-in .6s var(--ease) both; animation-delay: calc(var(--i, 0) * 50ms); }
+
+.w-item { display: block; width: 100%; text-align: left; color: inherit; }
+.w-item__media { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; background: #0f1d47; }
+.w-item__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform 1.4s var(--ease); }
+/* При наведении — тонкая золотая рамка внутри кадра и знак «открыть» */
+.w-item__media::after {
+  content: ""; position: absolute; inset: 14px; border: 1px solid var(--gold-light); opacity: 0; transform: scale(1.02);
+  transition: opacity var(--t) var(--ease), transform var(--t) var(--ease); pointer-events: none;
+}
+.w-item__plus {
+  position: absolute; z-index: 1; top: 26px; right: 26px; display: grid; place-items: center; width: 40px; height: 40px;
+  border: 1px solid rgba(238, 205, 157, .8); border-radius: 50%; background: rgba(11, 21, 52, .45);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: var(--gold-light);
+  font: 300 22px/1 var(--sans); opacity: 0; transform: translateY(-6px); transition: opacity var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.w-item:hover .w-item__media img { transform: scale(1.05); }
+.w-item:hover .w-item__media::after { opacity: .65; transform: none; }
+.w-item:hover .w-item__plus { opacity: 1; transform: none; }
+.w-item__title { display: block; margin-top: 22px; font: var(--serif-w) calc(clamp(20px, 1.7vw, 24px) * var(--serif-scale))/1.2 var(--serif); transition: color var(--t) var(--ease); }
+.w-item:hover .w-item__title { color: var(--gold-light); }
+.w-item__meta { display: block; margin-top: 10px; font: 500 10px/1.5 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: rgba(255, 255, 255, .5); }
+
+/* Видео: те же плитки 9:16, что в «Примерах работ» на главной */
+.w-grid .work { max-height: none; }
+.w-grid .work__cap span { display: block; }
+.w-vcap__title { font: var(--serif-w) calc(22px * var(--serif-scale))/1.15 var(--serif); letter-spacing: 0; text-transform: none; }
+.w-vcap__meta { margin-top: 8px; color: var(--gold-light); }
+
+/* Мини-кейс: короткое описание под фактами */
+.story-box__note { margin: 24px 0 0; font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, .78); }
+
+/* Кнопки-разделы: мужской и женский пошив */
+.w-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--navy-deep); }
+.w-path { position: relative; display: flex; align-items: flex-end; min-height: clamp(380px, 38vw, 600px); overflow: hidden; padding: clamp(28px, 3.4vw, 56px); color: #fff; }
+.w-path img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform 1.4s var(--ease); }
+.w-path::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .88), rgba(11, 21, 52, .2) 55%, rgba(11, 21, 52, .1)); }
+.w-path:hover img { transform: scale(1.04); }
+.w-path__text { position: relative; z-index: 1; }
+.w-path__eyebrow { display: block; font: 500 10px/1.4 var(--sans); letter-spacing: .26em; text-transform: uppercase; color: var(--gold-light); }
+.w-path__title { display: block; margin-top: 16px; font: var(--serif-w) calc(clamp(30px, 3.2vw, 48px) * var(--serif-scale))/1.08 var(--serif); }
+.w-path__title em { font-style: italic; }
+.w-path__link {
+  display: inline-block; margin-top: 24px; padding-bottom: 8px; border-bottom: 1px solid currentColor;
+  font: 500 11px/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; transition: color var(--t) var(--ease);
+}
+.w-path:hover .w-path__link { color: var(--gold-light); }
+
+@media (max-width: 1080px) {
+  .w-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .w-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .w-block__head { flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 16px; }
+  .w-block__count { margin: 0; }
+  .w-grid, .w-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 10px; padding: 0 16px; }
+  .w-item__title { margin-top: 14px; font-size: 18px; }
+  .w-item__meta { font-size: 9px; letter-spacing: .14em; }
+  .w-item__plus { display: none; }
+  /* Видео листаются свайпом */
+  .w-grid--video { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 16px; scrollbar-width: none; }
+  .w-grid--video::-webkit-scrollbar { display: none; }
+  .w-grid--video li { flex: 0 0 64vw; scroll-snap-align: start; }
+  .w-paths { grid-template-columns: 1fr; }
+  .w-path { min-height: 380px; padding: 28px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .w-grid li.is-in { animation: none; } }
