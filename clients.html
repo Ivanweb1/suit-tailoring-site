@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="ru" data-font-switch>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Клиенты VESTORO — президенты, дипломаты и деятели культуры</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Клиенты ателье VESTORO: главы государств, дипломаты, руководители корпораций и деятели культуры. 35 000+ человек с 1993 года, истории костюмов, текстовые и видео-отзывы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/history.css">
+  <link rel="stylesheet" href="assets/css/clients.css">
+  <script src="assets/js/fonts.js"></script>
+</head>
+<body>
+
+  <!-- 1. Шапка -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-mobile-open>
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav nav--left" aria-label="Основная навигация">
+        <a class="nav__link" href="history.html" data-menu="atelier">Ателье</a>
+        <a class="nav__link" href="./#men" data-menu="men">Мужчинам</a>
+        <a class="nav__link" href="./#women" data-menu="women">Женщинам</a>
+        <a class="nav__link" href="#" data-menu="accessories">Аксессуары</a>
+      </nav>
+
+      <a class="brand" href="./" aria-label="VESTORO — на главную">
+        <span class="brand__micro">Основано в 1993</span>
+        <span class="brand__name">VESTORO</span>
+        <span class="brand__micro">Москва, Новолесная 5</span>
+      </a>
+
+      <nav class="nav nav--right" aria-label="Дополнительная навигация">
+        <a class="nav__link" href="./#works" data-menu="collection">Коллекция</a>
+        <a class="nav__link" href="./#fabrics" data-menu="fabrics">Ткани</a>
+        <a class="nav__link" href="./#gift" data-menu="certificates">Сертификаты</a>
+        <a class="nav__link" href="./#journal" data-menu="journal">Статьи</a>
+      </nav>
+
+      <button class="header__cta" type="button" data-modal-open>Запись</button>
+    </div>
+
+    <!-- Выпадающие панели меню -->
+    <div class="mega" id="mega" aria-hidden="true">
+      <div class="mega__panel" data-panel="atelier">
+        <figure class="mega__media">
+          <img src="assets/img/hero-atelier.jpg" alt="Интерьер ателье VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Ателье на Новолесной</span><span class="mega__media-link">Приглашаем в гости</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">О VESTORO</p>
+            <a href="history.html">История ателье</a>
+            <a href="#">Джимми Котвани</a>
+            <a href="clients.html">Наши клиенты</a>
+            <a href="clients.html#reviews">Отзывы</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Пошив</p>
+            <a href="#">Как создаётся костюм</a>
+            <a href="#">Выезд портного на дом</a>
+            <a href="#">Пожизненная гарантия</a>
+            <a href="#">Цены</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Визит</p>
+            <a href="#" data-modal-open>Записаться на консультацию</a>
+            <a href="#">Контакты и парковка</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="men">
+        <figure class="mega__media">
+          <img src="assets/img/hero-master.jpg" alt="Джимми Котвани за работой" loading="lazy">
+          <figcaption><span class="mega__media-title">Мужской гардероб</span><span class="mega__media-link">Индивидуальный пошив</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Индивидуальный пошив</p>
+            <a href="#">Деловой костюм</a>
+            <a href="#">Пиджаки</a>
+            <a href="#">Рубашки</a>
+            <a href="#">Брюки</a>
+            <a href="#">Обувь</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Особые случаи</p>
+            <a href="#">Свадебный костюм</a>
+            <a href="#">Смокинг</a>
+            <a href="#">Верхняя одежда</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Сервис</p>
+            <a href="#">Корректировка по фигуре</a>
+            <a href="#">Доставка</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="women">
+        <figure class="mega__media">
+          <img src="assets/img/hero-fabric.jpg" alt="Премиальная ткань" loading="lazy">
+          <figcaption><span class="mega__media-title">Женский гардероб</span><span class="mega__media-link">Индивидуальный пошив</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Индивидуальный пошив</p>
+            <a href="#">Деловой костюм</a>
+            <a href="#">Пальто</a>
+            <a href="#">Рубашки</a>
+            <a href="#">Брюки</a>
+            <a href="#">Юбки</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Сервис</p>
+            <a href="#">Корректировка по фигуре</a>
+            <a href="#">Доставка</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="accessories">
+        <figure class="mega__media">
+          <img src="assets/img/journal/accessories.jpg" alt="Аксессуары VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Аксессуары</span><span class="mega__media-link">Детали, которые завершают образ</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">К костюму</p>
+            <a href="#">Галстуки</a>
+            <a href="#">Бабочки</a>
+            <a href="#">Запонки</a>
+            <a href="#">Платки-паше</a>
+            <a href="#">Зажимы для галстука</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Кожа</p>
+            <a href="#">Ремни</a>
+            <a href="#">Подтяжки</a>
+            <a href="#">Перчатки</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Подарок</p>
+            <a href="./#gift">Подарочный сертификат</a>
+            <a href="#">Все аксессуары</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="collection">
+        <figure class="mega__media">
+          <img src="assets/img/hero-atelier.jpg" alt="Коллекция VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Коллекция</span><span class="mega__media-link">Примеры работ</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Работы</p>
+            <a href="#">Примеры работ</a>
+            <a href="clients.html">Истории клиентов</a>
+            <a href="clients.html#video">Видео-отзывы</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Предложения</p>
+            <a href="#">Акции</a>
+            <a href="#" data-modal-open data-modal-title="Получить каталог">Получить каталог</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="fabrics">
+        <figure class="mega__media">
+          <img src="assets/img/fabric-scabal.jpg" alt="Ткани Scabal" loading="lazy">
+          <figcaption><span class="mega__media-title">Более 7000 тканей</span><span class="mega__media-link">Ткани с мировым именем</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Итальянские дома</p>
+            <a href="#">Loro Piana</a>
+            <a href="#">Ermenegildo Zegna</a>
+            <a href="#">Vitale Barberis Canonico</a>
+            <a href="#">Reda</a>
+            <a href="#">Drago</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Британия и Франция</p>
+            <a href="#">Scabal</a>
+            <a href="#">Holland &amp; Sherry</a>
+            <a href="#">Dormeuil</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Рубашечные</p>
+            <a href="#">Thomas Mason</a>
+            <a href="#">Albini</a>
+            <a href="#">Canclini</a>
+            <a href="#">Все ткани</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="certificates">
+        <figure class="mega__media">
+          <img src="assets/img/fabric-scabal.jpg" alt="Подарочный сертификат VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Костюм в подарок</span><span class="mega__media-link">Лучше, чем вещь</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Сертификаты</p>
+            <a href="#">Подарочная карта свободного номинала</a>
+            <a href="#">Готовые подарочные предложения</a>
+            <a href="#">Электронный сертификат</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="journal">
+        <figure class="mega__media">
+          <img src="assets/img/hero-fabric.jpg" alt="Журнал VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Журнал VESTORO</span><span class="mega__media-link">Всё о моде и стиле</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Журнал</p>
+            <a href="#">Все статьи</a>
+            <a href="#">Стиль и этикет</a>
+            <a href="#">Ткани и уход</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu__top">
+      <button class="mobile-menu__close" type="button" aria-label="Закрыть меню" data-mobile-close></button>
+      <span class="brand__name">VESTORO</span>
+      <span></span>
+    </div>
+    <nav class="mobile-menu__nav">
+      <a href="./#atelier">Ателье</a>
+      <a href="./#men">Мужчинам</a>
+      <a href="./#women">Женщинам</a>
+      <a href="#">Аксессуары</a>
+      <a href="./#works">Коллекция</a>
+      <a href="./#fabrics">Ткани</a>
+      <a href="./#gift">Сертификаты</a>
+      <a href="./#journal">Статьи</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="mobile-menu__bottom">
+      <button class="btn btn--dark" type="button" data-modal-open>Записаться на консультацию</button>
+      <a class="mobile-menu__phone" href="tel:+74957250564">+7 (495) 725-05-64</a>
+      <p class="mobile-menu__address">Москва, Новолесная 5 · бесплатная парковка</p>
+    </div>
+  </div>
+
+  <main class="page-clients">
+    <!-- 1. Заголовок и 2. Фильтр -->
+    <section class="c-hero" id="hero">
+      <div class="c-hero__inner">
+        <p class="eyebrow">Клиенты VESTORO</p>
+        <h1 class="c-hero__title">Клиенты, которые <span>выбрали VESTORO</span></h1>
+        <p class="c-hero__sub">Президенты, дипломаты, руководители корпораций и деятели культуры</p>
+        <p class="c-hero__count"><span>35 000+</span>человек с 1993 года</p>
+      </div>
+
+      <!-- Фильтр меняет только нижний ярус. Счётчики и скрытие тегов, где меньше трёх человек, — в clients.js -->
+      <nav class="c-filter" id="clientsFilter" aria-label="Сфера деятельности">
+        <ul class="c-filter__list">
+          <li><button class="c-filter__tag" type="button" data-sphere-tag="all" aria-pressed="true">Все<span class="c-filter__n"></span></button></li>
+          <li><button class="c-filter__tag" type="button" data-sphere-tag="politika" aria-pressed="false">Политика<span class="c-filter__n"></span></button></li>
+          <li><button class="c-filter__tag" type="button" data-sphere-tag="biznes" aria-pressed="false">Бизнес<span class="c-filter__n"></span></button></li>
+          <li><button class="c-filter__tag" type="button" data-sphere-tag="kultura" aria-pressed="false">Культура<span class="c-filter__n"></span></button></li>
+          <li><button class="c-filter__tag" type="button" data-sphere-tag="nauka" aria-pressed="false">Наука и медицина<span class="c-filter__n"></span></button></li>
+          <li><button class="c-filter__tag" type="button" data-sphere-tag="sport" aria-pressed="false">Спорт<span class="c-filter__n"></span></button></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- 3. Верхний ярус: витрина, всегда одинаковая. Фото — заглушки, кроме Моди (архив заказчика) -->
+    <section class="c-top" aria-label="Главы государств — клиенты VESTORO">
+      <ul class="c-top__grid">
+        <li><button class="c-tile" type="button" data-client="modi" data-sphere="politika"><img src="assets/img/history/archive/modi.jpg" alt="Нарендра Моди с Джимми Котвани в ателье"><span class="c-tile__cap"><span class="c-tile__name" data-name>Нарендра Моди</span><span class="c-tile__role" data-role>Премьер-министр Индии</span></span></button></li>
+        <li><button class="c-tile" type="button" data-client="rahmon" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt=""><span class="c-tile__cap"><span class="c-tile__name" data-name>Эмомали Рахмон</span><span class="c-tile__role" data-role>Президент Таджикистана</span></span></button></li>
+        <li><button class="c-tile" type="button" data-client="gunba" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt=""><span class="c-tile__cap"><span class="c-tile__name" data-name>Бадра Гунба</span><span class="c-tile__role" data-role>Президент Абхазии</span></span></button></li>
+        <li><button class="c-tile" type="button" data-client="nazarbayev" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><span class="c-tile__cap"><span class="c-tile__name" data-name>Нурсултан Назарбаев</span><span class="c-tile__role" data-role>Первый Президент Казахстана</span></span></button></li>
+        <li><button class="c-tile" type="button" data-client="sargsyan" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><span class="c-tile__cap"><span class="c-tile__name" data-name>Серж Саргсян</span><span class="c-tile__role" data-role>Президент Армении 2008–2018</span></span></button></li>
+        <li><button class="c-tile" type="button" data-client="kuchma" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><span class="c-tile__cap"><span class="c-tile__name" data-name>Леонид Кучма</span><span class="c-tile__role" data-role>Президент Украины 1994–2005</span></span></button></li>
+      </ul>
+    </section>
+
+    <!-- 4. Нижний ярус. data-sphere — сфера для фильтра; пусто — пока не уточнена, клиент виден только во «Все» -->
+    <section class="c-all" id="all">
+      <div class="h-head reveal">
+        <p class="eyebrow">Все клиенты</p>
+        <h2 class="h-title">Нам доверяют <em>с 1993 года</em></h2>
+        <p class="c-all__status" id="clientsStatus" aria-live="polite"></p>
+      </div>
+      <ul class="c-grid" id="clientsGrid">
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="mishustin"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Михаил Мишустин</span><span class="c-card__role" data-role>Премьер-министр России</span></button></li>
+        <li data-sphere=""><button class="c-card" type="button" data-client="kovalchuk"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Ковальчук</span><span class="c-card__role" data-role>Подпись уточнить</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="resin"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Владимир Ресин</span><span class="c-card__role" data-role>Градостроитель</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="kanokov"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Арсен Каноков</span><span class="c-card__role" data-role>Экс-глава Кабардино-Балкарии</span></button></li>
+        <li data-sphere=""><button class="c-card" type="button" data-client="gasanov"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Гасанов</span><span class="c-card__role" data-role>Подпись уточнить</span></button></li>
+        <li data-sphere="kultura"><button class="c-card" type="button" data-client="kobzon"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Иосиф Кобзон</span><span class="c-card__role" data-role>Народный артист СССР</span></button></li>
+        <li data-sphere=""><button class="c-card" type="button" data-client="lelikov"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Леликов</span><span class="c-card__role" data-role>Подпись уточнить</span></button></li>
+        <li data-sphere="nauka"><button class="c-card" type="button" data-client="kaprin"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Андрей Каприн</span><span class="c-card__role" data-role>Онколог, академик РАН</span></button></li>
+        <li data-sphere="nauka"><button class="c-card" type="button" data-client="golukhov"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Георгий Голухов</span><span class="c-card__role" data-role>Хирург, профессор</span></button></li>
+        <li data-sphere="kultura"><button class="c-card" type="button" data-client="safronov"><span class="c-card__photo"><img src="assets/img/history/archive/safronov.jpg" alt="Никас Сафронов" loading="lazy"></span><span class="c-card__name" data-name>Никас Сафронов</span><span class="c-card__role" data-role>Художник</span></button></li>
+        <li data-sphere=""><button class="c-card" type="button" data-client="vinokurov"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Винокуров</span><span class="c-card__role" data-role>Подпись уточнить</span></button></li>
+        <li data-sphere=""><button class="c-card" type="button" data-client="kakhidze"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Кахидзе</span><span class="c-card__role" data-role>Подпись уточнить</span></button></li>
+        <li data-sphere=""><button class="c-card" type="button" data-client="mitin"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Митин</span><span class="c-card__role" data-role>Подпись уточнить</span></button></li>
+        <li data-sphere=""><button class="c-card" type="button" data-client="konovalov"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Коновалов</span><span class="c-card__role" data-role>Подпись уточнить</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="ryzhkov"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Николай Рыжков</span><span class="c-card__role" data-role>Председатель Совмина СССР</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="mironov"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Сергей Миронов</span><span class="c-card__role" data-role>Политик</span></button></li>
+        <li data-sphere="kultura"><button class="c-card" type="button" data-client="grachevsky"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Борис Грачевский</span><span class="c-card__role" data-role>Режиссёр, «Ералаш»</span></button></li>
+        <li data-sphere="sport"><button class="c-card" type="button" data-client="akinfeev"><span class="c-card__photo"><img src="assets/img/history/archive/akinfeev.jpg" alt="Игорь Акинфеев" loading="lazy" style="object-position: 34% 30%"></span><span class="c-card__name" data-name>Игорь Акинфеев</span><span class="c-card__role" data-role>Вратарь ЦСКА и сборной России</span></button></li>
+      </ul>
+      <div class="c-more" id="clientsMore" hidden><button type="button">Все клиенты</button></div>
+    </section>
+
+    <!-- 6. Текстовые отзывы. Авторы, тексты и даты — образцы до материалов заказчика -->
+    <section class="c-reviews" id="reviews">
+      <div class="h-head reveal">
+        <p class="eyebrow">Отзывы</p>
+        <h2 class="h-title">Что говорят <em>клиенты</em></h2>
+      </div>
+      <ul class="c-reviews__list reveal">
+        <li>
+          <article class="review">
+            <div class="review__author"><img class="review__photo" src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><div><span class="review__name">Имя Фамилия</span><span class="review__role">Должность</span></div></div>
+            <p class="review__text">Шью в VESTORO больше десяти лет. Лекала хранятся, поэтому новый костюм — это выбор ткани и одна примерка.</p>
+            <p class="review__date">Образец отзыва</p>
+          </article>
+        </li>
+        <li>
+          <article class="review">
+            <div class="review__author"><img class="review__photo" src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><div><span class="review__name">Имя Фамилия</span><span class="review__role">Должность</span></div></div>
+            <p class="review__text">Заказывал смокинг к семейному торжеству. Джимми сам вёл все примерки — посадка без единой складки.</p>
+            <p class="review__date">Образец отзыва</p>
+          </article>
+        </li>
+        <li>
+          <article class="review">
+            <div class="review__author"><img class="review__photo" src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><div><span class="review__name">Имя Фамилия</span><span class="review__role">Должность</span></div></div>
+            <p class="review__text">Портной приехал в офис в удобное время и снял мерки за час. Через пять недель костюм был готов.</p>
+            <p class="review__date">Образец отзыва</p>
+          </article>
+        </li>
+        <li>
+          <article class="review">
+            <div class="review__author"><img class="review__photo" src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><div><span class="review__name">Имя Фамилия</span><span class="review__role">Должность</span></div></div>
+            <p class="review__text">Раз в полгода привожу костюмы на осмотр: почистят, подправят посадку — и они снова как новые.</p>
+            <p class="review__date">Образец отзыва</p>
+          </article>
+        </li>
+      </ul>
+      <div class="c-reviews__cta reveal"><a class="btn btn--line" href="#">Читать все отзывы</a></div>
+    </section>
+
+    <!-- 7. Видео-отзывы: два варианта подачи одно под другим. Обложки — кадры ателье, ролики — от заказчика -->
+    <section class="c-video" id="video">
+      <div class="h-head reveal">
+        <p class="eyebrow">Видео-отзывы</p>
+        <h2 class="h-title">Клиенты <em>о VESTORO</em></h2>
+        <p class="h-lead">Короткие истории, записанные в ателье на Новолесной. Ролики с субтитрами — их можно смотреть и без звука.</p>
+      </div>
+
+      <p class="c-video__variant reveal">Вариант 1 · горизонтальные ролики 16:9</p>
+      <ul class="c-video__row c-video__row--wide reveal">
+        <li><button class="work work--wide" type="button" data-video="" data-ratio="wide" data-poster="assets/img/history/jimmy-fitting.jpg" aria-label="Смотреть видео-отзыв"><img src="assets/img/history/jimmy-fitting.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span><span class="work__cap"><span class="c-vcap__name">Имя клиента</span><span class="c-vcap__role">Должность</span></span></button></li>
+        <li><button class="work work--wide" type="button" data-video="" data-ratio="wide" data-poster="assets/img/history/2023-atelier.jpg" aria-label="Смотреть видео-отзыв"><img src="assets/img/history/2023-atelier.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span><span class="work__cap"><span class="c-vcap__name">Имя клиента</span><span class="c-vcap__role">Должность</span></span></button></li>
+        <li><button class="work work--wide" type="button" data-video="" data-ratio="wide" data-poster="assets/img/history/space-library.jpg" aria-label="Смотреть видео-отзыв"><img src="assets/img/history/space-library.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span><span class="work__cap"><span class="c-vcap__name">Имя клиента</span><span class="c-vcap__role">Должность</span></span></button></li>
+      </ul>
+
+      <p class="c-video__variant reveal">Вариант 2 · вертикальные ролики 9:16</p>
+      <ul class="c-video__row c-video__row--tall reveal">
+        <li><button class="work" type="button" data-video="" data-poster="assets/img/work-1.jpg" aria-label="Смотреть видео-отзыв"><img src="assets/img/work-1.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span><span class="work__cap"><span class="c-vcap__name">Имя клиента</span><span class="c-vcap__role">Должность</span></span></button></li>
+        <li><button class="work" type="button" data-video="" data-poster="assets/img/work-2.jpg" aria-label="Смотреть видео-отзыв"><img src="assets/img/work-2.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span><span class="work__cap"><span class="c-vcap__name">Имя клиента</span><span class="c-vcap__role">Должность</span></span></button></li>
+        <li><button class="work" type="button" data-video="" data-poster="assets/img/work-3.jpg" aria-label="Смотреть видео-отзыв"><img src="assets/img/work-3.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span><span class="work__cap"><span class="c-vcap__name">Имя клиента</span><span class="c-vcap__role">Должность</span></span></button></li>
+        <li><button class="work" type="button" data-video="" data-poster="assets/img/work-4.jpg" aria-label="Смотреть видео-отзыв"><img src="assets/img/work-4.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"><svg viewBox="0 0 88 88"><path d="M26 2h36l24 24v36L62 86H26L2 62V26z"/><path class="play__tri" d="M37 30l20 14-20 14z"/></svg></span><span class="work__cap"><span class="c-vcap__name">Имя клиента</span><span class="c-vcap__role">Должность</span></span></button></li>
+      </ul>
+      <div class="c-video__cta reveal"><a class="btn btn--outline" href="#">Смотреть все видео-отзывы</a></div>
+    </section>
+
+    <!-- 8. Подписка -->
+    <section class="subscribe subscribe--dark" id="subscribe">
+      <div class="subscribe__inner reveal">
+        <div class="subscribe__intro">
+          <p class="subscribe__brand">VESTORO</p>
+          <h2 class="subscribe__title">Подписка</h2>
+          <p class="subscribe__text">Укажите свой email, чтобы получать эксклюзивные новости VESTORO.</p>
+        </div>
+        <form class="subscribe__form" id="subscribeForm">
+          <div class="subscribe__row">
+            <input type="email" name="email" placeholder="Ваш email" autocomplete="email" required aria-label="Ваш email">
+            <button type="submit">Подписаться</button>
+          </div>
+          <p class="subscribe__note">Подписываясь, вы соглашаетесь с политикой конфиденциальности. Отписаться можно в любой момент.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 10. Запись на консультацию -->
+    <section class="h-visit" id="visit">
+      <img class="h-visit__bg" src="assets/img/history/jimmy-fitting.jpg" alt="" loading="lazy">
+      <div class="h-visit__content reveal">
+        <p class="eyebrow">Визит в ателье</p>
+        <h2 class="h-title">Приезжайте в ателье <em>на Новолесной 5</em></h2>
+        <p class="h-visit__line">Москва, Новолесная 5 · бесплатная парковка · Пн–Сб 10:00–21:00, Вс 10:00–19:00 · <a href="tel:+74957250564">+7 (495) 725-05-64</a></p>
+        <button class="btn btn--outline" type="button" data-modal-open>Записаться на консультацию</button>
+      </div>
+    </section>
+
+    <!-- SEO-блок -->
+    <section class="h-seo">
+      <h2>Клиенты ателье VESTORO: кто шьёт костюмы у Джимми Котвани</h2>
+      <p>С 1993 года в ателье VESTORO оделись более 35 000 человек. Среди клиентов Джимми Котвани — главы государств, дипломаты, руководители корпораций, деятели культуры, науки и спорта. Каждый костюм шьётся по английской технологии bespoke по персональному лекалу из тканей Scabal, Loro Piana, Ermenegildo Zegna и других европейских домов.</p>
+      <p>На этой странице — клиенты ателье, истории их костюмов, текстовые и видео-отзывы. Записаться на консультацию можно в ателье на Новолесной, 5, а портной может приехать к вам домой или в офис.</p>
+    </section>
+  </main>
+
+  <!-- 15. Подвал -->
+  <footer class="footer" id="contacts">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <p class="footer__heading">Контакты</p>
+        <a href="tel:+74957250564">+7 (495) 725-05-64</a>
+        <a href="mailto:zayavka@vestoro.ru">zayavka@vestoro.ru</a>
+        <span>Москва, Новолесная 5</span>
+        <span>Пн–Сб 10:00–21:00 · Вс 10:00–19:00</span>
+        <div class="footer__social">
+          <a href="#">Telegram</a><a href="#">WhatsApp</a><a href="#">ВКонтакте</a><a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">О компании</p>
+        <a href="history.html">История компании</a>
+        <a href="./#process">Индивидуальный пошив</a>
+        <a href="clients.html">Наши клиенты</a>
+        <a href="#">Наши достижения</a>
+        <a href="./#works">Наши работы</a>
+        <a href="./#atelier">Ателье VESTORO</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Покупателям</p>
+        <a href="./#journal">Журнал</a>
+        <a href="#">Ответы на вопросы</a>
+        <a href="#">Акции и скидки</a>
+        <a href="./#gift">Подарочный сертификат</a>
+        <a href="#">Корректировка по фигуре</a>
+        <a href="#">Доставка</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Общая информация</p>
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Публичная оферта</a>
+        <a href="#">Обработка персональных данных</a>
+        <a href="#">Политика использования cookies</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 1993–2026 VESTORO</span>
+      <span>ИП Котвани Джитендра Дхалумал · ИНН 772973972953 · ОГРНИП 322774600077985</span>
+    </div>
+  </footer>
+
+  <!-- Всплывающее окно записи -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__dialog">
+      <figure class="modal__media">
+        <img src="assets/img/hero-master.jpg" alt="Мастер VESTORO снимает мерки">
+        <figcaption>Made to measure</figcaption>
+      </figure>
+      <div class="modal__body">
+        <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
+        <p class="modal__eyebrow">Костюм по вашим меркам</p>
+        <h2 class="modal__title" id="modalTitle">Записаться на консультацию</h2>
+        <p class="modal__text">Персональный портной встретится с вами в ателье на Новолесной или приедет к вам. Выберите удобный способ связи — подберём время.</p>
+
+        <ul class="contact-list">
+          <li>
+            <button class="contact-row" type="button" data-toggle="requestForm">
+              <span class="contact-row__icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 6l8 7 8-7"/></svg></span>
+              <span class="contact-row__text"><small>Оставить заявку</small>Перезвоним за 15 минут</span>
+              <span class="contact-row__arrow">→</span>
+            </button>
+            <form class="request-form" id="requestForm" hidden>
+              <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
+              <input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required>
+              <button class="btn btn--gold" type="submit">Отправить</button>
+              <p class="request-form__note">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности.</p>
+            </form>
+          </li>
+          <li>
+            <a class="contact-row" href="tel:+74957250564">
+              <span class="contact-row__icon"><svg viewBox="0 0 24 24"><path d="M6.6 3.5l2.6 3.4-1.6 2.2a12 12 0 0 0 7.3 7.3l2.2-1.6 3.4 2.6-1.6 3.1C11.3 20.3 3.7 12.7 3.5 5.1z"/></svg></span>
+              <span class="contact-row__text"><small>Позвонить</small>+7 (495) 725-05-64</span>
+              <span class="contact-row__arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <button class="contact-row" type="button" data-toggle="messengers">
+              <span class="contact-row__icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
+              <span class="contact-row__text"><small>Написать в мессенджер</small>Telegram · WhatsApp · MAX</span>
+              <span class="contact-row__arrow">→</span>
+            </button>
+            <div class="messengers" id="messengers" hidden>
+              <a href="#" target="_blank" rel="noopener">Telegram</a>
+              <a href="#" target="_blank" rel="noopener">WhatsApp</a>
+              <a href="#" target="_blank" rel="noopener">MAX</a>
+            </div>
+          </li>
+        </ul>
+
+        <p class="modal__footnote">Ежедневно · Москва, Новолесная 5 · бесплатная парковка</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- История костюма: заполняется из clients.js -->
+  <div class="modal modal--story" id="storyModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="storyName">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="story-box">
+      <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
+      <div class="story-box__gallery">
+        <ul class="story-box__thumbs" id="storyThumbs" aria-label="Фотографии"></ul>
+        <figure class="story-box__main"><img id="storyPhoto" src="assets/img/client-placeholder.jpg" alt=""></figure>
+      </div>
+      <div class="story-box__body">
+        <p class="modal__eyebrow" id="storySphere">История костюма</p>
+        <h2 class="story-box__name" id="storyName"></h2>
+        <p class="story-box__role" id="storyRole"></p>
+        <dl class="story-box__facts">
+          <div><dt>Что шили</dt><dd data-field="made"></dd></div>
+          <div><dt>Ткань</dt><dd data-field="fabric"></dd></div>
+          <div><dt>Событие</dt><dd data-field="event"></dd></div>
+        </dl>
+        <blockquote class="story-box__quote" data-field="quote"></blockquote>
+        <p class="story-box__year">Год заказа · <span data-field="year"></span></p>
+        <div class="story-box__cta"><button class="btn btn--outline" type="button" data-modal-open>Записаться на консультацию</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Просмотр видео -->
+  <div class="modal modal--video" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Видео">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="video-box">
+      <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
+      <video id="videoPlayer" playsinline controls preload="none"></video>
+      <img class="video-box__photo" id="photoViewer" alt="" hidden>
+      <p class="video-box__note" id="videoNote">Видео появится после загрузки ролика заказчика</p>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/clients.js"></script>
+</body>
+</html>

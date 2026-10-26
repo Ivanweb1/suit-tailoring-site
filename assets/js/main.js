@@ -138,6 +138,9 @@
     if (lastFocus) lastFocus.focus();
   };
 
+  // Другим скриптам страниц (окно истории клиента) — те же открытие и закрытие
+  window.vestoroModal = { open: openM, close: closeM };
+
   // Окно записи
   document.querySelectorAll('[data-modal-open]').forEach((el) =>
     el.addEventListener('click', (e) => {
@@ -157,6 +160,7 @@
       const src = tile.dataset.video;
       photoViewer.hidden = true;
       player.hidden = false;
+      videoModal.classList.toggle('is-wide', tile.dataset.ratio === 'wide'); // горизонтальные видео-отзывы 16:9
       player.poster = tile.dataset.poster;
       videoNote.hidden = !!src;
       if (src) { player.src = src; player.controls = true; } else { player.removeAttribute('src'); player.controls = false; }
@@ -168,6 +172,7 @@
     tile.addEventListener('click', () => {
       player.hidden = true;
       videoNote.hidden = true;
+      videoModal.classList.remove('is-wide');
       photoViewer.src = tile.dataset.photo;
       photoViewer.hidden = false;
       openM(videoModal);
