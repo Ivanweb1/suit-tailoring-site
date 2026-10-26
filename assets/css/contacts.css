@@ -1,0 +1,68 @@
+/* VESTORO — «Наши адреса» (contacts.html). Вкладки, контакты и фото строит contacts.js из contacts-data.js.
+   Общие стили — в main.css и pages.css; подписка — в history.css */
+
+/* Карта слева, контакты справа — как в макете; сверху тёмная полоса под шапку */
+.k-main { padding-top: 132px; background: var(--navy-deep); }
+.k-split { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(360px, 1fr); min-height: clamp(560px, 72vh, 760px); border-top: 1px solid rgba(255, 255, 255, .12); }
+.k-map { position: relative; background: #1a2550 repeating-linear-gradient(90deg, rgba(238, 205, 157, .04) 0 1px, transparent 1px 24px), repeating-linear-gradient(0deg, rgba(238, 205, 157, .04) 0 1px, transparent 1px 24px); }
+.k-map::before { content: "Карта загружается"; position: absolute; inset: 0; display: grid; place-items: center; font: 500 10px/1 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: rgba(255, 255, 255, .35); }
+.k-map iframe { position: relative; display: block; width: 100%; height: 100%; min-height: 420px; border: 0; }
+
+.k-panel { display: flex; flex-direction: column; justify-content: center; padding: clamp(40px, 4.4vw, 72px); background: var(--navy); color: #fff; }
+.k-panel .eyebrow { color: var(--gold-light); }
+.k-title { margin: 18px 0 0; text-transform: uppercase; letter-spacing: .04em; font: var(--serif-w) calc(clamp(38px, 4.2vw, 64px) * var(--serif-scale))/1 var(--serif); }
+.k-sub { margin: 18px 0 0; font: italic var(--serif-w) calc(clamp(19px, 1.6vw, 23px) * var(--serif-scale))/1.4 var(--serif); color: rgba(255, 255, 255, .8); }
+
+.k-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: clamp(28px, 3vw, 40px); }
+.k-tab {
+  padding: 12px 18px; border: 1px solid rgba(238, 205, 157, .4);
+  font: 500 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: rgba(255, 255, 255, .7);
+  transition: background var(--t) var(--ease), color var(--t) var(--ease), border-color var(--t) var(--ease);
+}
+.k-tab:hover { border-color: var(--gold-light); color: #fff; }
+.k-tab[aria-selected="true"] { background: var(--gold-light); border-color: var(--gold-light); color: var(--navy-deep); }
+
+.k-city { margin-top: 28px; animation: c-in .5s var(--ease) both; }
+.k-facts { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(255, 255, 255, .14); }
+.k-facts li { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(255, 255, 255, .14); font-size: 16px; line-height: 1.5; }
+.k-facts svg { flex: none; width: 20px; height: 20px; margin-top: 1px; fill: none; stroke: var(--gold-light); stroke-width: 1.3; stroke-linejoin: round; stroke-linecap: round; }
+.k-facts small { display: block; margin-top: 4px; font: 500 10px/1.5 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); }
+.k-facts a { transition: color var(--t) var(--ease); }
+.k-facts a:hover { color: var(--gold-light); }
+.k-empty { font-style: italic; color: rgba(255, 255, 255, .5); }
+.k-note { margin: 18px 0 0; font-size: 14px; line-height: 1.7; color: rgba(255, 255, 255, .7); }
+.k-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; margin-top: 32px; }
+.k-route { padding-bottom: 6px; border-bottom: 1px solid currentColor; font: 500 11px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; transition: color var(--t) var(--ease); }
+.k-route:hover { color: var(--gold-light); }
+
+/* Фото ателье под картой во всю ширину */
+.k-photos { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 2px; background: var(--navy-deep); }
+.k-photos li { min-width: 0; }
+.k-photos button { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; cursor: zoom-in; }
+.k-photos img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease), filter var(--t) var(--ease); filter: saturate(.9); }
+.k-photos button:hover img { transform: scale(1.04); filter: none; }
+.k-photos button::after { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(238, 205, 157, .6); opacity: 0; transition: opacity var(--t) var(--ease); }
+.k-photos button:hover::after { opacity: 1; }
+.k-photos__empty {
+  display: grid; place-items: center; min-height: clamp(220px, 22vw, 320px);
+  font: 500 10px/1.6 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: rgba(255, 255, 255, .45);
+  background: repeating-linear-gradient(90deg, rgba(238, 205, 157, .05) 0 1px, transparent 1px 8px);
+}
+
+@media (max-width: 1080px) {
+  .k-main { padding-top: 96px; }
+  .k-split { grid-template-columns: 1fr; }
+  .k-panel { order: -1; }
+  .k-map, .k-map iframe { min-height: 420px; }
+}
+
+@media (max-width: 720px) {
+  .k-panel { padding: 40px 16px 44px; }
+  .k-map, .k-map iframe { min-height: 340px; }
+  .k-actions .btn { width: 100%; }
+  /* Фото листаются свайпом */
+  .k-photos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .k-photos::-webkit-scrollbar { display: none; }
+  .k-photos li { flex: 0 0 72vw; scroll-snap-align: start; }
+  .k-photos__empty { flex-basis: 100% !important; }
+}
