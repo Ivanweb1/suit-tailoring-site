@@ -1,0 +1,135 @@
+/* VESTORO — страница «Цены» (prices.html). Прайс строит prices.js из prices-data.js.
+   Общие стили — в main.css и pages.css; заголовки секций, Bespoke, подписка, запись и SEO — в history.css */
+
+/* Заголовок без фильтра — отступ снизу */
+.page-prices .c-hero { padding-bottom: clamp(88px, 9vw, 136px); }
+.c-hero__sub + .c-hero__sub { margin-top: 16px; }
+
+/* Что входит в цену: четыре фактора */
+.p-factors { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
+.p-factors__list { list-style: none; margin: 0 auto; padding: 0; max-width: 1240px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.p-factors__list li { padding: clamp(32px, 3vw, 48px) clamp(20px, 2vw, 32px); background: #fff; border: 1px solid rgba(179, 153, 102, .3); text-align: center; transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.p-factors__list li:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(16, 30, 74, .06); }
+.p-factors__n { font: 400 14px/1 var(--serif); letter-spacing: .1em; color: var(--gold); }
+.p-factors__list h3 { margin: 18px 0 0; text-transform: uppercase; letter-spacing: .08em; font: var(--serif-w) calc(clamp(22px, 1.9vw, 26px) * var(--serif-scale))/1.15 var(--serif); }
+.p-factors__list p { margin: 14px 0 0; font-size: 14px; line-height: 1.7; color: var(--stone); }
+
+/* Процесс создания изделия: горизонтальная линия этапов */
+.p-process { padding: clamp(96px, 11vw, 160px) var(--gutter); background: var(--navy); color: #fff; }
+.p-process .h-title em { color: var(--gold-light); }
+.p-steps { position: relative; list-style: none; margin: 0 auto; padding: 0; max-width: 1340px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+.p-step { position: relative; display: flex; flex-direction: column; }
+.p-step__img { display: block; aspect-ratio: 4 / 5; overflow: hidden; }
+.p-step__img img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.85); transition: transform .8s var(--ease), filter var(--t) var(--ease); }
+.p-step:hover .p-step__img img { transform: scale(1.04); filter: none; }
+/* Линия с точками под фото — одна на весь ряд */
+.p-step__mark { position: relative; display: flex; align-items: center; gap: 14px; margin-top: 28px; }
+.p-step__mark::before { content: ""; position: absolute; left: 0; right: calc(clamp(16px, 2vw, 28px) * -1); top: 50%; height: 1px; background: var(--gold); opacity: .6; }
+.p-step:last-child .p-step__mark::before { right: 0; }
+.p-step__dot { position: relative; flex: none; width: 17px; height: 17px; border: 1px solid var(--gold-light); border-radius: 50%; background: var(--navy); }
+.p-step__dot::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--gold-light); }
+.p-step__num { position: relative; padding: 0 10px; background: var(--navy); font: var(--serif-w) 28px/1 var(--serif); color: var(--gold-light); }
+.p-step h3 { margin: 22px 0 0; font: var(--serif-w) calc(clamp(20px, 1.6vw, 24px) * var(--serif-scale))/1.2 var(--serif); }
+.p-step p { margin: 10px 0 0; font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, .7); }
+
+/* Цена: вкладки и прайс */
+.p-price { padding: clamp(96px, 11vw, 160px) var(--gutter); background: var(--ivory-2); border-bottom: 1px solid var(--line); color: var(--navy); }
+.p-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 1000px; margin: 0 auto clamp(40px, 4vw, 64px); }
+.p-tab {
+  padding: 14px 22px; border: 1px solid rgba(179, 153, 102, .45); background: #fff;
+  font: 500 11px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--stone);
+  transition: background var(--t) var(--ease), color var(--t) var(--ease), border-color var(--t) var(--ease);
+}
+.p-tab:hover { border-color: var(--navy); color: var(--navy); }
+.p-tab[aria-selected="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+.p-panel { max-width: 900px; margin: 0 auto; animation: c-in .5s var(--ease) both; }
+.p-panel__title { margin: 0 0 8px; font: 500 11px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--gold); }
+.p-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.p-row { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); }
+.p-row__name { font: var(--serif-w) calc(clamp(20px, 1.8vw, 26px) * var(--serif-scale))/1.25 var(--serif); }
+.p-row__name small { display: block; margin-top: 8px; font: 400 13px/1.5 var(--sans); color: var(--muted); }
+.p-row__price { flex: none; font: var(--serif-w) calc(clamp(22px, 2vw, 28px) * var(--serif-scale))/1.2 var(--serif); color: var(--navy); white-space: nowrap; }
+.p-price__note { max-width: 900px; margin: 32px auto 0; font-size: 14px; line-height: 1.7; color: var(--stone); text-align: center; }
+.p-price__cta { margin-top: 32px; text-align: center; }
+
+/* Наш опыт (блок со старого сайта) и три гарантии */
+.p-exp { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
+.p-exp__box { display: grid; grid-template-columns: minmax(0, 340px) 1fr; gap: clamp(32px, 5vw, 80px); align-items: center; max-width: 1240px; margin: 0 auto; padding: clamp(28px, 3.4vw, 56px); background: #fff; border: 1px solid rgba(179, 153, 102, .45); }
+.p-exp__photo { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; }
+.p-exp__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+.p-exp__body .h-title { margin-top: 14px; }
+.p-exp__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 48px); margin-top: 28px; }
+.p-exp__cols p { margin: 0; font-size: 15px; line-height: 1.8; color: var(--stone); }
+.p-exp__sign { margin: 28px 0 0; font: italic var(--serif-w) 24px/1.2 var(--serif); }
+.p-exp__sign span { display: block; margin-top: 8px; font: normal 500 10px/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+.p-guarantees { list-style: none; margin: clamp(40px, 4vw, 64px) auto 0; padding: 0; max-width: 1240px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.p-guarantees li { display: flex; align-items: center; gap: 20px; padding: 32px clamp(16px, 2.4vw, 40px); }
+.p-guarantees li + li { border-left: 1px solid var(--line); }
+.p-guarantees svg { flex: none; width: 44px; height: 44px; fill: none; stroke: var(--gold); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
+.p-guarantees span { font: var(--serif-w) calc(clamp(19px, 1.6vw, 23px) * var(--serif-scale))/1.25 var(--serif); }
+
+/* Преимущества — блок с главной, на светлом фоне с линией сверху */
+.page-prices .why { background: var(--ivory-2); border-top: 1px solid var(--line); }
+
+/* Форма «Узнать стоимость» */
+.p-quote { padding: clamp(96px, 11vw, 160px) var(--gutter); background: var(--navy-deep); color: #fff; }
+.p-quote__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 6vw, 112px); align-items: center; max-width: 1240px; margin: 0 auto; }
+.p-quote .eyebrow { color: var(--gold-light); }
+.p-quote .h-title em { color: var(--gold-light); }
+.p-quote__text { margin: 20px 0 0; max-width: 460px; font-size: 16px; line-height: 1.75; color: rgba(255, 255, 255, .7); }
+.p-quote__form { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+.p-quote__form label { display: grid; gap: 10px; font: 500 10px/1.4 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
+.p-quote__form .is-wide { grid-column: 1 / -1; }
+.p-quote__form input, .p-quote__form select, .p-quote__form textarea {
+  width: 100%; padding: 12px 0; background: none; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .35); border-radius: 0;
+  color: #fff; font: 400 16px/1.4 var(--sans); letter-spacing: 0; text-transform: none; outline: none; transition: border-color var(--t) var(--ease);
+}
+.p-quote__form select { appearance: none; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23eecd9d'/%3E%3C/svg%3E") right 4px center / 12px 8px no-repeat; cursor: pointer; }
+.p-quote__form option { color: var(--ink); }
+.p-quote__form textarea { resize: vertical; min-height: 48px; }
+.p-quote__form input::placeholder, .p-quote__form textarea::placeholder { color: rgba(255, 255, 255, .4); }
+.p-quote__form input:focus, .p-quote__form select:focus, .p-quote__form textarea:focus { border-color: var(--gold-light); }
+.p-quote__form .btn { justify-self: start; }
+.p-quote__note { grid-column: 1 / -1; margin: -8px 0 0; font-size: 12px; color: rgba(255, 255, 255, .45); }
+.p-quote__done { margin: 0; font: var(--serif-w) 26px/1.35 var(--serif); color: var(--gold-light); }
+
+@media (max-width: 1080px) {
+  .p-factors__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 48px; }
+  .p-step:nth-child(3) .p-step__mark::before { right: 0; }
+  .p-exp__box { grid-template-columns: 1fr; }
+  .p-exp__photo { max-width: 320px; }
+  .p-quote__inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  /* «ИНДИВИДУАЛЬНЫЙ» — длинное слово, на телефоне иначе шире экрана */
+  .page-prices .c-hero__title { font-size: calc(min(38px, 8.4vw) * var(--serif-scale)); }
+  .p-factors, .p-process, .p-price, .p-exp, .p-quote { padding-left: 16px; padding-right: 16px; }
+  .p-factors__list { grid-template-columns: 1fr; }
+  /* Этапы — вертикальной линией */
+  .p-steps { grid-template-columns: 1fr; row-gap: 0; padding-left: 4px; }
+  .p-steps::before { content: ""; position: absolute; left: 12px; top: 8px; bottom: 8px; width: 1px; background: var(--gold); opacity: .6; }
+  .p-step { display: grid; grid-template-columns: 26px 1fr 72px; column-gap: 14px; align-items: center; padding: 14px 0; }
+  .p-step__img { grid-column: 3; grid-row: 1 / 3; width: 72px; }
+  .p-step__mark { grid-column: 1; grid-row: 1 / 3; margin: 0; }
+  .p-step__mark::before, .p-step__num { display: none; }
+  .p-step h3 { grid-column: 2; margin: 0; font-size: 19px; }
+  .p-step p { grid-column: 2; margin-top: 6px; font-size: 13px; }
+
+  .p-tabs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; margin-left: -16px; margin-right: -16px; padding: 0 16px; scrollbar-width: none; }
+  .p-tabs::-webkit-scrollbar { display: none; }
+  .p-tab { flex: none; padding: 13px 16px; letter-spacing: .12em; }
+  .p-row { padding: 20px 0; gap: 16px; }
+  .p-row__name { font-size: 18px; }
+  .p-row__price { font-size: 19px; }
+
+  .p-exp__box { padding: 24px 20px; }
+  .p-exp__cols { grid-template-columns: 1fr; }
+  .p-guarantees { grid-template-columns: 1fr; }
+  .p-guarantees li + li { border-left: 0; border-top: 1px solid var(--line); }
+  .p-guarantees li { padding: 22px 0; }
+
+  .p-quote__form { grid-template-columns: 1fr; }
+  .p-quote__form .btn { width: 100%; }
+}

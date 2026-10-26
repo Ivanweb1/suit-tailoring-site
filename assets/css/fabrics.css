@@ -140,6 +140,7 @@
 }
 
 @media (max-width: 720px) {
+  .page-fabrics .c-hero__title { font-size: calc(min(38px, 9.4vw) * var(--serif-scale)); }
   .fh-hero__content { padding: 140px 16px 72px; }
   .fh-about { grid-template-columns: 1fr; padding-left: 16px; padding-right: 16px; }
   .fh-about__body p:not(.fh-empty) { font-size: 16px; }
