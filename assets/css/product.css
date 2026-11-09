@@ -116,7 +116,8 @@
 .pr-more { flex: none; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid currentColor; font: 500 11px/1 var(--sans); letter-spacing: .22em; text-transform: uppercase; color: var(--gold-light); transition: color var(--t) var(--ease); }
 .pr-more:hover { color: #fff; }
 
-/* 9. Отзывы: светлый фон уже в clients.css */
+/* 9–10. Отзывы и прайс на одном светлом фоне — без двойного отступа между ними */
+.page-product .c-reviews + .p-price { padding-top: 0; }
 
 /* 11. Ответы на вопросы: Джимми слева, вопросы справа */
 .faq { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
