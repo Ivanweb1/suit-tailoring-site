@@ -1,22 +1,6 @@
 /* VESTORO — страница «Клиенты VESTORO». Общие стили — в main.css и pages.css; заголовки секций, подписка, запись и SEO — в history.css */
 
-/* 3. Верхний ярус: шесть крупных плиток 3 × 2 во всю ширину */
-.c-top { background: var(--navy-deep); }
-.c-top__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-.c-tile {
-  position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; text-align: left; color: #fff;
-  background: linear-gradient(160deg, #1a2a5c, var(--navy-deep));
-}
-.c-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; transition: transform 1.2s var(--ease); }
-/* Мягкий тёмный градиент только на нижней четверти — под имя */
-.c-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 21, 52, .88) 0%, rgba(11, 21, 52, .45) 15%, rgba(11, 21, 52, 0) 30%); }
-.c-tile:hover img { transform: scale(1.04); }
-.c-tile__cap { position: absolute; z-index: 1; left: clamp(20px, 2.4vw, 36px); right: clamp(20px, 2.4vw, 36px); bottom: clamp(20px, 2.2vw, 32px); }
-.c-tile__name { display: block; text-transform: uppercase; letter-spacing: .06em; font: var(--serif-w) calc(clamp(22px, 2vw, 30px) * var(--serif-scale))/1.1 var(--serif); }
-.c-tile__role { display: block; margin-top: 8px; font: 500 10px/1.5 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); opacity: .85; transition: opacity var(--t) var(--ease); }
-.c-tile:hover .c-tile__role { opacity: 1; }
-
-/* 4. Нижний ярус: квадратный кроп, имя и должность под фото */
+/* 3. Все клиенты: квадратный кроп, имя и должность под фото */
 .c-all { padding: clamp(96px, 11vw, 160px) var(--gutter); color: var(--navy); }
 .c-all__status { margin: 18px 0 0; font: 500 10px/1.4 var(--sans); letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
 .c-grid {
@@ -89,14 +73,6 @@
 }
 
 @media (max-width: 720px) {
-
-  .c-top__grid { grid-template-columns: 1fr 1fr; }
-  .c-tile { aspect-ratio: 3 / 4; }
-  .c-tile:first-child img { object-position: 50% 30%; }
-  .c-tile__cap { left: 14px; right: 14px; bottom: 14px; }
-  .c-tile__name { font-size: 18px; }
-  .c-tile__role { font-size: 9px; letter-spacing: .12em; }
-
   .c-all { padding-left: 16px; padding-right: 16px; }
   .c-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 12px; }
   .c-card__name { margin-top: 14px; font-size: 19px; }

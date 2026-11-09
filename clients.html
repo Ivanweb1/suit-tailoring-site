@@ -286,19 +286,8 @@
       </nav>
     </section>
 
-    <!-- 3. Верхний ярус: витрина, всегда одинаковая. Фото — заглушки, кроме Моди (архив заказчика) -->
-    <section class="c-top" aria-label="Главы государств — клиенты VESTORO">
-      <ul class="c-top__grid">
-        <li><button class="c-tile" type="button" data-client="modi" data-sphere="politika"><img src="assets/img/history/archive/modi.jpg" alt="Нарендра Моди с Джимми Котвани в ателье"><span class="c-tile__cap"><span class="c-tile__name" data-name>Нарендра Моди</span><span class="c-tile__role" data-role>Премьер-министр Индии</span></span></button></li>
-        <li><button class="c-tile" type="button" data-client="rahmon" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt=""><span class="c-tile__cap"><span class="c-tile__name" data-name>Эмомали Рахмон</span><span class="c-tile__role" data-role>Президент Таджикистана</span></span></button></li>
-        <li><button class="c-tile" type="button" data-client="gunba" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt=""><span class="c-tile__cap"><span class="c-tile__name" data-name>Бадра Гунба</span><span class="c-tile__role" data-role>Президент Абхазии</span></span></button></li>
-        <li><button class="c-tile" type="button" data-client="nazarbayev" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><span class="c-tile__cap"><span class="c-tile__name" data-name>Нурсултан Назарбаев</span><span class="c-tile__role" data-role>Первый Президент Казахстана</span></span></button></li>
-        <li><button class="c-tile" type="button" data-client="sargsyan" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><span class="c-tile__cap"><span class="c-tile__name" data-name>Серж Саргсян</span><span class="c-tile__role" data-role>Президент Армении 2008–2018</span></span></button></li>
-        <li><button class="c-tile" type="button" data-client="kuchma" data-sphere="politika"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><span class="c-tile__cap"><span class="c-tile__name" data-name>Леонид Кучма</span><span class="c-tile__role" data-role>Президент Украины 1994–2005</span></span></button></li>
-      </ul>
-    </section>
 
-    <!-- 4. Нижний ярус. data-sphere — сфера для фильтра; пусто — пока не уточнена, клиент виден только во «Все» -->
+    <!-- 3. Все клиенты (главы государств — первыми). data-sphere — сфера для фильтра; пусто — пока не уточнена, клиент виден только во «Все» -->
     <section class="c-all" id="all">
       <div class="h-head reveal">
         <p class="eyebrow">Все клиенты</p>
@@ -306,6 +295,12 @@
         <p class="c-all__status" id="clientsStatus" aria-live="polite"></p>
       </div>
       <ul class="c-grid" id="clientsGrid">
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="modi"><span class="c-card__photo"><img src="assets/img/history/archive/modi.jpg" alt="Нарендра Моди с Джимми Котвани в ателье" loading="lazy"></span><span class="c-card__name" data-name>Нарендра Моди</span><span class="c-card__role" data-role>Премьер-министр Индии</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="rahmon"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Эмомали Рахмон</span><span class="c-card__role" data-role>Президент Таджикистана</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="gunba"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Бадра Гунба</span><span class="c-card__role" data-role>Президент Абхазии</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="nazarbayev"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Нурсултан Назарбаев</span><span class="c-card__role" data-role>Первый Президент Казахстана</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="sargsyan"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Серж Саргсян</span><span class="c-card__role" data-role>Президент Армении 2008–2018</span></button></li>
+        <li data-sphere="politika"><button class="c-card" type="button" data-client="kuchma"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Леонид Кучма</span><span class="c-card__role" data-role>Президент Украины 1994–2005</span></button></li>
         <li data-sphere="politika"><button class="c-card" type="button" data-client="mishustin"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Михаил Мишустин</span><span class="c-card__role" data-role>Премьер-министр России</span></button></li>
         <li data-sphere=""><button class="c-card" type="button" data-client="kovalchuk"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Ковальчук</span><span class="c-card__role" data-role>Подпись уточнить</span></button></li>
         <li data-sphere="politika"><button class="c-card" type="button" data-client="resin"><span class="c-card__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span><span class="c-card__name" data-name>Владимир Ресин</span><span class="c-card__role" data-role>Градостроитель</span></button></li>

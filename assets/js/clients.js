@@ -26,14 +26,13 @@
   const MIN_PER_TAG = 3; // тег с одним-двумя именами выглядит пустым — не показываем
   const PAGE = 15;       // столько карточек нижнего яруса видно сразу, остальные — по «Все клиенты»
 
-  /* ---------- Фильтр нижнего яруса ---------- */
+  /* ---------- Фильтр по сферам ---------- */
   const grid = document.getElementById('clientsGrid');
   const cards = [...grid.children];
   const filter = document.getElementById('clientsFilter');
   const tags = [...filter.querySelectorAll('[data-sphere-tag]')];
   const more = document.getElementById('clientsMore');
   const status = document.getElementById('clientsStatus');
-  const section = document.getElementById('all');
   let current = 'all';
   let expanded = false;
 
@@ -68,8 +67,6 @@
       const url = new URL(location.href);
       if (current === 'all') url.searchParams.delete('sphere'); else url.searchParams.set('sphere', current);
       history.replaceState(null, '', url);
-      // Верхний ярус фильтр не трогает — показываем, что изменилось ниже
-      if (section.getBoundingClientRect().top > window.innerHeight * 0.5) section.scrollIntoView({ behavior: 'smooth' });
     }
     render(byClick);
   };
