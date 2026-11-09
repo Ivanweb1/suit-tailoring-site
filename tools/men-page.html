@@ -1,0 +1,251 @@
+  <!-- Страница собрана скриптом tools/build_men.py из tools/men-page.html — правки вносить туда и пересобирать -->
+  <main class="page-product" data-product="{{key}}">
+    <!-- 1. Первый экран: фото во всю ширину, заголовок из ТЗ, запись на примерку. Цену добавим, когда заказчик её обоснует.
+         Фото — снимок ателье, заменить на фото изделия или человека в изделии в высоком разрешении -->
+    <section class="hero hero--photo pr-hero" id="hero">
+      <div class="hero__media">
+        <img class="hero__slide is-active" src="{{hero_img}}" alt="{{hero_alt}}" style="object-position: {{hero_pos}}">
+      </div>
+      <div class="hero__content">
+        <p class="hero__subtitle">{{eyebrow}}</p>
+        <h1 class="hero__title">{{h1}}</h1>
+        <div class="hero__actions">
+          <button class="btn btn--outline" type="button" data-modal-open data-modal-title="Записаться на примерку">Записаться на примерку</button>
+        </div>
+      </div>
+      <div class="hero__bottom">
+        <a class="hero__phone" href="tel:+74957250564">+7 (495) 725-05-64</a>
+        <span></span>
+        <p class="hero__hours">Пн–Сб 10:00–21:00 · Вс 10:00–19:00</p>
+      </div>
+    </section>
+
+    <!-- 2. Опыт и полоса преимуществ — шесть пунктов из ТЗ; текст об опыте — блок «Наш опыт» со страницы «Цены» -->
+    <section class="p-exp pr-exp" id="experience">
+      <div class="p-exp__box reveal">
+        <figure class="p-exp__photo"><img src="assets/img/work-4.jpg" alt="Джимми Котвани, основатель VESTORO" loading="lazy"></figure>
+        <div class="p-exp__body">
+          <p class="eyebrow">Почему VESTORO</p>
+          <h2 class="h-title">Опыт, который позволяет <em>реализовать любые идеи</em></h2>
+          <div class="p-exp__cols">
+            <p>Основатель ателье Джимми Котвани имеет более чем 30-летний опыт пошива одежды. За это время он собрал команду выдающихся портных, которые помогают ему осуществлять даже самую смелую идею заказчика.</p>
+            <p>С 1993 года мы обслужили более 35 000 клиентов, для которых создали одежду вручную по английской технологии Bespoke. Вы можете доверять нашему опыту.</p>
+          </div>
+          <p class="p-exp__sign">Джимми Котвани<span>основатель VESTORO</span></p>
+        </div>
+      </div>
+      <ul class="pr-adv reveal">
+        <li>{{icon:needle}}<span><b>С 1993 года</b>опыт индивидуального пошива</span></li>
+        <li>{{icon:italy}}<span><b>Вручную в Италии</b>пошив изделий</span></li>
+        <li>{{icon:fabric}}<span><b>7 000+</b>элитных тканей</span></li>
+        <li>{{icon:people}}<span><b>35 000+</b>довольных клиентов</span></li>
+        <li>{{icon:drop}}<span><b>За наш счёт</b>химчистка и ремонт</span></li>
+        <li>{{icon:pin}}<span><b>Бесплатно</b>выезд портного</span></li>
+      </ul>
+    </section>
+{{details}}
+    <!-- 4. Технология Bespoke: чем отличается от готовой одежды и made-to-measure. По примеру из ТЗ — тёмный блок с фото и шестью пунктами;
+         факты — из блока «Шьём по технологии Bespoke с 1993 года» на странице «История» -->
+    <section class="bs" id="bespoke">
+      <figure class="bs__photo"><img src="assets/img/history/jimmy-fitting.jpg" alt="Примерка в ателье VESTORO" loading="lazy"></figure>
+      <div class="bs__body">
+        <div class="reveal">
+          <p class="eyebrow">Английская технология с 1993 года</p>
+          <h2 class="h-title">В чём преимущество <em>Bespoke</em></h2>
+          <p class="bs__lead">Bespoke — это не массовый пошив и не made-to-measure. Изделие делается полностью вручную с нуля: без стандартной основы и без адаптации готового размера. Одна основа принадлежит одному человеку.</p>
+        </div>
+        <ul class="bs__compare reveal" aria-label="Сравнение технологий">
+          <li><span class="bs__compare-name">Готовая одежда</span><span>Стандартный размер, подгонка ограничена</span></li>
+          <li><span class="bs__compare-name">Made-to-measure</span><span>Готовое типовое лекало, адаптированное под мерки</span></li>
+          <li class="is-ours"><span class="bs__compare-name">Bespoke VESTORO</span><span>Персональное лекало с нуля под вашу фигуру</span></li>
+        </ul>
+        <ul class="bs__icons reveal">
+          <li>{{icon:pattern}}<h3>Персональное лекало</h3><p>Строится под вашу фигуру и сохраняется в системе VESTORO для следующих заказов</p></li>
+          <li>{{icon:hand}}<h3>Ручные операции</h3><p>Борт, петли, посадка рукава, воротник. На лацкане — пять видов ручной миланской петли</p></li>
+          <li>{{icon:canvas}}<h3>Full или half canvas</h3><p>Бортовка внутри пиджака. Клеевой дубляж не используется</p></li>
+          <li>{{icon:stripes}}<h3>Сведение рисунка</h3><p>Клетка и полоска сходятся на всех частях пиджака</p></li>
+          <li>{{icon:fabric}}<h3>Детали на ваш выбор</h3><p>Несколько каталогов пуговиц и самая большая коллекция подкладок</p></li>
+          <li>{{icon:shield}}<h3>±2 размера</h3><p>Если фигура изменится, бесплатно подгоним изделие в пределах двух размеров</p></li>
+        </ul>
+        <div class="reveal"><button class="btn btn--gold" type="button" data-modal-open data-modal-title="Заказать Bespoke-пошив">Заказать Bespoke-пошив</button></div>
+      </div>
+    </section>
+
+    <!-- 5. Используем только премиальные ткани: короткий блок, логотипы без ссылок — по ТЗ с этой страницы никуда не уводим -->
+    <section class="fabrics pr-fabrics" id="fabrics">
+      <div class="fabrics__body reveal">
+        <p class="eyebrow">Более 7 000 тканей</p>
+        <h2 class="section-title">Используем только премиальные ткани</h2>
+        <p class="fabrics__text">В ателье на ваш выбор доступно более 7 000 элитных тканей ведущих мировых домов. С 2000-х годов VESTORO — официальный партнёр производителей.</p>
+      </div>
+      <div class="fabric-strip reveal">
+        <p class="fabric-strip__label">Мировые<span>дома тканей</span></p>
+        <ul class="fabric-strip__logos">
+          <li><span class="pr-logo"><img src="assets/img/fabrics/loro-piana.svg" alt="Loro Piana" loading="lazy"></span></li>
+          <li><span class="pr-logo"><img src="assets/img/fabrics/zegna.svg" alt="Ermenegildo Zegna" loading="lazy"></span></li>
+          <li><span class="pr-logo"><img src="assets/img/fabrics/scabal.svg" alt="Scabal" loading="lazy"></span></li>
+          <li><span class="pr-logo"><img src="assets/img/fabrics/dormeuil.svg" alt="Dormeuil" loading="lazy"></span></li>
+          <li><span class="pr-logo"><img src="assets/img/fabrics/holland-sherry.svg" alt="Holland &amp; Sherry" loading="lazy"></span></li>
+          <li><span class="pr-logo"><img src="assets/img/fabrics/drago.svg" alt="Drago" loading="lazy"></span></li>
+          <li><span class="pr-logo"><img src="assets/img/fabrics/charles-clayton.svg" alt="Charles Clayton" loading="lazy"></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. Процесс — блок с главной. По ТЗ — A/B-тест: расширенная версия по умолчанию, короткая — по ссылке ?process=short -->
+    <section class="process pr-process" id="process">
+      <div class="process__head reveal">
+        <p class="eyebrow">Bespoke</p>
+        <h2 class="section-title">{{process_title}}</h2>
+      </div>
+
+      <p class="process__sub">Полный процесс занимает от 4 до 6 недель</p>
+      <ol class="timeline reveal">
+        <li><span class="timeline__img"><img src="assets/img/process/step-1.jpg" alt="" loading="lazy"></span><span class="timeline__mark"><span class="timeline__num">01</span><span class="timeline__dot"></span></span><span class="timeline__title">Персональная консультация</span></li>
+        <li><span class="timeline__img"><img src="assets/img/process/step-2.jpg" alt="" loading="lazy"></span><span class="timeline__mark"><span class="timeline__num">02</span><span class="timeline__dot"></span></span><span class="timeline__title">Снятие индивидуальных мерок</span></li>
+        <li><span class="timeline__img"><img src="assets/img/process/step-3.jpg" alt="" loading="lazy"></span><span class="timeline__mark"><span class="timeline__num">03</span><span class="timeline__dot"></span></span><span class="timeline__title">Создание персонального лекала</span></li>
+        <li><span class="timeline__img"><img src="assets/img/process/step-4.jpg" alt="" loading="lazy"></span><span class="timeline__mark"><span class="timeline__num">04</span><span class="timeline__dot"></span></span><span class="timeline__title">Дополнительная проработка лекала</span></li>
+        <li><span class="timeline__img"><img src="assets/img/process/step-5.jpg" alt="" loading="lazy"></span><span class="timeline__mark"><span class="timeline__num">05</span><span class="timeline__dot"></span></span><span class="timeline__title">Примерка пробного изделия</span></li>
+        <li><span class="timeline__img"><img src="assets/img/process/step-6.jpg" alt="" loading="lazy"></span><span class="timeline__mark"><span class="timeline__num">06</span><span class="timeline__dot"></span></span><span class="timeline__title">Пошив в Италии</span></li>
+        <li><span class="timeline__img"><img src="assets/img/process/step-7.jpg" alt="" loading="lazy"></span><span class="timeline__mark"><span class="timeline__num">07</span><span class="timeline__dot"></span></span><span class="timeline__title">Финальная примерка</span></li>
+        <li><span class="timeline__img"><img src="assets/img/process/step-8.jpg" alt="" loading="lazy"></span><span class="timeline__mark"><span class="timeline__num">08</span><span class="timeline__dot"></span></span><span class="timeline__title">Изделие готово</span></li>
+      </ol>
+
+      <ol class="process__steps">
+        <li class="step reveal"><div class="step__text"><span class="step__num">01</span><h3 class="step__title">Персональная консультация</h3><p>Изучаем гардероб, образ жизни и задачи будущего изделия. Помогаем определить силуэт, конструкцию и стиль, подобрать ткань, подкладку, пуговицы и детали.</p></div><figure class="step__media"><img src="assets/img/process/step-1.jpg" alt="Персональная консультация" loading="lazy"></figure></li>
+        <li class="step reveal"><div class="step__text"><span class="step__num">02</span><h3 class="step__title">Снятие индивидуальных мерок</h3><p>Мастер учитывает не только пропорции тела, но и осанку, положение плеч, баланс фигуры и особенности движения.</p></div><figure class="step__media"><img src="assets/img/process/step-2.jpg" alt="Снятие индивидуальных мерок" loading="lazy"></figure></li>
+        <li class="step reveal"><div class="step__text"><span class="step__num">03</span><h3 class="step__title">Создание персонального лекала</h3><p>Лекало создаётся исключительно для вашей фигуры. Не стандартная основа и не адаптация готового размера. Лекало и мерки сохраняются в системе VESTORO.</p></div><figure class="step__media"><img src="assets/img/process/step-3.jpg" alt="Создание персонального лекала" loading="lazy"></figure></li>
+        <li class="step reveal"><div class="step__text"><span class="step__num">04</span><h3 class="step__title">Дополнительная проработка лекала</h3><p>Индивидуальное бумажное лекало, по которому кроится изделие в Италии. При необходимости — рабочее лекало в Москве и пробное изделие из технической ткани.</p></div><figure class="step__media"><img src="assets/img/process/step-4.jpg" alt="Дополнительная проработка лекала" loading="lazy"></figure></li>
+        <li class="step reveal"><div class="step__text"><span class="step__num">05</span><h3 class="step__title">Примерка пробного изделия</h3><p>Проверяем положение плеч и воротника, баланс, длину, объём, направление рукавов и свободу движения, вносим изменения в лекало.</p></div><figure class="step__media"><img src="assets/img/process/step-5.jpg" alt="Примерка" loading="lazy"></figure></li>
+        <li class="step reveal"><div class="step__text"><span class="step__num">06</span><h3 class="step__title">Пошив в Италии</h3><p>Изделие шьётся по персональному лекалу с учётом особенностей фигуры и результатов примерки.</p></div><figure class="step__media"><img src="assets/img/process/step-6.jpg" alt="Пошив в Италии" loading="lazy"></figure></li>
+        <li class="step reveal"><div class="step__text"><span class="step__num">07</span><h3 class="step__title">Финальная примерка</h3><p>Проверяем посадку, баланс, длину и комфорт в движении. В 99% случаев дополнительная подгонка не требуется.</p></div><figure class="step__media"><img src="assets/img/process/step-7.jpg" alt="Финальная примерка" loading="lazy"></figure></li>
+        <li class="step reveal"><div class="step__text"><span class="step__num">08</span><h3 class="step__title">Изделие готово</h3><p>Забираете в ателье или получаете персональной доставкой.</p></div><figure class="step__media"><img src="assets/img/process/step-8.jpg" alt="Изделие готово" loading="lazy"></figure></li>
+      </ol>
+    </section>
+
+    <!-- 7. Как удобнее начать: приехать в ателье или вызвать портного — по ТЗ.
+         «Сроки исполнения» и «Как оформить» — наши формулировки из фактов сайта, сверить с заказчиком -->
+    <section class="start" id="start">
+      <div class="h-head reveal">
+        <p class="eyebrow">Первый шаг</p>
+        <h2 class="h-title">Как удобнее <em>начать</em></h2>
+      </div>
+      <div class="start__grid">
+        <article class="start__col start__col--visit reveal">
+          <figure class="start__photo"><img src="assets/img/hero-atelier.jpg" alt="Гостиная ателье VESTORO" loading="lazy"></figure>
+          <div class="start__body">
+            <p class="eyebrow">Вариант 1</p>
+            <h3 class="start__title">Приехать в ателье</h3>
+            <ul class="start__facts">
+              <li><b>Новолесная, 5</b>Москва</li>
+              <li><b>Бесплатная парковка</b>у ателье</li>
+              <li><b>Пн–Сб 10:00–21:00</b>Вс 10:00–19:00</li>
+              <li><b><a href="tel:+74957250564">+7 (495) 725-05-64</a></b>запись и вопросы</li>
+            </ul>
+            <button class="btn btn--line" type="button" data-modal-open data-modal-title="Записаться на примерку">Записаться на примерку</button>
+          </div>
+        </article>
+        <article class="start__col start__col--tailor reveal">
+          <p class="eyebrow">Вариант 2</p>
+          <h3 class="start__title">Выезд портного (Москва)</h3>
+          <p class="start__sub">Персональная услуга для тех, кто ценит комфорт и индивидуальный подход</p>
+          <ol class="start__steps">
+            <li><span>01</span>Заявка</li>
+            <li><span>02</span>Согласование времени и места</li>
+            <li><span>03</span>Приезд портного с образцами тканей</li>
+            <li><span>04</span>Снятие мерок и выбор ткани</li>
+            <li><span>05</span>Передача заказа в производство</li>
+          </ol>
+          <p class="start__label">Условия</p>
+          <ul class="start__terms">
+            <li><b>Стоимость визита</b>Бесплатно при заказе от 50 000 ₽</li>
+            <li><b>Сроки исполнения</b>Изготовление — от 4 до 6 недель</li>
+            <li><b>Как оформить</b>Заявка на сайте, звонок или мессенджер</li>
+          </ul>
+          <button class="btn btn--gold" type="button" data-modal-open data-modal-title="Вызвать портного">Вызвать портного</button>
+        </article>
+      </div>
+    </section>
+{{works}}
+    <!-- 9. Отзывы клиентов — блок со страницы «Клиенты». Тексты — образцы, заменить на отзывы заказчика -->
+    <section class="c-reviews" id="reviews">
+      <div class="h-head reveal">
+        <p class="eyebrow">Отзывы</p>
+        <h2 class="h-title">Что говорят <em>клиенты</em></h2>
+      </div>
+      <ul class="c-reviews__list reveal">
+        <li><article class="review"><div class="review__author"><img class="review__photo" src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><div><span class="review__name">Имя Фамилия</span><span class="review__role">Должность</span></div></div><p class="review__text">Шью в VESTORO больше десяти лет. Лекала хранятся, поэтому новый костюм — это выбор ткани и одна примерка.</p><p class="review__date">Сентябрь 2026</p></article></li>
+        <li><article class="review"><div class="review__author"><img class="review__photo" src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><div><span class="review__name">Имя Фамилия</span><span class="review__role">Должность</span></div></div><p class="review__text">Заказывал смокинг к семейному торжеству. Джимми сам вёл все примерки — посадка без единой складки.</p><p class="review__date">Август 2026</p></article></li>
+        <li><article class="review"><div class="review__author"><img class="review__photo" src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><div><span class="review__name">Имя Фамилия</span><span class="review__role">Должность</span></div></div><p class="review__text">Портной приехал в офис в удобное время и снял мерки за час. Через пять недель костюм был готов.</p><p class="review__date">Июнь 2026</p></article></li>
+        <li><article class="review"><div class="review__author"><img class="review__photo" src="assets/img/client-placeholder.jpg" alt="" loading="lazy"><div><span class="review__name">Имя Фамилия</span><span class="review__role">Должность</span></div></div><p class="review__text">Раз в полгода привожу костюмы на осмотр: почистят, подправят посадку — и они снова как новые.</p><p class="review__date">Апрель 2026</p></article></li>
+      </ul>
+      <div class="c-reviews__cta reveal"><a class="btn btn--line" href="clients.html#reviews">Все отзывы</a></div>
+    </section>
+
+    <!-- 10. Стоимость — раздел прайса со страницы «Цены» (prices-data.js). Пару строк описания пришлёт заказчик -->
+    <section class="p-price" id="price">
+      <div class="h-head reveal">
+        <p class="eyebrow">Прайс</p>
+        <h2 class="h-title">{{price_title}}</h2>
+        <p class="h-lead">Точную цену мы с клиентом оговариваем на первой встрече после обсуждения всех деталей и снятия мерок.</p>
+      </div>
+      <div id="pricePanels" data-only="{{key}}"></div>
+      <div class="p-price__cta reveal"><button class="btn btn--line" type="button" data-modal-open data-modal-title="Записаться на примерку">Записаться на примерку</button></div>
+    </section>
+{{faq}}
+    <!-- 12. Подписка -->
+    <section class="subscribe subscribe--dark" id="subscribe">
+      <div class="subscribe__inner reveal">
+        <div class="subscribe__intro">
+          <p class="subscribe__brand">VESTORO</p>
+          <h2 class="subscribe__title">Подписка</h2>
+          <p class="subscribe__text">Укажите свой email, чтобы получать эксклюзивные новости VESTORO.</p>
+        </div>
+        <form class="subscribe__form" id="subscribeForm">
+          <div class="subscribe__row">
+            <input type="email" name="email" placeholder="Ваш email" autocomplete="email" required aria-label="Ваш email">
+            <button type="submit">Подписаться</button>
+          </div>
+          <p class="subscribe__note">Подписываясь, вы соглашаетесь с политикой конфиденциальности. Отписаться можно в любой момент.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 13. Запись в ателье: фон — интерьер, окно со способами связи как на главной -->
+    <section class="h-visit" id="visit">
+      <img class="h-visit__bg" src="assets/img/history/2023-atelier.jpg" alt="" loading="lazy">
+      <div class="h-visit__content reveal">
+        <p class="eyebrow">Визит в ателье</p>
+        <h2 class="h-title">Приезжайте в ателье <em>на Новолесной 5</em></h2>
+        <p class="h-visit__line">Москва, Новолесная 5 · бесплатная парковка · Пн–Сб 10:00–21:00, Вс 10:00–19:00 · <a href="tel:+74957250564">+7 (495) 725-05-64</a></p>
+        <button class="btn btn--outline" type="button" data-modal-open data-modal-title="Записаться в ателье">Записаться в ателье</button>
+      </div>
+    </section>
+{{also}}
+    <!-- 15. Контакты — адрес из блока «Наши адреса» -->
+    <section class="k-split pr-contacts" id="address">
+      <div class="k-map"><iframe title="Карта: ателье VESTORO на Новолесной, 5" loading="lazy" src="https://maps.google.com/maps?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9D%D0%BE%D0%B2%D0%BE%D0%BB%D0%B5%D1%81%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%205&amp;hl=ru&amp;z=16&amp;output=embed" allowfullscreen></iframe></div>
+      <div class="k-panel">
+        <p class="eyebrow">Контакты</p>
+        <h2 class="k-title">Наши адреса</h2>
+        <p class="k-sub">Приглашаем в гости, обсудить ваш идеальный костюм</p>
+        <div class="k-city">
+          <ul class="k-facts">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.6 7-12a7 7 0 0 0-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>Москва, Новолесная улица, 5<small>Бесплатная парковка</small></span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5l2.6 3.4-1.6 2.2a12 12 0 0 0 7.3 7.3l2.2-1.6 3.4 2.6-1.6 3.1C11.3 20.3 3.7 12.7 3.5 5.1z"/></svg><a href="tel:+74957250564">+7 (495) 725-05-64</a></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 6l8 7 8-7"/></svg><a href="mailto:zayavka@vestoro.ru">zayavka@vestoro.ru</a></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg><span>Пн–Сб 10:00–21:00 · Вс 10:00–19:00</span></li>
+          </ul>
+          <div class="k-actions">
+            <button class="btn btn--gold" type="button" data-modal-open data-modal-title="Записаться в ателье">Записаться в ателье</button>
+            <a class="k-route" href="contacts.html">Все адреса</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO-блок -->
+    <section class="h-seo">
+      <h2>{{seo_title}}</h2>{{seo}}
+    </section>
+  </main>

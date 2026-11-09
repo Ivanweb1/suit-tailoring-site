@@ -1,14 +1,26 @@
 /* Цены: вкладки прайса и форма «Узнать стоимость». Данные — в prices-data.js.
    Подключается до main.js, чтобы новые блоки получили плавное появление */
 (() => {
-  const GROUPS = window.PRICE_GROUPS;
+  // На странице изделия (men-suits.html) прайс одного раздела: <div id="pricePanels" data-only="suits">, без вкладок
+  const only = document.getElementById('pricePanels')?.dataset.only;
+  const GROUPS = only ? window.PRICE_GROUPS.filter((g) => g.key === only) : window.PRICE_GROUPS;
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const rub = (n) => `от ${n.toLocaleString('ru-RU').replace(/ /g, ' ')} ₽`;
 
   /* ---------- Прайс по вкладкам ---------- */
   const tabs = document.getElementById('priceTabs');
   const panels = document.getElementById('pricePanels');
-  if (tabs && panels) {
+  if (only && panels) {
+    panels.innerHTML = GROUPS.map((g) => `
+      <div class="p-panel">
+        <ul class="p-list">${g.items.map((it) => `
+          <li class="p-row">
+            <span class="p-row__name">${esc(it.name)}${it.note ? `<small>${esc(it.note)}</small>` : ''}</span>
+            <span class="p-row__price">${rub(it.price)}</span>
+          </li>`).join('')}
+        </ul>
+      </div>`).join('');
+  } else if (tabs && panels) {
     tabs.innerHTML = GROUPS.map((g) =>
       `<button class="p-tab" type="button" role="tab" id="tab-${g.key}" aria-controls="panel-${g.key}" data-tab="${g.key}">${esc(g.tab)}</button>`).join('');
     panels.innerHTML = GROUPS.map((g) => `
