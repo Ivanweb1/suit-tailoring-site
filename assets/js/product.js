@@ -1,26 +1,42 @@
 /* Страницы изделий мужского раздела (men-suits.html, men-jackets.html).
-   «Что определяет качество и стоимость»: открыт один пункт, справа меняется фото. */
+   «Что определяет качество и стоимость»: схема, по «Подробнее» / точке / миниатюре — окно с полным текстом пункта. */
 (() => {
   const root = document.getElementById('details');
   if (!root) return;
-  const items = [...root.querySelectorAll('.dt-item')];
-  const photos = [...root.querySelectorAll('.dt__photo img')];
+  const modal = document.getElementById('dtModal');
+  const body = document.getElementById('dtModalBody');
+  const img = document.getElementById('dtModalImg');
+  const tpls = [...root.querySelectorAll('template[id^="dt-tpl-"]')];
+  let cur = 0;
 
-  const open = (item) => {
-    items.forEach((it) => {
-      const on = it === item;
-      it.classList.toggle('is-open', on);
-      it.querySelector('.dt-item__head').setAttribute('aria-expanded', String(on));
-      it.querySelector('.dt-item__body').hidden = !on;
-    });
-    photos.forEach((p) => p.classList.toggle('is-active', p.dataset.dt === item.dataset.dt));
+  const show = (i) => {
+    cur = (i + tpls.length) % tpls.length;
+    const t = tpls[cur];
+    body.replaceChildren(t.content.cloneNode(true));
+    img.src = t.dataset.img;
+    img.alt = t.dataset.alt;
+    img.style.objectPosition = t.dataset.pos;
+    modal.querySelector('.modal__body').scrollTop = 0;
+    modal.querySelector('.modal__dialog').scrollTop = 0;
   };
 
-  items.forEach((it) => it.querySelector('.dt-item__head').addEventListener('click', () => {
-    if (it.classList.contains('is-open')) return;
-    open(it);
-    // На телефоне пункт раскрывается на месте — держим его заголовок в кадре
-    const top = it.getBoundingClientRect().top;
-    if (top < 70) window.scrollBy({ top: top - 80, behavior: 'smooth' });
-  }));
+  const open = (i) => {
+    show(i);
+    if (window.vestoroModal) window.vestoroModal.open(modal);
+  };
+
+  root.querySelectorAll('[data-dt-open]').forEach((el) =>
+    el.addEventListener('click', () => open(Number(el.dataset.dtOpen)))
+  );
+  root.querySelectorAll('.dt-point .scheme__thumb').forEach((el) =>
+    el.addEventListener('click', () => open(Number(el.closest('.dt-point').dataset.dot) - 1))
+  );
+  modal.querySelectorAll('[data-dt-step]').forEach((el) =>
+    el.addEventListener('click', () => show(cur + Number(el.dataset.dtStep)))
+  );
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('is-open')) return;
+    if (e.key === 'ArrowRight') show(cur + 1);
+    if (e.key === 'ArrowLeft') show(cur - 1);
+  });
 })();

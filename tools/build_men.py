@@ -286,10 +286,27 @@ PAGES = [
 
 # ---------- Блоки ----------
 
+# Схема блока 3: миниатюра и точка на фото костюма для каждого пункта — снимки и координаты
+# из схемы Bespoke на «Истории» (work-3.jpg), подобраны по смыслу пункта
+SCHEME = [
+    ('assets/img/history/bespoke/canvas.jpg', '72.2%', '47%'),
+    ('assets/img/history/bespoke/pattern-match.jpg', '36.9%', '43.7%'),
+    ('assets/img/history/bespoke/horn-buttons.jpg', '47.2%', '57.4%'),
+    ('assets/img/history/bespoke/lining.jpg', '14.6%', '76.5%'),
+    ('assets/img/history/bespoke/buttonhole.jpg', '61.7%', '34.8%'),
+    ('assets/img/history/bespoke/pattern.jpg', '13.6%', '28.6%'),
+]
+
+
 def details_block(p):
-    items, photos = [], []
+    """Схема как в блоке Bespoke на «Истории»: костюм в центре, по три пункта по сторонам.
+    В пункте — заголовок и первая фраза текста заказчика, полный текст с фото — в окне по «Подробнее»."""
+    items, dots, tpls = [], [], []
+    total = len(p['details'])
     for i, d in enumerate(p['details']):
         n = f'{i + 1:02d}'
+        thumb, x, y = SCHEME[i]
+        lead = next(v for k, v in d['body'] if k == 'lead')
         body = []
         for kind, val in d['body']:
             if kind == 'lead':
@@ -299,37 +316,55 @@ def details_block(p):
             elif kind == 'accent':
                 body.append(f'<p class="dt-accent">{val}</p>')
             elif kind == 'list':
-                body.append('<ul class="dt-list">' + ''.join(f'<li>{x}</li>' for x in val) + '</ul>')
+                body.append('<ul class="dt-list">' + ''.join(f'<li>{v}</li>' for v in val) + '</ul>')
             elif kind == 'defs':
                 body.append('<dl class="dt-defs">' + ''.join(f'<div><dt>{a}</dt><dd>{b}</dd></div>' for a, b in val) + '</dl>')
-        is_open = i == 0
         items.append(f'''
-          <li class="dt-item{' is-open' if is_open else ''}" data-dt="{i}">
-            <button class="dt-item__head" type="button" aria-expanded="{str(is_open).lower()}" aria-controls="dt-body-{i}" id="dt-head-{i}">
-              <span class="dt-item__n">{n}</span><span class="dt-item__title">{d['short']}</span><span class="dt-item__sign" aria-hidden="true"></span>
-            </button>
-            <div class="dt-item__body" id="dt-body-{i}" role="region" aria-labelledby="dt-head-{i}"{'' if is_open else ' hidden'}>
-              <img class="dt-item__photo" src="{d['img']}" alt="{d['alt']}" loading="lazy" style="object-position: {d['pos']}">
-              <h3 class="dt-item__h">{d['title']}</h3>
-              {''.join(body)}
-            </div>
+          <li class="scheme__item dt-point" data-dot="{i + 1}">
+            <img class="scheme__thumb" src="{thumb}" alt="" loading="lazy">
+            <div><span class="scheme__n">{n}</span><h3>{d['short']}</h3><p>{lead}</p>
+              <button class="dt-more" type="button" data-dt-open="{i}" aria-haspopup="dialog">Подробнее</button></div>
           </li>''')
-        active = ' class="is-active"' if is_open else ''
-        photos.append(f'<img src="{d["img"]}" alt="{d["alt"]}" loading="lazy" data-dt="{i}" style="object-position: {d["pos"]}"{active}>')
+        dots.append(f'''
+          <button class="scheme__dot" type="button" data-dot="{i + 1}" data-dt-open="{i}" style="--x: {x}; --y: {y}" aria-label="{d['short']}: подробнее">{i + 1}</button>''')
+        tpls.append(f'''
+      <template id="dt-tpl-{i}" data-img="{d['img']}" data-pos="{d['pos']}" data-alt="{d['alt']}">
+        <p class="modal__eyebrow">{n} / {total:02d}</p>
+        <h2 class="dt-modal__title" id="dtModalTitle">{d['title']}</h2>
+        {''.join(body)}
+      </template>''')
     return f'''
-    <!-- 3. Что определяет качество и стоимость — по примеру из ТЗ: список деталей слева, фото справа.
-         Тексты — из ТЗ; «Количество вариантов» по тканям, пуговицам и подкладкам — ждём числа от заказчика.
-         Фото — из имеющихся снимков сайта, заменить на детали изделий заказчика -->
+    <!-- 3. Что определяет качество и стоимость — схема по примеру Gieves &amp; Hawkes и блока Bespoke на «Истории»:
+         костюм в центре, шесть пунктов по сторонам, полный текст заказчика (12.11) — во всплывающем окне.
+         Фото костюма и миниатюры — из схемы на «Истории», заменить на детали изделий заказчика -->
     <section class="dt" id="details">
       <div class="h-head reveal">
         <p class="eyebrow">{p['details_eyebrow']}</p>
         <h2 class="h-title">{p['details_title']}</h2>
         <p class="h-lead">{p['details_lead']}</p>
       </div>
-      <div class="dt__grid">
-        <ol class="dt__list reveal">{''.join(items)}
-        </ol>
-        <figure class="dt__photo reveal">{''.join(photos)}</figure>
+      <div class="scheme dt-scheme">
+        <ul class="scheme__col scheme__col--left reveal">{''.join(items[:3])}
+        </ul>
+        <figure class="scheme__photo reveal">
+          <img src="assets/img/work-3.jpg" alt="Костюм VESTORO в полоску на манекене в ателье" loading="lazy">{''.join(dots)}
+        </figure>
+        <ul class="scheme__col scheme__col--right reveal">{''.join(items[3:])}
+        </ul>
+      </div>{''.join(tpls)}
+      <div class="modal dt-modal" id="dtModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="dtModalTitle">
+        <div class="modal__backdrop" data-modal-close></div>
+        <div class="modal__dialog">
+          <figure class="modal__media"><img id="dtModalImg" src="assets/img/work-3.jpg" alt=""></figure>
+          <div class="modal__body">
+            <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
+            <div id="dtModalBody"></div>
+            <div class="dt-modal__nav">
+              <button type="button" data-dt-step="-1">← Назад</button>
+              <button type="button" data-dt-step="1">Далее →</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 '''

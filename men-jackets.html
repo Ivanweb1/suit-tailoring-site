@@ -301,79 +301,103 @@
       </ul>
     </section>
 
-    <!-- 3. Что определяет качество и стоимость — по примеру из ТЗ: список деталей слева, фото справа.
-         Тексты — из ТЗ; «Количество вариантов» по тканям, пуговицам и подкладкам — ждём числа от заказчика.
-         Фото — из имеющихся снимков сайта, заменить на детали изделий заказчика -->
+    <!-- 3. Что определяет качество и стоимость — схема по примеру Gieves &amp; Hawkes и блока Bespoke на «Истории»:
+         костюм в центре, шесть пунктов по сторонам, полный текст заказчика (12.11) — во всплывающем окне.
+         Фото костюма и миниатюры — из схемы на «Истории», заменить на детали изделий заказчика -->
     <section class="dt" id="details">
       <div class="h-head reveal">
         <p class="eyebrow">Из чего складывается пиджак</p>
         <h2 class="h-title">Что определяет качество и&nbsp;стоимость <em>пиджака VESTORO?</em></h2>
         <p class="h-lead">Настоящее качество пиджака складывается из деталей, многие из которых незаметны с первого взгляда. Конструкция, ткань, подкладка, пуговицы, мастерство портных и точность посадки определяют, как пиджак выглядит, ощущается и сохраняет форму спустя годы.</p>
       </div>
-      <div class="dt__grid">
-        <ol class="dt__list reveal">
-          <li class="dt-item is-open" data-dt="0">
-            <button class="dt-item__head" type="button" aria-expanded="true" aria-controls="dt-body-0" id="dt-head-0">
-              <span class="dt-item__n">01</span><span class="dt-item__title">Конструкция Full Canvas</span><span class="dt-item__sign" aria-hidden="true"></span>
-            </button>
-            <div class="dt-item__body" id="dt-body-0" role="region" aria-labelledby="dt-head-0">
-              <img class="dt-item__photo" src="assets/img/journal/timing.jpg" alt="Пиджак в полоску — конструкция держит форму" loading="lazy" style="object-position: center 40%">
-              <h3 class="dt-item__h">Конструкция Full Canvas — основа вашего идеального пиджака</h3>
-              <p class="dt-lead">Самое важное в пиджаке всегда спрятано внутри.</p><p>В VESTORO мы уделяем особое внимание внутренней конструкции пиджака. В пиджаках с технологией Full Canvas используется полноценная бортовая прокладка из натуральных материалов, в том числе с применением конского волоса.</p><p>Такая конструкция традиционно используется в высококлассном английском портновском искусстве. Она позволяет пиджаку естественно повторять движения тела, формировать красивую линию груди и лацканов, лучше сохранять форму и со временем адаптироваться к фигуре владельца.</p><p>Клеевой пиджак дешевле и делается быстрее. На вешалке он выглядит так же. Разницу вы заметите через 2–3 года носки: пузыри на груди, заломы по борту, потерянное плечо.</p><p class="dt-accent">То, что находится внутри пиджака, во многом и определяет его качество и долговечность.</p>
-            </div>
+      <div class="scheme dt-scheme">
+        <ul class="scheme__col scheme__col--left reveal">
+          <li class="scheme__item dt-point" data-dot="1">
+            <img class="scheme__thumb" src="assets/img/history/bespoke/canvas.jpg" alt="" loading="lazy">
+            <div><span class="scheme__n">01</span><h3>Конструкция Full Canvas</h3><p>Самое важное в пиджаке всегда спрятано внутри.</p>
+              <button class="dt-more" type="button" data-dt-open="0" aria-haspopup="dialog">Подробнее</button></div>
           </li>
-          <li class="dt-item" data-dt="1">
-            <button class="dt-item__head" type="button" aria-expanded="false" aria-controls="dt-body-1" id="dt-head-1">
-              <span class="dt-item__n">02</span><span class="dt-item__title">Ткани</span><span class="dt-item__sign" aria-hidden="true"></span>
-            </button>
-            <div class="dt-item__body" id="dt-body-1" role="region" aria-labelledby="dt-head-1" hidden>
-              <img class="dt-item__photo" src="assets/img/fabric-scabal.jpg" alt="Костюмная ткань Scabal" loading="lazy" style="object-position: center">
-              <h3 class="dt-item__h">Ткани — как отражение образа вашей жизни</h3>
-              <p class="dt-lead">Ткань — это то, что выбирается не по внешнему виду, а по образу жизни.</p><p>VESTORO — сертифицированный партнёр ведущих мировых производителей, поэтому мы предлагаем нашим клиентам один из самых широких выборов тканей для индивидуального пошива, от классической шерсти на каждый день до эксклюзивных материалов для особых случаев.</p><p>На ваш выбор:</p><dl class="dt-defs"><div><dt>Loro Piana</dt><dd>роскошная шерсть, кашемир и эксклюзивные натуральные материалы</dd></div><div><dt>Ermenegildo Zegna</dt><dd>итальянские ткани, сочетающие элегантность, современные технологии и комфорт</dd></div><div><dt>Scabal</dt><dd>премиальные коллекции, редкие переплетения и эксклюзивные материалы</dd></div><div><dt>Dormeuil</dt><dd>британское портновское наследие и инновационные ткани</dd></div><div><dt>Holland &amp; Sherry</dt><dd>классические английские ткани с богатой историей</dd></div></dl><p>И другие производители, с которыми можно ознакомиться в разделе <a class="dt-link" href="fabrics.html">Ткани</a>.</p><p>Мы помогаем подобрать ткань не только по внешнему виду, но и по образу жизни клиента, сезону, частоте использования пиджака и желаемой посадке.</p><p>Например, светлая шерсть в машине и в самолёте живёт по-разному. И таких нюансов очень много.</p><p class="dt-accent">Поэтому первым делом мы спрашиваем не «какую ткань вы хотите», а как вы проводите день.</p>
-            </div>
+          <li class="scheme__item dt-point" data-dot="2">
+            <img class="scheme__thumb" src="assets/img/history/bespoke/pattern-match.jpg" alt="" loading="lazy">
+            <div><span class="scheme__n">02</span><h3>Ткани</h3><p>Ткань — это то, что выбирается не по внешнему виду, а по образу жизни.</p>
+              <button class="dt-more" type="button" data-dt-open="1" aria-haspopup="dialog">Подробнее</button></div>
           </li>
-          <li class="dt-item" data-dt="2">
-            <button class="dt-item__head" type="button" aria-expanded="false" aria-controls="dt-body-2" id="dt-head-2">
-              <span class="dt-item__n">03</span><span class="dt-item__title">Пуговицы</span><span class="dt-item__sign" aria-hidden="true"></span>
-            </button>
-            <div class="dt-item__body" id="dt-body-2" role="region" aria-labelledby="dt-head-2" hidden>
-              <img class="dt-item__photo" src="assets/img/journal/accessories.jpg" alt="Пуговицы и детали пиджака" loading="lazy" style="object-position: center 55%">
-              <h3 class="dt-item__h">Пуговицы — деталь, способная изменить впечатление от пиджака</h3>
-              <p class="dt-lead">Пуговицы кажутся незначительным элементом, однако они помогают завершить образ пиджака.</p><p>В VESTORO доступен широкий выбор пуговиц различных форм, размеров, оттенков и материалов:</p><dl class="dt-defs"><div><dt>Натуральный рог</dt><dd>благородная фактура и естественные переходы цвета</dd></div><div><dt>Перламутр</dt><dd>характерный мягкий блеск и уникальный природный рисунок</dd></div><div><dt>Корозо</dt><dd>натуральный растительный материал с выразительной текстурой</dd></div><div><dt>Металлические пуговицы</dt><dd>для клубных пиджаков и выразительных моделей</dd></div><div><dt>Качественные современные материалы</dt><dd>широкий выбор цветов и фактур</dd></div></dl><p class="dt-accent">Пуговицы подбираются с учётом ткани, назначения пиджака и предпочтений владельца. Можно выбрать незаметное классическое решение или сделать пуговицы выразительным акцентом.</p>
-            </div>
+          <li class="scheme__item dt-point" data-dot="3">
+            <img class="scheme__thumb" src="assets/img/history/bespoke/horn-buttons.jpg" alt="" loading="lazy">
+            <div><span class="scheme__n">03</span><h3>Пуговицы</h3><p>Пуговицы кажутся незначительным элементом, однако они помогают завершить образ пиджака.</p>
+              <button class="dt-more" type="button" data-dt-open="2" aria-haspopup="dialog">Подробнее</button></div>
           </li>
-          <li class="dt-item" data-dt="3">
-            <button class="dt-item__head" type="button" aria-expanded="false" aria-controls="dt-body-3" id="dt-head-3">
-              <span class="dt-item__n">04</span><span class="dt-item__title">Подкладка</span><span class="dt-item__sign" aria-hidden="true"></span>
-            </button>
-            <div class="dt-item__body" id="dt-body-3" role="region" aria-labelledby="dt-head-3" hidden>
-              <img class="dt-item__photo" src="assets/img/wardrobe/men-trousers.jpg" alt="Пиджак с подкладкой" loading="lazy" style="object-position: center 35%">
-              <h3 class="dt-item__h">Подкладка — индивидуальность, скрытая внутри</h3>
-              <p class="dt-lead">Подкладка — это не только внешний вид внутренней части пиджака, но и комфорт при носке.</p><p>В VESTORO мы предлагаем широкий ассортимент подкладочных материалов:</p><dl class="dt-defs"><div><dt>Вискоза</dt><dd>мягкость, гладкость и комфорт</dd></div><div><dt>Купро (Bemberg)</dt><dd>приятные тактильные ощущения, хорошее скольжение и комфорт при носке</dd></div><div><dt>Шёлк</dt><dd>роскошная фактура и элегантный внешний вид</dd></div><div><dt>Смесовые подкладочные ткани</dt><dd>различные сочетания свойств, износостойкости и эстетики</dd></div></dl><p>Наши клиенты могут выбрать классическую подкладку в тон пиджака или создать яркий внутренний акцент: геометрический орнамент, цветочный рисунок, необычный принт или контрастное сочетание оттенков.</p><p class="dt-accent">Подкладка — это тот элемент пиджака, с помощью которого можно выразить вашу индивидуальность даже в самом строгом деловом пиджаке.</p>
-            </div>
+        </ul>
+        <figure class="scheme__photo reveal">
+          <img src="assets/img/work-3.jpg" alt="Костюм VESTORO в полоску на манекене в ателье" loading="lazy">
+          <button class="scheme__dot" type="button" data-dot="1" data-dt-open="0" style="--x: 72.2%; --y: 47%" aria-label="Конструкция Full Canvas: подробнее">1</button>
+          <button class="scheme__dot" type="button" data-dot="2" data-dt-open="1" style="--x: 36.9%; --y: 43.7%" aria-label="Ткани: подробнее">2</button>
+          <button class="scheme__dot" type="button" data-dot="3" data-dt-open="2" style="--x: 47.2%; --y: 57.4%" aria-label="Пуговицы: подробнее">3</button>
+          <button class="scheme__dot" type="button" data-dot="4" data-dt-open="3" style="--x: 14.6%; --y: 76.5%" aria-label="Подкладка: подробнее">4</button>
+          <button class="scheme__dot" type="button" data-dot="5" data-dt-open="4" style="--x: 61.7%; --y: 34.8%" aria-label="Мастерство и детали: подробнее">5</button>
+          <button class="scheme__dot" type="button" data-dot="6" data-dt-open="5" style="--x: 13.6%; --y: 28.6%" aria-label="Индивидуальная посадка: подробнее">6</button>
+        </figure>
+        <ul class="scheme__col scheme__col--right reveal">
+          <li class="scheme__item dt-point" data-dot="4">
+            <img class="scheme__thumb" src="assets/img/history/bespoke/lining.jpg" alt="" loading="lazy">
+            <div><span class="scheme__n">04</span><h3>Подкладка</h3><p>Подкладка — это не только внешний вид внутренней части пиджака, но и комфорт при носке.</p>
+              <button class="dt-more" type="button" data-dt-open="3" aria-haspopup="dialog">Подробнее</button></div>
           </li>
-          <li class="dt-item" data-dt="4">
-            <button class="dt-item__head" type="button" aria-expanded="false" aria-controls="dt-body-4" id="dt-head-4">
-              <span class="dt-item__n">05</span><span class="dt-item__title">Мастерство и детали</span><span class="dt-item__sign" aria-hidden="true"></span>
-            </button>
-            <div class="dt-item__body" id="dt-body-4" role="region" aria-labelledby="dt-head-4" hidden>
-              <img class="dt-item__photo" src="assets/img/work-1.jpg" alt="Лацкан и нагрудный карман пиджака" loading="lazy" style="object-position: center 30%">
-              <h3 class="dt-item__h">Портновское мастерство и детали</h3>
-              <p class="dt-lead">Стоимость пиджака определяется не только материалами, но и сложностью его изготовления.</p><p>В VESTORO особое внимание уделяется форме лацканов, качеству швов, обработке карманов, петель, краёв пиджака и внутренним деталям. В зависимости от выбранного уровня исполнения и модели могут использоваться:</p><ul class="dt-list"><li>Ручная отделочная строчка по краям пиджака</li><li>Петли с ручной обработкой</li><li>Функциональные пуговицы на рукавах</li><li>Индивидуальная форма лацканов</li><li>Дополнительные внутренние карманы</li><li>Контрастные нити и декоративные элементы</li><li>Персональная вышивка имени или инициалов владельца</li></ul><p class="dt-accent">Каждый элемент согласовывается с клиентом, чтобы готовый пиджак соответствовал его стилю и пожеланиям.</p>
-            </div>
+          <li class="scheme__item dt-point" data-dot="5">
+            <img class="scheme__thumb" src="assets/img/history/bespoke/buttonhole.jpg" alt="" loading="lazy">
+            <div><span class="scheme__n">05</span><h3>Мастерство и детали</h3><p>Стоимость пиджака определяется не только материалами, но и сложностью его изготовления.</p>
+              <button class="dt-more" type="button" data-dt-open="4" aria-haspopup="dialog">Подробнее</button></div>
           </li>
-          <li class="dt-item" data-dt="5">
-            <button class="dt-item__head" type="button" aria-expanded="false" aria-controls="dt-body-5" id="dt-head-5">
-              <span class="dt-item__n">06</span><span class="dt-item__title">Индивидуальная посадка</span><span class="dt-item__sign" aria-hidden="true"></span>
-            </button>
-            <div class="dt-item__body" id="dt-body-5" role="region" aria-labelledby="dt-head-5" hidden>
-              <img class="dt-item__photo" src="assets/img/history/jimmy-fitting.jpg" alt="Примерка в ателье VESTORO" loading="lazy" style="object-position: center 30%">
-              <h3 class="dt-item__h">Индивидуальная посадка — пиджак, созданный под вас</h3>
-              <p class="dt-lead">Дорогая ткань не спасёт пиджак, который плохо сидит.</p><p>Прежде чем начинается индивидуальный пошив, мы изучаем вашу фигуру, осанку, пропорции, как вы стоите и ходите. Учитываем ширину плеч, положение корпуса, особенности спины, длину рук и множество других деталей.</p><p>Важную роль играют примерки и необходимые корректировки, которые помогают добиться гармоничного силуэта и свободы движений.</p><p>Клиент также выбирает элементы дизайна: форму лацканов, карманы, количество пуговиц, силуэт и другие детали.</p><p class="dt-accent">В результате вы получаете идеальный пиджак, который создан специально под вас.</p>
-            </div>
+          <li class="scheme__item dt-point" data-dot="6">
+            <img class="scheme__thumb" src="assets/img/history/bespoke/pattern.jpg" alt="" loading="lazy">
+            <div><span class="scheme__n">06</span><h3>Индивидуальная посадка</h3><p>Дорогая ткань не спасёт пиджак, который плохо сидит.</p>
+              <button class="dt-more" type="button" data-dt-open="5" aria-haspopup="dialog">Подробнее</button></div>
           </li>
-        </ol>
-        <figure class="dt__photo reveal"><img src="assets/img/journal/timing.jpg" alt="Пиджак в полоску — конструкция держит форму" loading="lazy" data-dt="0" style="object-position: center 40%" class="is-active"><img src="assets/img/fabric-scabal.jpg" alt="Костюмная ткань Scabal" loading="lazy" data-dt="1" style="object-position: center"><img src="assets/img/journal/accessories.jpg" alt="Пуговицы и детали пиджака" loading="lazy" data-dt="2" style="object-position: center 55%"><img src="assets/img/wardrobe/men-trousers.jpg" alt="Пиджак с подкладкой" loading="lazy" data-dt="3" style="object-position: center 35%"><img src="assets/img/work-1.jpg" alt="Лацкан и нагрудный карман пиджака" loading="lazy" data-dt="4" style="object-position: center 30%"><img src="assets/img/history/jimmy-fitting.jpg" alt="Примерка в ателье VESTORO" loading="lazy" data-dt="5" style="object-position: center 30%"></figure>
+        </ul>
+      </div>
+      <template id="dt-tpl-0" data-img="assets/img/journal/timing.jpg" data-pos="center 40%" data-alt="Пиджак в полоску — конструкция держит форму">
+        <p class="modal__eyebrow">01 / 06</p>
+        <h2 class="dt-modal__title" id="dtModalTitle">Конструкция Full Canvas — основа вашего идеального пиджака</h2>
+        <p class="dt-lead">Самое важное в пиджаке всегда спрятано внутри.</p><p>В VESTORO мы уделяем особое внимание внутренней конструкции пиджака. В пиджаках с технологией Full Canvas используется полноценная бортовая прокладка из натуральных материалов, в том числе с применением конского волоса.</p><p>Такая конструкция традиционно используется в высококлассном английском портновском искусстве. Она позволяет пиджаку естественно повторять движения тела, формировать красивую линию груди и лацканов, лучше сохранять форму и со временем адаптироваться к фигуре владельца.</p><p>Клеевой пиджак дешевле и делается быстрее. На вешалке он выглядит так же. Разницу вы заметите через 2–3 года носки: пузыри на груди, заломы по борту, потерянное плечо.</p><p class="dt-accent">То, что находится внутри пиджака, во многом и определяет его качество и долговечность.</p>
+      </template>
+      <template id="dt-tpl-1" data-img="assets/img/fabric-scabal.jpg" data-pos="center" data-alt="Костюмная ткань Scabal">
+        <p class="modal__eyebrow">02 / 06</p>
+        <h2 class="dt-modal__title" id="dtModalTitle">Ткани — как отражение образа вашей жизни</h2>
+        <p class="dt-lead">Ткань — это то, что выбирается не по внешнему виду, а по образу жизни.</p><p>VESTORO — сертифицированный партнёр ведущих мировых производителей, поэтому мы предлагаем нашим клиентам один из самых широких выборов тканей для индивидуального пошива, от классической шерсти на каждый день до эксклюзивных материалов для особых случаев.</p><p>На ваш выбор:</p><dl class="dt-defs"><div><dt>Loro Piana</dt><dd>роскошная шерсть, кашемир и эксклюзивные натуральные материалы</dd></div><div><dt>Ermenegildo Zegna</dt><dd>итальянские ткани, сочетающие элегантность, современные технологии и комфорт</dd></div><div><dt>Scabal</dt><dd>премиальные коллекции, редкие переплетения и эксклюзивные материалы</dd></div><div><dt>Dormeuil</dt><dd>британское портновское наследие и инновационные ткани</dd></div><div><dt>Holland &amp; Sherry</dt><dd>классические английские ткани с богатой историей</dd></div></dl><p>И другие производители, с которыми можно ознакомиться в разделе <a class="dt-link" href="fabrics.html">Ткани</a>.</p><p>Мы помогаем подобрать ткань не только по внешнему виду, но и по образу жизни клиента, сезону, частоте использования пиджака и желаемой посадке.</p><p>Например, светлая шерсть в машине и в самолёте живёт по-разному. И таких нюансов очень много.</p><p class="dt-accent">Поэтому первым делом мы спрашиваем не «какую ткань вы хотите», а как вы проводите день.</p>
+      </template>
+      <template id="dt-tpl-2" data-img="assets/img/journal/accessories.jpg" data-pos="center 55%" data-alt="Пуговицы и детали пиджака">
+        <p class="modal__eyebrow">03 / 06</p>
+        <h2 class="dt-modal__title" id="dtModalTitle">Пуговицы — деталь, способная изменить впечатление от пиджака</h2>
+        <p class="dt-lead">Пуговицы кажутся незначительным элементом, однако они помогают завершить образ пиджака.</p><p>В VESTORO доступен широкий выбор пуговиц различных форм, размеров, оттенков и материалов:</p><dl class="dt-defs"><div><dt>Натуральный рог</dt><dd>благородная фактура и естественные переходы цвета</dd></div><div><dt>Перламутр</dt><dd>характерный мягкий блеск и уникальный природный рисунок</dd></div><div><dt>Корозо</dt><dd>натуральный растительный материал с выразительной текстурой</dd></div><div><dt>Металлические пуговицы</dt><dd>для клубных пиджаков и выразительных моделей</dd></div><div><dt>Качественные современные материалы</dt><dd>широкий выбор цветов и фактур</dd></div></dl><p class="dt-accent">Пуговицы подбираются с учётом ткани, назначения пиджака и предпочтений владельца. Можно выбрать незаметное классическое решение или сделать пуговицы выразительным акцентом.</p>
+      </template>
+      <template id="dt-tpl-3" data-img="assets/img/wardrobe/men-trousers.jpg" data-pos="center 35%" data-alt="Пиджак с подкладкой">
+        <p class="modal__eyebrow">04 / 06</p>
+        <h2 class="dt-modal__title" id="dtModalTitle">Подкладка — индивидуальность, скрытая внутри</h2>
+        <p class="dt-lead">Подкладка — это не только внешний вид внутренней части пиджака, но и комфорт при носке.</p><p>В VESTORO мы предлагаем широкий ассортимент подкладочных материалов:</p><dl class="dt-defs"><div><dt>Вискоза</dt><dd>мягкость, гладкость и комфорт</dd></div><div><dt>Купро (Bemberg)</dt><dd>приятные тактильные ощущения, хорошее скольжение и комфорт при носке</dd></div><div><dt>Шёлк</dt><dd>роскошная фактура и элегантный внешний вид</dd></div><div><dt>Смесовые подкладочные ткани</dt><dd>различные сочетания свойств, износостойкости и эстетики</dd></div></dl><p>Наши клиенты могут выбрать классическую подкладку в тон пиджака или создать яркий внутренний акцент: геометрический орнамент, цветочный рисунок, необычный принт или контрастное сочетание оттенков.</p><p class="dt-accent">Подкладка — это тот элемент пиджака, с помощью которого можно выразить вашу индивидуальность даже в самом строгом деловом пиджаке.</p>
+      </template>
+      <template id="dt-tpl-4" data-img="assets/img/work-1.jpg" data-pos="center 30%" data-alt="Лацкан и нагрудный карман пиджака">
+        <p class="modal__eyebrow">05 / 06</p>
+        <h2 class="dt-modal__title" id="dtModalTitle">Портновское мастерство и детали</h2>
+        <p class="dt-lead">Стоимость пиджака определяется не только материалами, но и сложностью его изготовления.</p><p>В VESTORO особое внимание уделяется форме лацканов, качеству швов, обработке карманов, петель, краёв пиджака и внутренним деталям. В зависимости от выбранного уровня исполнения и модели могут использоваться:</p><ul class="dt-list"><li>Ручная отделочная строчка по краям пиджака</li><li>Петли с ручной обработкой</li><li>Функциональные пуговицы на рукавах</li><li>Индивидуальная форма лацканов</li><li>Дополнительные внутренние карманы</li><li>Контрастные нити и декоративные элементы</li><li>Персональная вышивка имени или инициалов владельца</li></ul><p class="dt-accent">Каждый элемент согласовывается с клиентом, чтобы готовый пиджак соответствовал его стилю и пожеланиям.</p>
+      </template>
+      <template id="dt-tpl-5" data-img="assets/img/history/jimmy-fitting.jpg" data-pos="center 30%" data-alt="Примерка в ателье VESTORO">
+        <p class="modal__eyebrow">06 / 06</p>
+        <h2 class="dt-modal__title" id="dtModalTitle">Индивидуальная посадка — пиджак, созданный под вас</h2>
+        <p class="dt-lead">Дорогая ткань не спасёт пиджак, который плохо сидит.</p><p>Прежде чем начинается индивидуальный пошив, мы изучаем вашу фигуру, осанку, пропорции, как вы стоите и ходите. Учитываем ширину плеч, положение корпуса, особенности спины, длину рук и множество других деталей.</p><p>Важную роль играют примерки и необходимые корректировки, которые помогают добиться гармоничного силуэта и свободы движений.</p><p>Клиент также выбирает элементы дизайна: форму лацканов, карманы, количество пуговиц, силуэт и другие детали.</p><p class="dt-accent">В результате вы получаете идеальный пиджак, который создан специально под вас.</p>
+      </template>
+      <div class="modal dt-modal" id="dtModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="dtModalTitle">
+        <div class="modal__backdrop" data-modal-close></div>
+        <div class="modal__dialog">
+          <figure class="modal__media"><img id="dtModalImg" src="assets/img/work-3.jpg" alt=""></figure>
+          <div class="modal__body">
+            <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
+            <div id="dtModalBody"></div>
+            <div class="dt-modal__nav">
+              <button type="button" data-dt-step="-1">← Назад</button>
+              <button type="button" data-dt-step="1">Далее →</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

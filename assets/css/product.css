@@ -17,41 +17,41 @@
 .pr-adv span { font-size: 13px; line-height: 1.5; color: var(--stone); }
 .pr-adv b { display: block; margin-bottom: 4px; font: var(--serif-w) calc(clamp(20px, 1.6vw, 24px) * var(--serif-scale))/1.15 var(--serif); color: var(--navy); }
 
-/* 3. Что определяет качество и стоимость: список деталей слева, фото справа (на телефоне фото внутри пункта) */
-.dt { padding: clamp(96px, 11vw, 160px) var(--gutter); background: var(--ivory-2); border-top: 1px solid var(--line); color: var(--navy); }
+/* 3. Что определяет качество и стоимость: схема как в блоке Bespoke на «Истории» (history.css: .scheme),
+   по «Подробнее» — окно с полным текстом и фото */
+.dt { padding: clamp(96px, 11vw, 160px) var(--gutter); background: var(--navy); color: #fff; }
 .dt .h-head { max-width: 1080px; }
-.dt .h-lead { max-width: 760px; }
-.dt__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 88px); align-items: start; max-width: 1340px; margin: 0 auto; }
-.dt__list { list-style: none; margin: 0; padding: 0; counter-reset: dt; }
-.dt-item { border-bottom: 1px solid rgba(179, 153, 102, .35); transition: background var(--t) var(--ease); }
-.dt-item:first-child { border-top: 1px solid rgba(179, 153, 102, .35); }
-.dt-item.is-open { background: #fff; box-shadow: inset 2px 0 0 var(--gold); }
-.dt-item__head { display: grid; grid-template-columns: 56px 1fr 20px; align-items: center; width: 100%; padding: 24px clamp(16px, 2vw, 32px); text-align: left; }
-.dt-item__n { font: var(--serif-w) 20px/1 var(--serif); color: var(--gold); font-variant-numeric: lining-nums; }
-.dt-item__title { font: var(--serif-w) calc(clamp(21px, 1.8vw, 26px) * var(--serif-scale))/1.2 var(--serif); transition: color var(--t) var(--ease); }
-.dt-item__head:hover .dt-item__title { color: var(--gold); }
-.dt-item__sign { position: relative; width: 14px; height: 14px; justify-self: end; }
-.dt-item__sign::before, .dt-item__sign::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--gold); transition: transform var(--t) var(--ease); }
-.dt-item__sign::after { transform: rotate(90deg); }
-.dt-item.is-open .dt-item__sign::after { transform: rotate(0); }
-.dt-item__body { padding: 0 clamp(16px, 2vw, 32px) 32px calc(56px + clamp(16px, 2vw, 32px)); animation: c-in .5s var(--ease) both; }
-.dt-item__photo { display: none; }
-.dt-item__h { margin: 0 0 14px; font: 500 11px/1.5 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
-.dt-item__body p { margin: 0 0 12px; font-size: 15px; line-height: 1.75; color: var(--stone); }
-.dt-item__body .dt-lead { font: italic var(--serif-w) calc(clamp(19px, 1.5vw, 22px) * var(--serif-scale))/1.4 var(--serif); color: var(--navy); }
-.dt-item__body .dt-accent { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid rgba(179, 153, 102, .35); color: var(--navy); }
+.dt .h-title em { color: var(--gold-light); }
+.dt .h-lead { max-width: 760px; color: rgba(255, 255, 255, .7); }
+.dt-scheme { max-width: 1240px; margin-left: auto; margin-right: auto; }
+.dt-point { display: flex; align-items: center; gap: 22px; }
+.dt-point h3 { margin: 8px 0 0; font: var(--serif-w) calc(clamp(17px, 1.4vw, 20px) * var(--serif-scale))/1.2 var(--serif); letter-spacing: .08em; text-transform: uppercase; color: #fff; }
+.dt-point p { margin: 8px 0 0; font-size: 13px; line-height: 1.6; color: rgba(255, 255, 255, .62); }
+.dt-point .scheme__thumb { cursor: pointer; }
+.dt-more { margin-top: 12px; padding: 0 0 3px; border-bottom: 1px solid rgba(238, 205, 157, .5); font: 500 10px/1.4 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); transition: border-color var(--t) var(--ease), color var(--t) var(--ease); }
+.dt-more:hover, .dt-point.is-active .dt-more { border-color: var(--gold-light); color: #fff; }
+.dt .scheme__dot { padding: 0; cursor: pointer; }
+.dt .scheme__dot:nth-of-type(1) { --i: 0; }
+/* Окно: фото слева, текст справа с прокруткой */
+.dt-modal .modal__dialog { grid-template-columns: 40% 60%; width: min(1080px, 100%); }
+.dt-modal .modal__media img { object-position: center; }
+.dt-modal .modal__body { padding: 56px clamp(28px, 4vw, 56px) 32px; }
+.dt-modal__title { margin: 0 48px 22px 0; font: var(--serif-w) calc(clamp(26px, 2.6vw, 36px) * var(--serif-scale))/1.15 var(--serif); }
+.dt-modal p { margin: 0 0 12px; font-size: 15px; line-height: 1.75; color: rgba(255, 255, 255, .72); }
+.dt-modal .dt-lead { font: italic var(--serif-w) calc(clamp(19px, 1.5vw, 22px) * var(--serif-scale))/1.4 var(--serif); color: var(--gold-light); }
+.dt-modal .dt-accent { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid rgba(179, 153, 102, .35); color: #fff; }
+.dt-modal .dt-link { color: #fff; border-bottom: 1px solid var(--gold-light); }
+.dt-modal .dt-link:hover { color: var(--gold-light); }
 .dt-list { list-style: none; margin: 4px 0 16px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; }
-.dt-list li { position: relative; padding-left: 18px; font-size: 14px; line-height: 1.55; color: var(--stone); }
+.dt-list li { position: relative; padding-left: 18px; font-size: 14px; line-height: 1.55; color: rgba(255, 255, 255, .72); }
 .dt-list li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border: 1px solid var(--gold); transform: rotate(45deg); }
-.dt-defs { margin: 4px 0 16px; display: grid; gap: 0; border-top: 1px solid rgba(179, 153, 102, .25); }
-.dt-defs div { display: grid; grid-template-columns: minmax(150px, .8fr) 1.4fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid rgba(179, 153, 102, .25); }
-.dt-defs dt { font: var(--serif-w) calc(18px * var(--serif-scale))/1.3 var(--serif); color: var(--navy); }
-.dt-defs dd { margin: 0; font-size: 14px; line-height: 1.55; color: var(--stone); }
-/* Фото справа держится в кадре, пока листается список */
-.dt__photo { position: sticky; top: 96px; margin: 0; aspect-ratio: 4 / 5; overflow: hidden; background: var(--navy-deep); }
-.dt__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.03); transition: opacity .7s var(--ease), transform 1.2s var(--ease); }
-.dt__photo img.is-active { opacity: 1; transform: none; }
-.dt__photo::after { content: ""; position: absolute; inset: 16px; border: 1px solid rgba(238, 205, 157, .55); pointer-events: none; }
+.dt-defs { margin: 4px 0 16px; display: grid; border-top: 1px solid rgba(179, 153, 102, .3); }
+.dt-defs div { display: grid; grid-template-columns: minmax(150px, .8fr) 1.4fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid rgba(179, 153, 102, .3); }
+.dt-defs dt { font: var(--serif-w) calc(18px * var(--serif-scale))/1.3 var(--serif); color: #fff; }
+.dt-defs dd { margin: 0; font-size: 14px; line-height: 1.55; color: rgba(255, 255, 255, .62); }
+.dt-modal__nav { display: flex; justify-content: space-between; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .14); }
+.dt-modal__nav button { font: 500 10px/1.4 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); transition: color var(--t) var(--ease); }
+.dt-modal__nav button:hover { color: #fff; }
 
 /* 4. Bespoke: тёмный блок с фото слева, сравнение и шесть пунктов */
 .bs { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--navy-deep); color: #fff; }
@@ -157,9 +157,8 @@
   .pr-adv { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .pr-adv li:nth-child(4) { border-left: 0; }
   .pr-adv li:nth-child(n + 4) { border-top: 1px solid var(--line); }
-  .dt__grid { grid-template-columns: 1fr; }
-  .dt__photo { display: none; }
-  .dt-item__photo { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: 20px; }
+  .dt-modal .modal__dialog { grid-template-columns: 1fr; width: min(680px, 100%); }
+  .dt-modal .modal__media { height: 260px; min-height: 0; }
   .bs { grid-template-columns: 1fr; }
   .bs__photo { min-height: 0; aspect-ratio: 16 / 10; }
   .bs__photo::after { background: linear-gradient(to bottom, rgba(11, 21, 52, 0) 60%, rgba(11, 21, 52, .9)); }
@@ -181,8 +180,9 @@
   .pr-adv li:nth-child(n + 3) { border-top: 1px solid var(--line); }
   .pr-adv li { padding: 24px 8px; }
   .dt, .start, .faq, .pr-also { padding-left: 16px; padding-right: 16px; }
-  .dt-item__head { grid-template-columns: 40px 1fr 20px; padding: 20px 14px; }
-  .dt-item__body { padding: 0 14px 26px; }
+  .dt-point { gap: 18px; }
+  .dt-modal .modal__media { height: 200px; }
+  .dt-modal .modal__body { padding: 28px 20px 24px; }
   .dt-list { grid-template-columns: 1fr; }
   .dt-defs div { grid-template-columns: 1fr; gap: 2px; }
   .bs__body { padding: 56px 16px 64px; }
@@ -212,6 +212,3 @@
 /* 2. Без обращения основателя (правки 12.11): остаётся только полоса преимуществ */
 .pr-exp { padding-top: clamp(48px, 5vw, 80px); padding-bottom: clamp(48px, 5vw, 80px); }
 .pr-exp .pr-adv { margin-top: 0; }
-/* Ссылка внутри текста пункта */
-.dt-item__body .dt-link { color: var(--navy); border-bottom: 1px solid var(--gold); transition: color var(--t) var(--ease); }
-.dt-item__body .dt-link:hover { color: var(--gold); }
