@@ -1,0 +1,793 @@
+/* VESTORO — страница «Подарочные сертификаты» (certificates.html).
+   Подключается после main.css, history.css и pages.css */
+
+/* ---------- Первый экран: подарочный сертификат как самостоятельный лендинг ---------- */
+.cert-hero {
+  position: relative;
+  padding: clamp(168px, 14vw, 220px) 0 clamp(72px, 7vw, 112px);
+  background: var(--navy-deep);
+  color: #fff;
+  overflow: hidden;
+}
+.cert-hero__inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 5vw, 88px);
+  align-items: center;
+}
+.cert-hero .eyebrow { color: var(--gold-light); }
+.cert-hero__title {
+  margin: 22px 0 0;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font: var(--serif-w) calc(clamp(36px, 4.6vw, 72px) * var(--serif-scale))/1.04 var(--serif);
+}
+.cert-hero__title span {
+  display: block;
+  color: var(--gold-light);
+}
+.cert-hero__lead {
+  margin: 28px 0 0;
+  max-width: 600px;
+  font: italic var(--serif-w) calc(clamp(20px, 1.9vw, 26px) * var(--serif-scale))/1.4 var(--serif);
+  color: rgba(255, 255, 255, .9);
+}
+.cert-hero__text {
+  margin: 18px 0 0;
+  max-width: 580px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, .72);
+}
+.cert-hero__actions {
+  margin-top: 38px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.cert-hero__meta {
+  margin: 34px 0 0;
+  padding: 22px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(179, 153, 102, .35);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 36px;
+}
+.cert-hero__meta li {
+  font: 500 10px/1.5 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .64);
+}
+.cert-hero__meta b {
+  display: block;
+  margin-bottom: 4px;
+  font: var(--serif-w) calc(22px * var(--serif-scale))/1.1 var(--serif);
+  letter-spacing: .02em;
+  text-transform: none;
+  color: var(--gold-light);
+}
+.cert-hero__media {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgba(179, 153, 102, .35);
+}
+.cert-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.04);
+}
+.cert-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(238, 205, 157, .3);
+  pointer-events: none;
+}
+
+/* ---------- 1. Почему сертификат VESTORO станет лучшим подарком ---------- */
+.cert-why {
+  padding: clamp(84px, 9vw, 136px) var(--gutter);
+  background: var(--ivory);
+  color: var(--navy);
+}
+.cert-why__grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1320px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(20px, 2.2vw, 32px);
+}
+.cert-why__card {
+  grid-column: span 2;
+  padding: clamp(28px, 3vw, 40px);
+  background: var(--ivory-2);
+  border-top: 1px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+}
+/* Нижний ряд из двух карточек — по центру (по 3 колонки) */
+.cert-why__card:nth-child(4),
+.cert-why__card:nth-child(5) {
+  grid-column: span 3;
+}
+.cert-why__num {
+  font: var(--serif-w) calc(34px * var(--serif-scale))/1 var(--serif);
+  color: var(--gold);
+}
+.cert-why__card h3 {
+  margin: 18px 0 0;
+  font: var(--serif-w) calc(clamp(22px, 2vw, 28px) * var(--serif-scale))/1.18 var(--serif);
+  color: var(--navy);
+}
+.cert-why__card p {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--stone);
+}
+
+/* ---------- 2. Виды сертификатов (3 карточки как на макете в Figma) ---------- */
+.cert-types {
+  padding: clamp(84px, 9vw, 136px) var(--gutter);
+  background: var(--ivory-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+}
+.cert-types__grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1320px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+}
+.cert-type {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: var(--ivory);
+  border: 1px solid rgba(179, 153, 102, .3);
+  transition: border-color var(--t) var(--ease), transform var(--t) var(--ease), box-shadow var(--t) var(--ease);
+}
+.cert-type:hover,
+.cert-type.is-selected {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(11, 21, 52, .08);
+}
+.cert-type.is-selected {
+  outline: 1px solid var(--gold);
+  outline-offset: 4px;
+}
+.cert-type__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+.cert-type__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--ease);
+}
+.cert-type:hover .cert-type__media img {
+  transform: scale(1.04);
+}
+.cert-type__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 7px 12px;
+  background: rgba(11, 21, 52, .84);
+  color: var(--gold-light);
+  font: 500 10px/1 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+.cert-type__body {
+  padding: clamp(26px, 2.8vw, 38px) clamp(20px, 2.2vw, 32px);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.cert-type__title {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font: var(--serif-w) calc(clamp(20px, 1.8vw, 24px) * var(--serif-scale))/1.25 var(--serif);
+  color: var(--navy);
+}
+.cert-type__desc {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--stone);
+}
+.cert-type__cta {
+  margin-top: auto;
+  padding-top: 22px;
+  font: 500 11px/1 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.cert-type.is-selected .cert-type__cta {
+  color: var(--navy);
+}
+
+/* ---------- Конструктор идеального сертификата + живое превью ---------- */
+.cert-builder {
+  max-width: 1320px;
+  margin: clamp(48px, 5vw, 76px) auto 0;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(32px, 4.5vw, 72px);
+  align-items: start;
+  background: #fff;
+  border: 1px solid rgba(179, 153, 102, .38);
+  padding: clamp(28px, 4vw, 56px);
+}
+.cert-builder__step + .cert-builder__step {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(179, 153, 102, .24);
+}
+.cert-builder__label {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 16px;
+  font: 500 11px/1.4 var(--sans);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.cert-builder__label span {
+  font: var(--serif-w) calc(22px * var(--serif-scale))/1 var(--serif);
+  letter-spacing: 0;
+  color: var(--gold);
+}
+
+/* Кнопки-чипы выбора */
+.cert-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cert-pill {
+  padding: 13px 18px;
+  border: 1px solid rgba(16, 30, 74, .2);
+  background: transparent;
+  color: var(--ink);
+  font: 500 12px/1.25 var(--sans);
+  letter-spacing: .08em;
+  transition: background var(--t) var(--ease), color var(--t) var(--ease), border-color var(--t) var(--ease);
+}
+.cert-pill:hover {
+  border-color: var(--gold);
+}
+.cert-pill[aria-pressed="true"] {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.cert-pill small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+.cert-pill[aria-pressed="true"] small {
+  color: var(--gold-light);
+}
+
+.cert-pills--items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.cert-pills--items .cert-pill {
+  text-align: left;
+  padding: 14px 16px;
+}
+
+.cert-custom-sum {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 340px;
+}
+.cert-custom-sum input {
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(16, 30, 74, .3);
+  background: transparent;
+  font: 500 16px/1.3 var(--sans);
+  color: var(--navy);
+  outline: none;
+  transition: border-color var(--t) var(--ease);
+}
+.cert-custom-sum input:focus {
+  border-bottom-color: var(--gold);
+}
+.cert-custom-sum span {
+  font: 500 12px/1 var(--sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.cert-fields-row {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.cert-input {
+  width: 100%;
+  padding: 13px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(16, 30, 74, .26);
+  background: transparent;
+  font: 400 15px/1.4 var(--sans);
+  color: var(--ink);
+  outline: none;
+  transition: border-color var(--t) var(--ease);
+}
+.cert-input:focus {
+  border-bottom-color: var(--gold);
+}
+.cert-input::placeholder {
+  color: var(--muted);
+}
+
+/* Живая превью-карточка сертификата справа */
+.cert-preview-wrap {
+  position: sticky;
+  top: 108px;
+}
+.cert-card {
+  position: relative;
+  padding: clamp(28px, 3vw, 40px);
+  background: linear-gradient(145deg, #132356 0%, #0b1534 65%, #09112b 100%);
+  color: #fff;
+  border: 1px solid rgba(238, 205, 157, .35);
+  box-shadow: 0 24px 54px rgba(11, 21, 52, .22);
+  overflow: hidden;
+}
+.cert-card::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(179, 153, 102, .35);
+  pointer-events: none;
+}
+.cert-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.cert-card__brand {
+  font: var(--serif-w) 26px/1 var(--serif);
+  letter-spacing: .16em;
+  color: var(--gold-light);
+}
+.cert-card__kind {
+  font: 500 9px/1.3 var(--sans);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .62);
+  text-align: right;
+}
+.cert-card__subtitle {
+  margin: 28px 0 0;
+  font: 500 10px/1.4 var(--sans);
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .58);
+}
+.cert-card__value {
+  margin: 10px 0 0;
+  font: var(--serif-w) calc(clamp(34px, 3.2vw, 46px) * var(--serif-scale))/1.08 var(--serif);
+  color: var(--gold-light);
+}
+.cert-card__item {
+  margin: 10px 0 0;
+  font: italic var(--serif-w) calc(20px * var(--serif-scale))/1.3 var(--serif);
+  color: rgba(255, 255, 255, .9);
+}
+.cert-card__recipient {
+  margin: 22px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, .75);
+}
+.cert-card__recipient strong {
+  color: #fff;
+  font-weight: 500;
+}
+.cert-card__foot {
+  margin: 24px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 500 9px/1.4 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .48);
+}
+.cert-preview__summary {
+  margin: 22px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid rgba(179, 153, 102, .28);
+}
+.cert-preview__summary dl {
+  margin: 0;
+}
+.cert-preview__summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(16, 30, 74, .08);
+}
+.cert-preview__summary dt {
+  color: var(--muted);
+}
+.cert-preview__summary dd {
+  margin: 0;
+  font-weight: 500;
+  color: var(--navy);
+  text-align: right;
+}
+.cert-preview__actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cert-preview__actions .btn {
+  width: 100%;
+}
+.cert-preview__note {
+  margin: 12px 0 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- 3. Как воспользоваться сертификатом (4 шага) ---------- */
+.cert-steps {
+  padding: clamp(84px, 9vw, 136px) var(--gutter);
+  background: var(--navy);
+  color: #fff;
+}
+.cert-steps .eyebrow { color: var(--gold-light); }
+.cert-steps .h-title em { color: var(--gold-light); }
+.cert-steps .h-lead { color: rgba(255, 255, 255, .74); }
+.cert-steps__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1320px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 2.4vw, 36px);
+}
+.cert-steps__list li {
+  position: relative;
+  padding-top: 28px;
+  border-top: 1px solid rgba(179, 153, 102, .42);
+}
+.cert-steps__num {
+  display: block;
+  font: var(--serif-w) calc(44px * var(--serif-scale))/1 var(--serif);
+  color: var(--gold-light);
+}
+.cert-steps__list h3 {
+  margin: 18px 0 0;
+  font: var(--serif-w) calc(clamp(22px, 1.9vw, 26px) * var(--serif-scale))/1.2 var(--serif);
+  color: #fff;
+}
+.cert-steps__list p {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, .72);
+}
+
+/* ---------- Лендинг-блок: Примеры наших работ ---------- */
+.cert-works {
+  padding: clamp(84px, 9vw, 136px) 0;
+  background: var(--ivory);
+  color: var(--navy);
+}
+.cert-works__grid {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 1.8vw, 24px);
+}
+.cert-work {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--navy-deep);
+  text-align: left;
+}
+.cert-work img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--ease);
+}
+.cert-work::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 21, 52, .72), rgba(11, 21, 52, .05) 48%);
+}
+.cert-work:hover img {
+  transform: scale(1.05);
+}
+.cert-work__cap {
+  position: absolute;
+  z-index: 1;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  color: #fff;
+}
+.cert-work__cap small {
+  display: block;
+  font: 500 10px/1.3 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.cert-work__cap span {
+  display: block;
+  margin-top: 6px;
+  font: var(--serif-w) calc(21px * var(--serif-scale))/1.2 var(--serif);
+}
+.cert-works__cta {
+  margin-top: clamp(36px, 4vw, 52px);
+  text-align: center;
+}
+
+/* ---------- Лендинг-блок: Премиальные ткани и мануфактуры ---------- */
+.cert-fabrics {
+  padding: clamp(84px, 9vw, 136px) 0;
+  background: var(--ivory-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--navy);
+}
+.cert-fabrics__cta {
+  margin-top: clamp(36px, 4vw, 52px);
+  text-align: center;
+}
+
+/* ---------- 5. Заказать сертификат (форма на странице без перехода) ---------- */
+.cert-order {
+  padding: clamp(84px, 9vw, 136px) var(--gutter);
+  background: var(--ivory);
+  color: var(--navy);
+}
+.cert-order__box {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  background: #fff;
+  border: 1px solid rgba(179, 153, 102, .42);
+}
+.cert-order__aside {
+  padding: clamp(32px, 4vw, 56px);
+  background: var(--navy-deep);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.cert-order__aside .eyebrow { color: var(--gold-light); }
+.cert-order__aside-title {
+  margin: 16px 0 0;
+  font: var(--serif-w) calc(clamp(28px, 3vw, 40px) * var(--serif-scale))/1.1 var(--serif);
+}
+.cert-order__aside-text {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, .74);
+}
+.cert-order__recap {
+  margin: 28px 0 0;
+  padding: 22px 0;
+  border-top: 1px solid rgba(179, 153, 102, .35);
+  border-bottom: 1px solid rgba(179, 153, 102, .35);
+}
+.cert-order__recap div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 7px 0;
+  font-size: 13px;
+}
+.cert-order__recap dt {
+  color: rgba(255, 255, 255, .58);
+}
+.cert-order__recap dd {
+  margin: 0;
+  color: var(--gold-light);
+  font-weight: 500;
+  text-align: right;
+}
+.cert-order__perks {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 26px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .74);
+}
+.cert-order__perks li::before {
+  content: "—";
+  margin-right: 10px;
+  color: var(--gold-light);
+}
+
+.cert-order__form-wrap {
+  padding: clamp(32px, 4vw, 56px);
+}
+.cert-order__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.cert-order__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.cert-order__field label {
+  display: block;
+  margin-bottom: 6px;
+  font: 500 10px/1.3 var(--sans);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cert-order__field input,
+.cert-order__field select,
+.cert-order__field textarea {
+  width: 100%;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(16, 30, 74, .26);
+  background: transparent;
+  font: 400 15px/1.4 var(--sans);
+  color: var(--ink);
+  outline: none;
+  border-radius: 0;
+  transition: border-color var(--t) var(--ease);
+}
+.cert-order__field input:focus,
+.cert-order__field select:focus,
+.cert-order__field textarea:focus {
+  border-bottom-color: var(--gold);
+}
+.cert-order__field textarea {
+  resize: vertical;
+  min-height: 68px;
+}
+.cert-order__agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+  cursor: pointer;
+}
+.cert-order__agree input {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--navy);
+  flex: none;
+}
+.cert-order__submit-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 4px;
+}
+.cert-order__payment-note {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.cert-order__done {
+  padding: 28px 0;
+}
+.cert-order__done h3 {
+  margin: 0;
+  font: var(--serif-w) calc(32px * var(--serif-scale))/1.15 var(--serif);
+  color: var(--navy);
+}
+.cert-order__done p {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+.cert-order__done .btn {
+  margin-top: 26px;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1080px) {
+  .cert-hero__inner { grid-template-columns: 1fr; }
+  .cert-hero__media { max-width: 520px; aspect-ratio: 4 / 3; }
+  .cert-why__grid { grid-template-columns: repeat(2, 1fr); }
+  .cert-why__card,
+  .cert-why__card:nth-child(4),
+  .cert-why__card:nth-child(5) { grid-column: span 1; }
+  .cert-why__card:nth-child(5) { grid-column: 1 / -1; }
+  .cert-types__grid { grid-template-columns: 1fr; max-width: 560px; }
+  .cert-builder { grid-template-columns: 1fr; }
+  .cert-preview-wrap { position: static; }
+  .cert-steps__list { grid-template-columns: repeat(2, 1fr); }
+  .cert-works__grid { grid-template-columns: repeat(2, 1fr); }
+  .cert-order__box { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .cert-hero { padding-top: 136px; }
+  .cert-why__grid { grid-template-columns: 1fr; }
+  .cert-why__card:nth-child(5) { grid-column: auto; }
+  .cert-pills--items { grid-template-columns: 1fr; }
+  .cert-fields-row,
+  .cert-order__row { grid-template-columns: 1fr; }
+  .cert-steps__list { grid-template-columns: 1fr; }
+  .cert-works__grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cert-work__cap { left: 12px; right: 12px; bottom: 12px; }
+  .cert-work__cap span { font-size: 17px; }
+  .cert-hero__actions .btn,
+  .cert-order__submit-row .btn { width: 100%; }
+}

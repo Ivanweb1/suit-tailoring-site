@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="ru" data-font-switch>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Подарочный сертификат VESTORO — индивидуальный пошив в подарок</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Подарочный сертификат ателье VESTORO на индивидуальный пошив мужской и женской одежды. Электронная карта, свободный номинал или готовые подарочные предложения.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/history.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/certificates.css">
+  <script src="assets/js/fonts.js"></script>
+</head>
+<body>
+
+  <!-- 1. Шапка -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" data-mobile-open>
+        <span></span><span></span>
+      </button>
+
+      <nav class="nav nav--left" aria-label="Основная навигация">
+        <a class="nav__link" href="history.html" data-menu="atelier">Ателье</a>
+        <a class="nav__link" href="./#men" data-menu="men">Мужчинам</a>
+        <a class="nav__link" href="./#women" data-menu="women">Женщинам</a>
+        <a class="nav__link" href="#" data-menu="accessories">Аксессуары</a>
+      </nav>
+
+      <a class="brand" href="./" aria-label="VESTORO — на главную">
+        <span class="brand__micro">Основано в 1993</span>
+        <span class="brand__name">VESTORO</span>
+        <span class="brand__micro">Москва, Новолесная 5</span>
+      </a>
+
+      <nav class="nav nav--right" aria-label="Дополнительная навигация">
+        <a class="nav__link" href="./#works" data-menu="collection">Коллекция</a>
+        <a class="nav__link" href="fabrics.html" data-menu="fabrics">Ткани</a>
+        <a class="nav__link is-active" href="certificates.html" data-menu="certificates">Сертификаты</a>
+        <a class="nav__link" href="care.html" data-menu="journal">Статьи</a>
+      </nav>
+
+      <button class="header__cta" type="button" data-modal-open>Запись</button>
+    </div>
+
+    <!-- Выпадающие панели меню -->
+    <div class="mega" id="mega" aria-hidden="true">
+      <div class="mega__panel" data-panel="atelier">
+        <figure class="mega__media">
+          <img src="assets/img/hero-atelier.jpg" alt="Интерьер ателье VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Ателье на Новолесной</span><span class="mega__media-link">Приглашаем в гости</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">О VESTORO</p>
+            <a href="history.html">История ателье</a>
+            <a href="#">Джимми Котвани</a>
+            <a href="clients.html">Наши клиенты</a>
+            <a href="awards.html">Достижения</a>
+            <a href="clients.html#reviews">Отзывы</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Пошив</p>
+            <a href="#">Как создаётся костюм</a>
+            <a href="#">Выезд портного на дом</a>
+            <a href="#">Пожизненная гарантия</a>
+            <a href="prices.html">Цены</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Визит</p>
+            <a href="#" data-modal-open>Записаться на консультацию</a>
+            <a href="contacts.html">Контакты и парковка</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="men">
+        <figure class="mega__media">
+          <img src="assets/img/hero-master.jpg" alt="Джимми Котвани за работой" loading="lazy">
+          <figcaption><span class="mega__media-title">Мужской гардероб</span><span class="mega__media-link">Индивидуальный пошив</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Индивидуальный пошив</p>
+            <a href="men-suits.html">Деловой костюм</a>
+            <a href="men-jackets.html">Пиджаки</a>
+            <a href="#">Рубашки</a>
+            <a href="#">Брюки</a>
+            <a href="#">Обувь</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Особые случаи</p>
+            <a href="#">Свадебный костюм</a>
+            <a href="#">Смокинг</a>
+            <a href="#">Верхняя одежда</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Сервис</p>
+            <a href="care.html#service">Корректировка по фигуре</a>
+            <a href="#">Доставка</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="women">
+        <figure class="mega__media">
+          <img src="assets/img/hero-fabric.jpg" alt="Премиальная ткань" loading="lazy">
+          <figcaption><span class="mega__media-title">Женский гардероб</span><span class="mega__media-link">Индивидуальный пошив</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Индивидуальный пошив</p>
+            <a href="#">Деловой костюм</a>
+            <a href="#">Пальто</a>
+            <a href="#">Рубашки</a>
+            <a href="#">Брюки</a>
+            <a href="#">Юбки</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Сервис</p>
+            <a href="care.html#service">Корректировка по фигуре</a>
+            <a href="#">Доставка</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="accessories">
+        <figure class="mega__media">
+          <img src="assets/img/journal/accessories.jpg" alt="Аксессуары VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Аксессуары</span><span class="mega__media-link">Детали, которые завершают образ</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">К костюму</p>
+            <a href="#">Галстуки</a>
+            <a href="#">Бабочки</a>
+            <a href="#">Запонки</a>
+            <a href="#">Платки-паше</a>
+            <a href="#">Зажимы для галстука</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Кожа</p>
+            <a href="#">Ремни</a>
+            <a href="#">Подтяжки</a>
+            <a href="#">Перчатки</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Подарок</p>
+            <a href="certificates.html">Подарочный сертификат</a>
+            <a href="#">Все аксессуары</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="collection">
+        <figure class="mega__media">
+          <img src="assets/img/hero-atelier.jpg" alt="Коллекция VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Коллекция</span><span class="mega__media-link">Примеры работ</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Работы</p>
+            <a href="works.html">Примеры работ</a>
+            <a href="clients.html">Истории клиентов</a>
+            <a href="clients.html#video">Видео-отзывы</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Предложения</p>
+            <a href="specials.html">Акции</a>
+            <a href="#" data-modal-open data-modal-title="Получить каталог">Получить каталог</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="fabrics">
+        <figure class="mega__media">
+          <img src="assets/img/fabric-scabal.jpg" alt="Ткани Scabal" loading="lazy">
+          <figcaption><span class="mega__media-title">Более 7000 тканей</span><span class="mega__media-link">Ткани с мировым именем</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Итальянские дома</p>
+            <a href="fabric.html?house=loro-piana">Loro Piana</a>
+            <a href="fabric.html?house=zegna">Ermenegildo Zegna</a>
+            <a href="fabric.html?house=vitale-barberis-canonico">Vitale Barberis Canonico</a>
+            <a href="fabric.html?house=reda">Reda</a>
+            <a href="fabric.html?house=drago">Drago</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Британия и Франция</p>
+            <a href="fabric.html?house=scabal">Scabal</a>
+            <a href="fabric.html?house=holland-sherry">Holland &amp; Sherry</a>
+            <a href="fabric.html?house=dormeuil">Dormeuil</a>
+          </div>
+          <div class="mega__col">
+            <p class="mega__heading">Рубашечные</p>
+            <a href="fabric.html?house=thomas-mason">Thomas Mason</a>
+            <a href="fabric.html?house=albini">Albini</a>
+            <a href="fabric.html?house=canclini">Canclini</a>
+            <a href="fabrics.html">Все ткани</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="certificates">
+        <figure class="mega__media">
+          <img src="assets/img/certificate.jpg" alt="Подарочный сертификат VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Костюм в подарок</span><span class="mega__media-link">Лучше, чем вещь</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Сертификаты</p>
+            <a href="certificates.html?type=nominal#builder">Подарочная карта свободного номинала</a>
+            <a href="certificates.html?type=preset#builder">Готовые подарочные предложения</a>
+            <a href="certificates.html?type=electronic#builder">Электронный сертификат</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega__panel" data-panel="journal">
+        <figure class="mega__media">
+          <img src="assets/img/hero-fabric.jpg" alt="Журнал VESTORO" loading="lazy">
+          <figcaption><span class="mega__media-title">Журнал VESTORO</span><span class="mega__media-link">Всё о моде и стиле</span></figcaption>
+        </figure>
+        <div class="mega__cols">
+          <div class="mega__col">
+            <p class="mega__heading">Полезное</p>
+            <a href="care.html">Как ухаживать за одеждой</a>
+            <a href="care.html#service">Подгонка и ремонт</a>
+            <a href="./#journal">Журнал VESTORO</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu__top">
+      <button class="mobile-menu__close" type="button" aria-label="Закрыть меню" data-mobile-close></button>
+      <span class="brand__name">VESTORO</span>
+      <span></span>
+    </div>
+    <nav class="mobile-menu__nav">
+      <a href="history.html">Ателье</a>
+      <a href="men-suits.html">Мужчинам</a>
+      <a href="./#women">Женщинам</a>
+      <a href="#">Аксессуары</a>
+      <a href="works.html">Коллекция</a>
+      <a href="fabrics.html">Ткани</a>
+      <a href="certificates.html">Сертификаты</a>
+      <a href="care.html">Уход за одеждой</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+    <div class="mobile-menu__bottom">
+      <button class="btn btn--dark" type="button" data-modal-open>Записаться на консультацию</button>
+      <a class="mobile-menu__phone" href="tel:+74957250564">+7 (495) 725-05-64</a>
+      <p class="mobile-menu__address">Москва, Новолесная 5 · бесплатная парковка</p>
+    </div>
+  </div>
+
+  <main class="page-certificates">
+
+    <!-- Первый экран -->
+    <section class="cert-hero" id="hero">
+      <div class="cert-hero__inner">
+        <div>
+          <p class="eyebrow">Подарок со смыслом · с 1993 года</p>
+          <h1 class="cert-hero__title">Подарочный сертификат <span>на индивидуальный пошив</span></h1>
+          <p class="cert-hero__lead">Сертификат VESTORO дарит не вещь, а право её создать. Получатель выбирает ткань, фасон и детали, а мастера воплощают замысел в изделие, которое сидит безупречно и говорит о своём владельце без слов.</p>
+          <p class="cert-hero__text">Впечатление начинается с первого визита в ателье и не заканчивается никогда — вещь, созданная для одного человека, остаётся с ним на годы.</p>
+          <div class="cert-hero__actions">
+            <a class="btn btn--gold" href="#choose">Выбрать сертификат</a>
+            <a class="btn btn--outline" href="#order">Оформить заказ</a>
+          </div>
+          <ul class="cert-hero__meta">
+            <li><b>Бессрочно</b>Срок действия не ограничен</li>
+            <li><b>От 18 000 ₽</b>Любой номинал или изделие</li>
+            <li><b>За 15 минут</b>Электронный или в коробке</li>
+          </ul>
+        </div>
+        <figure class="cert-hero__media">
+          <img src="assets/img/certificate.jpg" alt="Подарочный сертификат VESTORO в фирменной коробке">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 1. Почему сертификат VESTORO станет лучшим подарком -->
+    <section class="cert-why" id="why">
+      <div class="h-head reveal">
+        <p class="eyebrow">Ценность подарка</p>
+        <h2 class="h-title">Почему сертификат VESTORO станет <em>лучшим подарком</em></h2>
+      </div>
+      <ol class="cert-why__grid">
+        <li class="cert-why__card reveal">
+          <span class="cert-why__num">01</span>
+          <h3>Без риска ошибиться</h3>
+          <p>Не нужно угадывать размер, стиль или предпочтения — получатель сам создаёт изделие под себя.</p>
+        </li>
+        <li class="cert-why__card reveal">
+          <span class="cert-why__num">02</span>
+          <h3>Подарок на долгие годы</h3>
+          <p>Вещь, сшитая по индивидуальным меркам, носится не сезон. Вы дарите не впечатление на один вечер, а вещь, которая остаётся с человеком и напоминает о дарителе каждый раз, когда он её надевает.</p>
+        </li>
+        <li class="cert-why__card reveal">
+          <span class="cert-why__num">03</span>
+          <h3>Когда трудно выбрать</h3>
+          <p>Деловому партнёру, руководителю, близкому и дорогому человеку, или тому, у кого всё есть. Сертификат не требует знания вкусов и не рискует оказаться лишним предметом в шкафу.</p>
+        </li>
+        <li class="cert-why__card reveal">
+          <span class="cert-why__num">04</span>
+          <h3>Подходит мужчинам и женщинам</h3>
+          <p>Универсальный подарок, который не нужно подбирать под пол, возраст или профессию: женский и мужской гардероб в VESTORO шьют одни и те же мастера.</p>
+        </li>
+        <li class="cert-why__card reveal">
+          <span class="cert-why__num">05</span>
+          <h3>Можно вручить дистанционно</h3>
+          <p>Если получатель в другом городе или стране, сертификат передаётся без логистики и примерок — визит в ателье он планирует сам, когда ему удобно.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 2. Выбор сертификата: 3 вида (как в Figma) + интерактивный конструктор -->
+    <section class="cert-types" id="choose">
+      <div class="h-head reveal">
+        <p class="eyebrow">Форматы сертификатов</p>
+        <h2 class="h-title">Выберите <em>идеальный сертификат</em></h2>
+        <p class="h-lead">Три варианта оформления — от мгновенной электронной карты до подарочной коробки с готовым предложением на пошив.</p>
+      </div>
+
+      <ul class="cert-types__grid reveal">
+        <li>
+          <button class="cert-type" type="button" data-cert-card="electronic" aria-pressed="false">
+            <span class="cert-type__media">
+              <img src="assets/img/hero-fabric.jpg" alt="Электронная подарочная карта VESTORO" loading="lazy">
+              <span class="cert-type__badge">За 15 минут</span>
+            </span>
+            <span class="cert-type__body">
+              <span class="cert-type__title">Электронная подарочная карта</span>
+              <span class="cert-type__desc">Отправляем именной сертификат на email или в мессенджер. Идеально, если нужно поздравить в тот же день или на расстоянии.</span>
+              <span class="cert-type__cta">Выбрать формат →</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="cert-type is-selected" type="button" data-cert-card="nominal" aria-pressed="true">
+            <span class="cert-type__media">
+              <img src="assets/img/certificate.jpg" alt="Подарочная карта свободного номинала VESTORO" loading="lazy">
+              <span class="cert-type__badge">Фирменная коробка</span>
+            </span>
+            <span class="cert-type__body">
+              <span class="cert-type__title">Подарочная карта свободного номинала</span>
+              <span class="cert-type__desc">Любая сумма на ваше усмотрение в премиальном конверте и коробке VESTORO. Получатель сам решит, какое изделие сшить.</span>
+              <span class="cert-type__cta">Выбрано →</span>
+            </span>
+          </button>
+        </li>
+        <li>
+          <button class="cert-type" type="button" data-cert-card="preset" aria-pressed="false">
+            <span class="cert-type__media">
+              <img src="assets/img/wardrobe/men-suit.jpg" alt="Готовые подарочные предложения VESTORO" loading="lazy">
+              <span class="cert-type__badge">На конкретное изделие</span>
+            </span>
+            <span class="cert-type__body">
+              <span class="cert-type__title">Готовые подарочные предложения</span>
+              <span class="cert-type__desc">Сертификат на пошив конкретного изделия: рубашки, брюк, пиджака, пальто, костюма или капсульного гардероба.</span>
+              <span class="cert-type__cta">Выбрать формат →</span>
+            </span>
+          </button>
+        </li>
+      </ul>
+
+      <!-- Интерактивный конструктор сертификата (вдохновлён avtor.club/sert и квизом VESTORO) -->
+      <div class="cert-builder reveal" id="builder">
+        <div class="cert-builder__controls">
+
+          <div class="cert-builder__step">
+            <p class="cert-builder__label"><span>01</span>Формат сертификата</p>
+            <div class="cert-pills" role="group" aria-label="Формат сертификата">
+              <button class="cert-pill" type="button" data-cert-type="electronic" aria-pressed="false">Электронная карта</button>
+              <button class="cert-pill" type="button" data-cert-type="nominal" aria-pressed="true">Свободный номинал</button>
+              <button class="cert-pill" type="button" data-cert-type="preset" aria-pressed="false">Готовое предложение</button>
+            </div>
+          </div>
+
+          <div class="cert-builder__step" id="certNominalBlock">
+            <p class="cert-builder__label"><span>02</span>Номинал сертификата</p>
+            <div class="cert-pills" role="group" aria-label="Номинал сертификата">
+              <button class="cert-pill" type="button" data-cert-nominal="50000" aria-pressed="false">50 000 ₽</button>
+              <button class="cert-pill" type="button" data-cert-nominal="100000" aria-pressed="false">100 000 ₽</button>
+              <button class="cert-pill" type="button" data-cert-nominal="165000" aria-pressed="true">165 000 ₽</button>
+              <button class="cert-pill" type="button" data-cert-nominal="250000" aria-pressed="false">250 000 ₽</button>
+              <button class="cert-pill" type="button" data-cert-nominal="500000" aria-pressed="false">500 000 ₽</button>
+            </div>
+            <div class="cert-custom-sum">
+              <input type="text" id="certCustomSum" inputmode="numeric" placeholder="Или укажите свою сумму (от 5 000)" aria-label="Своя сумма номинала">
+              <span>₽</span>
+            </div>
+          </div>
+
+          <div class="cert-builder__step" id="certPresetBlock" hidden>
+            <p class="cert-builder__label"><span>02</span>Выберите изделие в подарок</p>
+            <div class="cert-pills cert-pills--items" role="group" aria-label="Изделие в подарок">
+              <button class="cert-pill" type="button" data-cert-preset="Индивидуальный пошив рубашки" data-cert-price="18000" aria-pressed="false">Рубашка<small>от 18 000 ₽</small></button>
+              <button class="cert-pill" type="button" data-cert-preset="Индивидуальный пошив брюк" data-cert-price="56000" aria-pressed="false">Брюки<small>от 56 000 ₽</small></button>
+              <button class="cert-pill" type="button" data-cert-preset="Индивидуальный пошив пиджака" data-cert-price="115000" aria-pressed="false">Пиджак<small>от 115 000 ₽</small></button>
+              <button class="cert-pill" type="button" data-cert-preset="Индивидуальный пошив пальто" data-cert-price="125000" aria-pressed="false">Пальто<small>от 125 000 ₽</small></button>
+              <button class="cert-pill" type="button" data-cert-preset="Индивидуальный пошив костюма" data-cert-price="165000" aria-pressed="true">Костюм Classic<small>от 165 000 ₽</small></button>
+              <button class="cert-pill" type="button" data-cert-preset="Костюм коллекции Premium" data-cert-price="255000" aria-pressed="false">Костюм Premium<small>от 255 000 ₽</small></button>
+              <button class="cert-pill" type="button" data-cert-preset="Обувь ручной работы" data-cert-price="45000" aria-pressed="false">Обувь на заказ<small>от 45 000 ₽</small></button>
+              <button class="cert-pill" type="button" data-cert-preset="Капсульный гардероб VESTORO" data-cert-price="350000" aria-pressed="false">Капсульный гардероб<small>от 350 000 ₽</small></button>
+            </div>
+          </div>
+
+          <div class="cert-builder__step">
+            <p class="cert-builder__label"><span>03</span>Повод и получатель</p>
+            <div class="cert-pills" role="group" aria-label="Повод подарка">
+              <button class="cert-pill" type="button" data-cert-occasion="День рождения" aria-pressed="true">День рождения</button>
+              <button class="cert-pill" type="button" data-cert-occasion="Юбилей" aria-pressed="false">Юбилей</button>
+              <button class="cert-pill" type="button" data-cert-occasion="Свадьба" aria-pressed="false">Свадьба</button>
+              <button class="cert-pill" type="button" data-cert-occasion="Деловой подарок" aria-pressed="false">Деловой подарок</button>
+              <button class="cert-pill" type="button" data-cert-occasion="Праздник" aria-pressed="false">23 февраля / 8 марта</button>
+              <button class="cert-pill" type="button" data-cert-occasion="Без повода" aria-pressed="false">Без повода</button>
+            </div>
+            <div class="cert-pills" style="margin-top: 12px;" role="group" aria-label="Кому подарок">
+              <button class="cert-pill" type="button" data-cert-audience="Мужчине" aria-pressed="true">Мужчине</button>
+              <button class="cert-pill" type="button" data-cert-audience="Женщине" aria-pressed="false">Женщине</button>
+              <button class="cert-pill" type="button" data-cert-audience="Универсальный" aria-pressed="false">Универсальный</button>
+            </div>
+            <div class="cert-fields-row">
+              <input class="cert-input" type="text" id="certRecipient" placeholder="Имя получателя (необязательно)" aria-label="Имя получателя">
+              <input class="cert-input" type="text" id="certWish" placeholder="Короткое пожелание на карте" aria-label="Пожелание">
+            </div>
+          </div>
+        </div>
+
+        <!-- Живое превью сертификата -->
+        <aside class="cert-preview-wrap" aria-label="Предпросмотр подарочного сертификата">
+          <div class="cert-card">
+            <div class="cert-card__top">
+              <span class="cert-card__brand">VESTORO</span>
+              <span class="cert-card__kind" id="cardKind">Свободный номинал</span>
+            </div>
+            <p class="cert-card__subtitle">Подарочный сертификат</p>
+            <p class="cert-card__value" id="cardValue">165 000 ₽</p>
+            <p class="cert-card__item" id="cardItem">На индивидуальный пошив в VESTORO</p>
+            <p class="cert-card__recipient" id="cardRecipient">Повод: <strong>День рождения</strong> · Мужчине</p>
+            <div class="cert-card__foot">
+              <span>Москва · Новолесная 5</span>
+              <span>Бессрочный</span>
+            </div>
+          </div>
+
+          <div class="cert-preview__summary">
+            <dl>
+              <div><dt>Формат</dt><dd id="sumType">Свободный номинал</dd></div>
+              <div><dt>Подарок</dt><dd id="sumGift">Свободный номинал</dd></div>
+              <div><dt>Сумма</dt><dd id="sumAmount">165 000 ₽</dd></div>
+              <div><dt>Повод</dt><dd id="sumOccasion">День рождения · Мужчине</dd></div>
+            </dl>
+          </div>
+
+          <div class="cert-preview__actions">
+            <a class="btn btn--gold" href="#order">Оформить этот сертификат</a>
+            <button class="btn btn--line" type="button" data-modal-open data-modal-title="Консультация по сертификату">Нужна помощь с выбором</button>
+          </div>
+          <p class="cert-preview__note">Действует бессрочно на мужской и женский пошив. При желании получатель может доплатить разницу при выборе более дорогой ткани.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 3. Как воспользоваться сертификатом -->
+    <section class="cert-steps" id="how">
+      <div class="h-head reveal">
+        <p class="eyebrow">Простая инструкция</p>
+        <h2 class="h-title">Как воспользоваться <em>сертификатом</em></h2>
+        <p class="h-lead">От первого звонка до безупречно сидящего изделия — мы бережно сопровождаем обладателя сертификата на каждом этапе.</p>
+      </div>
+      <ol class="cert-steps__list">
+        <li class="reveal">
+          <span class="cert-steps__num">01</span>
+          <h3>Запись в ателье или выезд портного</h3>
+          <p>Получатель выбирает удобный день для визита в ателье на Новолесной, 5 или заказывает бесплатный выезд портного домой или в офис по Москве.</p>
+        </li>
+        <li class="reveal">
+          <span class="cert-steps__num">02</span>
+          <h3>Выбор ткани и фасона</h3>
+          <p>Вместе с персональным мастером подбирается силуэт, ткань из более чем 7 000 образцов, подкладка, пуговицы и индивидуальная монограмма.</p>
+        </li>
+        <li class="reveal">
+          <span class="cert-steps__num">03</span>
+          <h3>Снятие 55 мерок и примерки</h3>
+          <p>Строится персональное лекало по технологии Bespoke. Изделие шьётся вручную и проходит промежуточную и финальную примерки.</p>
+        </li>
+        <li class="reveal">
+          <span class="cert-steps__num">04</span>
+          <h3>Готовое изделие и гарантия</h3>
+          <p>Безупречная посадка, сохранённое лекало для следующих заказов, бесплатная подгонка ±2 размера и техосмотр каждые 6 месяцев.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Лендинг-блок: Примеры наших работ -->
+    <section class="cert-works" id="works">
+      <div class="h-head reveal">
+        <p class="eyebrow">Уровень VESTORO</p>
+        <h2 class="h-title">Примеры <em>наших работ</em></h2>
+        <p class="h-lead">Костюмы, пиджаки, пальто и сорочки, созданные вручную для наших клиентов. Нажмите на фото, чтобы рассмотреть детали ближе.</p>
+      </div>
+      <ul class="cert-works__grid reveal">
+        <li>
+          <button class="cert-work" type="button" data-photo="assets/img/wardrobe/men-suit.jpg" aria-label="Открыть фото: Деловой костюм Bespoke">
+            <img src="assets/img/wardrobe/men-suit.jpg" alt="Деловой костюм Bespoke" loading="lazy">
+            <span class="cert-work__cap"><small>Мужской гардероб</small><span>Деловой костюм Bespoke</span></span>
+          </button>
+        </li>
+        <li>
+          <button class="cert-work" type="button" data-photo="assets/img/wardrobe/men-jackets.jpg" aria-label="Открыть фото: Клубный пиджак">
+            <img src="assets/img/wardrobe/men-jackets.jpg" alt="Клубный пиджак" loading="lazy">
+            <span class="cert-work__cap"><small>Ручная работа</small><span>Клубный пиджак</span></span>
+          </button>
+        </li>
+        <li>
+          <button class="cert-work" type="button" data-photo="assets/img/wardrobe/women-suit.jpg" aria-label="Открыть фото: Женский костюм">
+            <img src="assets/img/wardrobe/women-suit.jpg" alt="Женский костюм" loading="lazy">
+            <span class="cert-work__cap"><small>Женский гардероб</small><span>Женский костюм</span></span>
+          </button>
+        </li>
+        <li>
+          <button class="cert-work" type="button" data-photo="assets/img/wardrobe/women-coat.jpg" aria-label="Открыть фото: Кашемировое пальто">
+            <img src="assets/img/wardrobe/women-coat.jpg" alt="Кашемировое пальто" loading="lazy">
+            <span class="cert-work__cap"><small>Верхняя одежда</small><span>Кашемировое пальто</span></span>
+          </button>
+        </li>
+      </ul>
+      <div class="cert-works__cta reveal">
+        <a class="btn btn--line" href="works.html">Смотреть все работы</a>
+      </div>
+    </section>
+
+    <!-- Лендинг-блок: Премиальные ткани и мануфактуры -->
+    <section class="fabrics cert-fabrics" id="fabrics">
+      <div class="fabric-strip reveal">
+        <p class="fabric-strip__label">Костюмные<span>ткани</span></p>
+        <ul class="fabric-strip__logos">
+          <li><a href="fabric.html?house=loro-piana" title="Loro Piana"><img src="assets/img/fabrics/loro-piana.svg" alt="Loro Piana" loading="lazy"></a></li>
+          <li><a href="fabric.html?house=zegna" title="Ermenegildo Zegna"><img src="assets/img/fabrics/zegna.svg" alt="Ermenegildo Zegna" loading="lazy"></a></li>
+          <li><a href="fabric.html?house=scabal" title="Scabal"><img src="assets/img/fabrics/scabal.svg" alt="Scabal" loading="lazy"></a></li>
+          <li><a href="fabric.html?house=dormeuil" title="Dormeuil"><img src="assets/img/fabrics/dormeuil.svg" alt="Dormeuil" loading="lazy"></a></li>
+          <li><a href="fabric.html?house=holland-sherry" title="Holland &amp; Sherry"><img src="assets/img/fabrics/holland-sherry.svg" alt="Holland &amp; Sherry" loading="lazy"></a></li>
+          <li><a href="fabric.html?house=drago" title="Drago"><img src="assets/img/fabrics/drago.svg" alt="Drago" loading="lazy"></a></li>
+          <li><a href="fabric.html?house=charles-clayton" title="Charles Clayton"><img src="assets/img/fabrics/charles-clayton.svg" alt="Charles Clayton" loading="lazy"></a></li>
+        </ul>
+      </div>
+
+      <div class="fabrics__body reveal">
+        <p class="eyebrow">Премиальные мануфактуры</p>
+        <h2 class="section-title">Ткани с мировым именем</h2>
+        <p class="fabrics__text">С 2000 года VESTORO является сертифицированным партнёром ведущих текстильных домов Италии, Великобритании и Франции. Обладатель сертификата выбирает ткань более чем из 7 000 образцов — от тончайшей шерсти Super 150’s до кашемира, шёлка и египетского хлопка.</p>
+        <p class="fabrics__list">А также Reda · Vitale&nbsp;Barberis&nbsp;Canonico · Cerruti · Ariston · Stylbiella · Carnet · Colombo · Piacenza · Solbiati</p>
+      </div>
+
+      <div class="fabric-strip fabric-strip--reverse reveal">
+        <p class="fabric-strip__label">Сорочечные<span>ткани</span></p>
+        <ul class="fabric-strip__logos">
+          <li><a href="fabric.html?house=thomas-mason" title="Thomas Mason"><img src="assets/img/fabrics/thomas-mason.svg" alt="Thomas Mason" loading="lazy"></a></li>
+          <li><a href="fabric.html?house=albini" class="fabric-strip__word">Albini</a></li>
+          <li><a href="fabric.html?house=canclini" class="fabric-strip__word">Canclini</a></li>
+          <li><a href="fabric.html?house=monti" class="fabric-strip__word">Tessitura Monti</a></li>
+          <li><a href="fabric.html?house=david-john-anderson" class="fabric-strip__word">David &amp; John Anderson</a></li>
+          <li><a href="fabric.html?house=soktas" class="fabric-strip__word">Soktas</a></li>
+          <li><a href="fabric.html?house=the-great-white" class="fabric-strip__word">The Great White</a></li>
+        </ul>
+      </div>
+
+      <div class="cert-fabrics__cta reveal">
+        <a class="btn btn--line" href="fabrics.html">Все дома тканей</a>
+      </div>
+    </section>
+
+    <!-- 4. Кто уже доверил VESTORO создание своего стиля -->
+    <section class="clients" id="clients">
+      <div class="clients__head reveal">
+        <p class="eyebrow">Наши клиенты с 1993 года</p>
+        <h2 class="section-title">Кто уже доверил VESTORO создание своего стиля</h2>
+        <div class="carousel-nav" data-carousel-nav="clientsTrack">
+          <button type="button" data-dir="-1" aria-label="Назад">←</button>
+          <button type="button" data-dir="1" aria-label="Вперёд">→</button>
+        </div>
+      </div>
+
+      <ul class="clients__track reveal" id="clientsTrack">
+        <li>
+          <a class="client" href="clients.html">
+            <span class="client__photo"><img src="assets/img/history/archive/modi.jpg" alt="Нарендра Моди" loading="lazy"></span>
+            <span class="client__name">Нарендра Моди</span>
+            <span class="client__role">Премьер-министр Индии</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="clients.html">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Эмомали Рахмон</span>
+            <span class="client__role">Президент Таджикистана</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="clients.html">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Нурсултан Назарбаев</span>
+            <span class="client__role">Первый Президент Казахстана</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="clients.html">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Михаил Мишустин</span>
+            <span class="client__role">Председатель Правительства РФ</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="clients.html">
+            <span class="client__photo"><img src="assets/img/history/archive/safronov.jpg" alt="Никас Сафронов" loading="lazy"></span>
+            <span class="client__name">Никас Сафронов</span>
+            <span class="client__role">Художник</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="clients.html">
+            <span class="client__photo"><img src="assets/img/history/archive/akinfeev.jpg" alt="Игорь Акинфеев" loading="lazy"></span>
+            <span class="client__name">Игорь Акинфеев</span>
+            <span class="client__role">Футболист, капитан ПФК ЦСКА</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="clients.html">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Иосиф Кобзон</span>
+            <span class="client__role">Народный артист СССР</span>
+          </a>
+        </li>
+        <li>
+          <a class="client" href="clients.html">
+            <span class="client__photo"><img src="assets/img/client-placeholder.jpg" alt="" loading="lazy"></span>
+            <span class="client__name">Серж Саргсян</span>
+            <span class="client__role">Экс-президент Армении</span>
+          </a>
+        </li>
+      </ul>
+      <div class="section-link reveal"><a href="clients.html">Все клиенты VESTORO</a></div>
+    </section>
+
+    <!-- 5. Заказать сертификат (удобная форма заказа без перехода на другие страницы) -->
+    <section class="cert-order" id="order">
+      <div class="cert-order__box reveal">
+        <div class="cert-order__aside">
+          <p class="eyebrow">Оформление заказа</p>
+          <h2 class="cert-order__aside-title">Заказать сертификат</h2>
+          <p class="cert-order__aside-text">Все выбранные параметры уже подставлены в заявку. Если хотите скорректировать номинал или формат — измените их в <a href="#builder" style="color: var(--gold-light); text-decoration: underline;">конструкторе выше</a>.</p>
+
+          <dl class="cert-order__recap">
+            <div><dt>Формат</dt><dd id="recapType">Подарочная карта свободного номинала</dd></div>
+            <div><dt>Подарок</dt><dd id="recapGift">Любое изделие ателье</dd></div>
+            <div><dt>Номинал</dt><dd id="recapAmount">165 000 ₽</dd></div>
+            <div><dt>Повод</dt><dd id="recapOccasion">День рождения (мужчине)</dd></div>
+            <div><dt>Получатель</dt><dd id="recapRecipient">Не указано</dd></div>
+          </dl>
+
+          <ul class="cert-order__perks">
+            <li>Бессрочный срок действия сертификата</li>
+            <li>Доставка курьером по Москве или мгновенно онлайн</li>
+            <li>Оплата картой, по счёту для юрлиц или в ателье</li>
+          </ul>
+        </div>
+
+        <div class="cert-order__form-wrap">
+          <form class="cert-order__form" id="certOrderForm">
+            <input type="hidden" name="cert_type">
+            <input type="hidden" name="cert_gift">
+            <input type="hidden" name="cert_amount">
+            <input type="hidden" name="cert_occasion">
+            <input type="hidden" name="cert_audience">
+            <input type="hidden" name="cert_recipient">
+            <input type="hidden" name="cert_wish">
+
+            <div class="cert-order__row">
+              <div class="cert-order__field">
+                <label for="orderName">Ваше имя *</label>
+                <input type="text" id="orderName" name="name" placeholder="Как к вам обращаться" autocomplete="name" required>
+              </div>
+              <div class="cert-order__field">
+                <label for="orderPhone">Телефон *</label>
+                <input type="tel" id="orderPhone" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+              </div>
+            </div>
+
+            <div class="cert-order__row">
+              <div class="cert-order__field">
+                <label for="orderEmail">Email (для электронного сертификата)</label>
+                <input type="email" id="orderEmail" name="email" placeholder="name@example.com" autocomplete="email">
+              </div>
+              <div class="cert-order__field">
+                <label for="orderDelivery">Способ получения</label>
+                <select id="orderDelivery" name="delivery">
+                  <option value="courier">Курьером по Москве в фирменной коробке</option>
+                  <option value="electronic">Электронный сертификат (email / мессенджер)</option>
+                  <option value="atelier">Забрать в ателье на Новолесной, 5</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="cert-order__field">
+              <label for="orderComment">Комментарий к заказу</label>
+              <textarea id="orderComment" name="comment" placeholder="Удобное время доставки, пожелания по упаковке или оплате по счёту"></textarea>
+            </div>
+
+            <label class="cert-order__agree">
+              <input type="checkbox" name="agree" required>
+              <span>Даю согласие на обработку персональных данных в соответствии с политикой конфиденциальности VESTORO.</span>
+            </label>
+
+            <div class="cert-order__submit-row">
+              <button class="btn btn--gold" type="submit">Оформить сертификат</button>
+              <span class="cert-order__payment-note">Перезвоним за 15 минут · Онлайн-оплата CloudPayments скоро на сайте</span>
+            </div>
+          </form>
+
+          <div class="cert-order__done" id="certOrderDone" hidden>
+            <p class="eyebrow">Заявка отправлена</p>
+            <h3>Спасибо за заказ!</h3>
+            <p id="doneSummary"></p>
+            <button class="btn btn--line" type="button" id="certOrderReset">Оформить ещё один сертификат</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Подписка -->
+    <section class="subscribe subscribe--dark" id="subscribe">
+      <div class="subscribe__inner reveal">
+        <div class="subscribe__intro">
+          <p class="subscribe__brand">VESTORO</p>
+          <h2 class="subscribe__title">Подписка</h2>
+          <p class="subscribe__text">Укажите свой email, чтобы получать эксклюзивные новости VESTORO.</p>
+        </div>
+        <form class="subscribe__form" id="subscribeForm">
+          <div class="subscribe__row">
+            <input type="email" name="email" placeholder="Ваш email" autocomplete="email" required aria-label="Ваш email">
+            <button type="submit">Подписаться</button>
+          </div>
+          <p class="subscribe__note">Подписываясь, вы соглашаетесь с политикой конфиденциальности. Отписаться можно в любой момент.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Запись на консультацию -->
+    <section class="h-visit" id="visit">
+      <img class="h-visit__bg" src="assets/img/hero-atelier.jpg" alt="" loading="lazy">
+      <div class="h-visit__content reveal">
+        <p class="eyebrow">Визит в ателье</p>
+        <h2 class="h-title">Приезжайте в ателье <em>на Новолесной 5</em></h2>
+        <p class="h-visit__line">Москва, Новолесная 5 · бесплатная парковка · Пн–Сб 10:00–21:00, Вс 10:00–19:00 · <a href="tel:+74957250564">+7 (495) 725-05-64</a></p>
+        <button class="btn btn--outline" type="button" data-modal-open>Записаться на консультацию</button>
+      </div>
+    </section>
+
+    <!-- SEO-блок -->
+    <section class="h-seo">
+      <h2>Подарочный сертификат на индивидуальный пошив VESTORO в Москве</h2>
+      <p>Подарочный сертификат ателье VESTORO — статусный и беспроигрышный подарок для мужчины или женщины. Вы можете оформить электронную подарочную карту, сертификат свободного номинала в фирменной коробке или готовое подарочное предложение на пошив костюма, пиджака, пальто, рубашки или обуви ручной работы.</p>
+      <p>Сертификаты действуют бессрочно. Обладатель сам выбирает удобное время визита в ателье на Новолесной, 5 или заказывает выезд портного по Москве, выбирает ткань из более чем 7 000 образцов ведущих мировых мануфактур и получает изделие с пожизненной гарантией качества VESTORO.</p>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer" id="contacts">
+    <div class="footer__cols">
+      <div class="footer__col">
+        <p class="footer__heading">Контакты</p>
+        <a href="tel:+74957250564">+7 (495) 725-05-64</a>
+        <a href="mailto:zayavka@vestoro.ru">zayavka@vestoro.ru</a>
+        <span>Москва, Новолесная 5</span>
+        <span>Пн–Сб 10:00–21:00 · Вс 10:00–19:00</span>
+        <div class="footer__social">
+          <a href="#">Telegram</a><a href="#">WhatsApp</a><a href="#">ВКонтакте</a><a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">О компании</p>
+        <a href="history.html">История компании</a>
+        <a href="./#process">Индивидуальный пошив</a>
+        <a href="clients.html">Наши клиенты</a>
+        <a href="awards.html">Наши достижения</a>
+        <a href="works.html">Наши работы</a>
+        <a href="./#atelier">Ателье VESTORO</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Покупателям</p>
+        <a href="care.html">Как ухаживать за одеждой</a>
+        <a href="#">Ответы на вопросы</a>
+        <a href="specials.html">Акции и скидки</a>
+        <a href="certificates.html">Подарочный сертификат</a>
+        <a href="care.html#service">Корректировка по фигуре</a>
+        <a href="#">Доставка</a>
+      </div>
+      <div class="footer__col">
+        <p class="footer__heading">Общая информация</p>
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Публичная оферта</a>
+        <a href="#">Обработка персональных данных</a>
+        <a href="#">Политика использования cookies</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 1993–2026 VESTORO</span>
+      <span>ИП Котвани Джитендра Дхалумал · ИНН 772973972953 · ОГРНИП 322774600077985</span>
+    </div>
+  </footer>
+
+  <!-- Всплывающее окно записи -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__dialog">
+      <figure class="modal__media">
+        <img src="assets/img/hero-master.jpg" alt="Мастер VESTORO снимает мерки">
+        <figcaption>Made to measure</figcaption>
+      </figure>
+      <div class="modal__body">
+        <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
+        <p class="modal__eyebrow">Костюм по вашим меркам</p>
+        <h2 class="modal__title" id="modalTitle">Записаться на консультацию</h2>
+        <p class="modal__text">Персональный портной встретится с вами в ателье на Новолесной или приедет к вам. Выберите удобный способ связи — подберём время.</p>
+
+        <ul class="contact-list">
+          <li>
+            <button class="contact-row" type="button" data-toggle="requestForm">
+              <span class="contact-row__icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 6l8 7 8-7"/></svg></span>
+              <span class="contact-row__text"><small>Оставить заявку</small>Перезвоним за 15 минут</span>
+              <span class="contact-row__arrow">→</span>
+            </button>
+            <form class="request-form" id="requestForm" hidden>
+              <input type="text" name="name" placeholder="Ваше имя" autocomplete="name" required>
+              <input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" required>
+              <button class="btn btn--gold" type="submit">Отправить</button>
+              <p class="request-form__note">Нажимая «Отправить», вы соглашаетесь с политикой конфиденциальности.</p>
+            </form>
+          </li>
+          <li>
+            <a class="contact-row" href="tel:+74957250564">
+              <span class="contact-row__icon"><svg viewBox="0 0 24 24"><path d="M6.6 3.5l2.6 3.4-1.6 2.2a12 12 0 0 0 7.3 7.3l2.2-1.6 3.4 2.6-1.6 3.1C11.3 20.3 3.7 12.7 3.5 5.1z"/></svg></span>
+              <span class="contact-row__text"><small>Позвонить</small>+7 (495) 725-05-64</span>
+              <span class="contact-row__arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <button class="contact-row" type="button" data-toggle="messengers">
+              <span class="contact-row__icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
+              <span class="contact-row__text"><small>Написать в мессенджер</small>Telegram · WhatsApp · MAX</span>
+              <span class="contact-row__arrow">→</span>
+            </button>
+            <div class="messengers" id="messengers" hidden>
+              <a href="#" target="_blank" rel="noopener">Telegram</a>
+              <a href="#" target="_blank" rel="noopener">WhatsApp</a>
+              <a href="#" target="_blank" rel="noopener">MAX</a>
+            </div>
+          </li>
+        </ul>
+
+        <p class="modal__footnote">Ежедневно · Москва, Новолесная 5 · бесплатная парковка</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Просмотр фото и видео -->
+  <div class="modal modal--video" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="video-box">
+      <button class="modal__close" type="button" aria-label="Закрыть" data-modal-close></button>
+      <video id="videoPlayer" playsinline controls preload="none"></video>
+      <img class="video-box__photo" id="photoViewer" alt="" hidden>
+      <p class="video-box__note" id="videoNote">Видео появится после загрузки ролика заказчика</p>
+    </div>
+  </div>
+
+  <script src="assets/js/certificates.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
