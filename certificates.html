@@ -267,10 +267,13 @@
 
     <!-- Первый экран -->
     <section class="cert-hero" id="hero">
+      <div class="cert-hero__bg" aria-hidden="true">
+        <img src="assets/img/hero-atelier.jpg" alt="">
+      </div>
       <div class="cert-hero__inner">
-        <div>
-          <p class="eyebrow">Подарок со смыслом · с 1993 года</p>
-          <h1 class="cert-hero__title">Подарочный сертификат <span>на индивидуальный пошив</span></h1>
+        <div class="cert-hero__content">
+          <p class="eyebrow">Подарочный сертификат · с 1993 года</p>
+          <h1 class="cert-hero__title">Подарочный сертификат <span>на&nbsp;индивидуальный пошив</span></h1>
           <p class="cert-hero__lead">Сертификат VESTORO дарит не вещь, а право её создать. Получатель выбирает ткань, фасон и детали, а мастера воплощают замысел в изделие, которое сидит безупречно и говорит о своём владельце без слов.</p>
           <p class="cert-hero__text">Впечатление начинается с первого визита в ателье и не заканчивается никогда — вещь, созданная для одного человека, остаётся с ним на годы.</p>
           <div class="cert-hero__actions">
@@ -283,9 +286,29 @@
             <li><b>За 15 минут</b>Электронный или в коробке</li>
           </ul>
         </div>
-        <figure class="cert-hero__media">
-          <img src="assets/img/certificate.jpg" alt="Подарочный сертификат VESTORO в фирменной коробке">
-        </figure>
+
+        <div class="cert-hero__stage" aria-label="Подарочный сертификат VESTORO">
+          <figure class="cert-hero__box">
+            <img src="assets/img/certificate.jpg" alt="Фирменная деревянная шкатулка VESTORO">
+            <figcaption>Фирменная шкатулка из дерева · Москва, Новолесная 5</figcaption>
+          </figure>
+
+          <div class="cert-foil" aria-hidden="true">
+            <div class="cert-foil__shine"></div>
+            <div class="cert-foil__head">
+              <span class="cert-foil__monogram">V</span>
+              <span class="cert-foil__est">EST. 1993 · BESPOKE</span>
+            </div>
+            <div class="cert-foil__center">
+              <span class="cert-foil__brand">VESTORO</span>
+              <span class="cert-foil__sub">Подарочный сертификат</span>
+            </div>
+            <div class="cert-foil__foot">
+              <span>Индивидуальный пошив</span>
+              <span>№ 01993 · Бессрочный</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
