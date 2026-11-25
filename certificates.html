@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/history.css">
   <link rel="stylesheet" href="assets/css/pages.css">
-  <link rel="stylesheet" href="assets/css/certificates.css?v=3">
+  <link rel="stylesheet" href="assets/css/certificates.css?v=4">
   <script src="assets/js/fonts.js"></script>
 </head>
 <body>
@@ -402,13 +402,13 @@
         </li>
       </ul>
 
-      <!-- Интерактивный конструктор сертификата (вдохновлён avtor.club/sert и квизом VESTORO) -->
-      <div class="cert-builder reveal" id="builder">
+      <!-- Интерактивный конструктор + мгновенное оформление сертификата -->
+      <form class="cert-builder reveal" id="builder">
         <div class="cert-builder__controls">
 
           <div class="cert-builder__step">
             <p class="cert-builder__label"><span>01</span>Формат сертификата</p>
-            <div class="cert-pills" role="group" aria-label="Формат сертификата">
+            <div class="cert-pills cert-pills--3" role="group" aria-label="Формат сертификата">
               <button class="cert-pill" type="button" data-cert-type="electronic" aria-pressed="false">Электронная карта</button>
               <button class="cert-pill" type="button" data-cert-type="nominal" aria-pressed="true">Свободный номинал</button>
               <button class="cert-pill" type="button" data-cert-type="preset" aria-pressed="false">Готовое предложение</button>
@@ -417,7 +417,7 @@
 
           <div class="cert-builder__step" id="certNominalBlock">
             <p class="cert-builder__label"><span>02</span>Номинал сертификата</p>
-            <div class="cert-pills" role="group" aria-label="Номинал сертификата">
+            <div class="cert-pills cert-pills--5" role="group" aria-label="Номинал сертификата">
               <button class="cert-pill" type="button" data-cert-nominal="50000" aria-pressed="false">50 000 ₽</button>
               <button class="cert-pill" type="button" data-cert-nominal="100000" aria-pressed="false">100 000 ₽</button>
               <button class="cert-pill" type="button" data-cert-nominal="165000" aria-pressed="true">165 000 ₽</button>
@@ -446,7 +446,7 @@
 
           <div class="cert-builder__step">
             <p class="cert-builder__label"><span>03</span>Повод и получатель</p>
-            <div class="cert-pills" role="group" aria-label="Повод подарка">
+            <div class="cert-pills cert-pills--3" role="group" aria-label="Повод подарка">
               <button class="cert-pill" type="button" data-cert-occasion="День рождения" aria-pressed="true">День рождения</button>
               <button class="cert-pill" type="button" data-cert-occasion="Юбилей" aria-pressed="false">Юбилей</button>
               <button class="cert-pill" type="button" data-cert-occasion="Свадьба" aria-pressed="false">Свадьба</button>
@@ -454,7 +454,7 @@
               <button class="cert-pill" type="button" data-cert-occasion="Праздник" aria-pressed="false">23 февраля / 8 марта</button>
               <button class="cert-pill" type="button" data-cert-occasion="Без повода" aria-pressed="false">Без повода</button>
             </div>
-            <div class="cert-pills" style="margin-top: 12px;" role="group" aria-label="Кому подарок">
+            <div class="cert-pills cert-pills--3 cert-pills--sub" role="group" aria-label="Кому подарок">
               <button class="cert-pill" type="button" data-cert-audience="Мужчине" aria-pressed="true">Мужчине</button>
               <button class="cert-pill" type="button" data-cert-audience="Женщине" aria-pressed="false">Женщине</button>
               <button class="cert-pill" type="button" data-cert-audience="Универсальный" aria-pressed="false">Универсальный</button>
@@ -464,9 +464,17 @@
               <input class="cert-input" type="text" id="certWish" placeholder="Короткое пожелание на карте" aria-label="Пожелание">
             </div>
           </div>
+
+          <div class="cert-builder__step">
+            <p class="cert-builder__label"><span>04</span>Ваши контакты для оформления</p>
+            <div class="cert-fields-row">
+              <input class="cert-input" type="text" name="builder_name" placeholder="Ваше имя *" autocomplete="name" required aria-label="Ваше имя">
+              <input class="cert-input" type="tel" name="builder_phone" placeholder="Телефон *" autocomplete="tel" required aria-label="Телефон">
+            </div>
+          </div>
         </div>
 
-        <!-- Живое превью сертификата -->
+        <!-- Правая колонка: живое превью карты + итог + мгновенная отправка -->
         <aside class="cert-preview-wrap" aria-label="Предпросмотр подарочного сертификата">
           <div class="cert-card">
             <div class="cert-card__top">
@@ -492,13 +500,17 @@
             </dl>
           </div>
 
-          <div class="cert-preview__actions">
-            <a class="btn btn--gold" href="#order">Оформить этот сертификат</a>
+          <div class="cert-preview__actions" id="builderActions">
+            <button class="btn btn--gold" type="submit">Оформить этот сертификат</button>
             <button class="btn btn--line" type="button" data-modal-open data-modal-title="Консультация по сертификату">Нужна помощь с выбором</button>
           </div>
-          <p class="cert-preview__note">Действует бессрочно на мужской и женский пошив. При желании получатель может доплатить разницу при выборе более дорогой ткани.</p>
+          <div class="cert-builder__done" id="builderDone" hidden>
+            <p id="builderDoneText"></p>
+            <button class="btn btn--line" type="button" id="builderReset">Выбрать ещё один сертификат</button>
+          </div>
+          <p class="cert-preview__note">Перезвоним за 15 минут · Действует бессрочно · Онлайн-оплата CloudPayments скоро на сайте</p>
         </aside>
-      </div>
+      </form>
     </section>
 
     <!-- 3. Как воспользоваться сертификатом -->
@@ -914,7 +926,7 @@
     </div>
   </div>
 
-  <script src="assets/js/certificates.js?v=3"></script>
+  <script src="assets/js/certificates.js?v=4"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -221,7 +221,33 @@
     });
   }
 
-  // Отправка заявки на сертификат (заглушка до подключения CRM и CloudPayments)
+  // Мгновенная отправка прямо из конструктора (#builder)
+  const builderForm = document.getElementById('builder');
+  const builderActions = document.getElementById('builderActions');
+  const builderDone = document.getElementById('builderDone');
+  const builderReset = document.getElementById('builderReset');
+
+  if (builderForm && builderActions && builderDone) {
+    builderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const buyerName = builderForm.elements.builder_name.value.trim();
+      const meta = TYPE_META[state.type];
+      const amount = meta.mode === 'preset' ? `от ${formatRub(state.presetPrice)}` : formatRub(state.nominal);
+      setText('builderDoneText', `${buyerName ? `${buyerName}, ` : ''}заявка на «${meta.title}» (${amount}) принята! Перезвоним в течение 15 минут.`);
+      builderActions.hidden = true;
+      builderDone.hidden = false;
+    });
+  }
+  if (builderReset && builderForm && builderActions && builderDone) {
+    builderReset.addEventListener('click', () => {
+      builderForm.elements.builder_name.value = '';
+      builderForm.elements.builder_phone.value = '';
+      builderActions.hidden = false;
+      builderDone.hidden = true;
+    });
+  }
+
+  // Отправка заявки из нижней формы (#certOrderForm — для тех, кто дочитал страницу до конца)
   if (orderForm && orderDone) {
     orderForm.addEventListener('submit', (e) => {
       e.preventDefault();

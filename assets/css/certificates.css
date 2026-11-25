@@ -410,23 +410,28 @@
   max-width: 1320px;
   margin: clamp(48px, 5vw, 76px) auto 0;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(32px, 4.5vw, 72px);
-  align-items: start;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 0;
+  align-items: stretch;
   background: #fff;
-  border: 1px solid rgba(179, 153, 102, .38);
-  padding: clamp(28px, 4vw, 56px);
+  border: 1px solid rgba(179, 153, 102, .4);
+}
+.cert-builder__controls {
+  padding: clamp(28px, 3.6vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .cert-builder__step + .cert-builder__step {
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(179, 153, 102, .24);
+  margin-top: 26px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(179, 153, 102, .22);
 }
 .cert-builder__label {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  margin: 0 0 16px;
+  margin: 0 0 14px;
   font: 500 11px/1.4 var(--sans);
   letter-spacing: .22em;
   text-transform: uppercase;
@@ -438,19 +443,28 @@
   color: var(--gold);
 }
 
-/* Кнопки-чипы выбора */
+/* Кнопки-чипы выбора: ровные сетки по всей ширине колонки */
 .cert-pills {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 10px;
 }
+.cert-pills--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.cert-pills--5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.cert-pills--sub {
+  margin-top: 10px;
+}
 .cert-pill {
-  padding: 13px 18px;
-  border: 1px solid rgba(16, 30, 74, .2);
+  padding: 13px 10px;
+  border: 1px solid rgba(16, 30, 74, .18);
   background: transparent;
   color: var(--ink);
   font: 500 12px/1.25 var(--sans);
-  letter-spacing: .08em;
+  letter-spacing: .04em;
+  text-align: center;
   transition: background var(--t) var(--ease), color var(--t) var(--ease), border-color var(--t) var(--ease);
 }
 .cert-pill:hover {
@@ -538,8 +552,11 @@
 
 /* Живая превью-карточка сертификата справа */
 .cert-preview-wrap {
-  position: sticky;
-  top: 108px;
+  padding: clamp(28px, 3.6vw, 48px);
+  background: var(--ivory-2);
+  border-left: 1px solid rgba(179, 153, 102, .28);
+  display: flex;
+  flex-direction: column;
 }
 .cert-card {
   position: relative;
@@ -640,7 +657,8 @@
   text-align: right;
 }
 .cert-preview__actions {
-  margin-top: 24px;
+  margin-top: auto;
+  padding-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -648,9 +666,24 @@
 .cert-preview__actions .btn {
   width: 100%;
 }
+.cert-builder__done {
+  margin-top: auto;
+  padding: 20px;
+  background: #fff;
+  border-left: 2px solid var(--gold);
+}
+.cert-builder__done p {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--navy);
+}
+.cert-builder__done .btn {
+  width: 100%;
+}
 .cert-preview__note {
-  margin: 12px 0 0;
-  font-size: 12px;
+  margin: 14px 0 0;
+  font-size: 11.5px;
   line-height: 1.55;
   color: var(--muted);
   text-align: center;
@@ -945,7 +978,7 @@
   .cert-why__card:nth-child(5) { grid-column: 1 / -1; }
   .cert-types__grid { grid-template-columns: 1fr; max-width: 560px; }
   .cert-builder { grid-template-columns: 1fr; }
-  .cert-preview-wrap { position: static; }
+  .cert-preview-wrap { border-left: 0; border-top: 1px solid rgba(179, 153, 102, .28); }
   .cert-steps__list { grid-template-columns: repeat(2, 1fr); }
   .cert-works__grid { grid-template-columns: repeat(2, 1fr); }
   .cert-order__box { grid-template-columns: 1fr; }
@@ -959,6 +992,8 @@
   .cert-foil { padding: 20px; }
   .cert-why__grid { grid-template-columns: 1fr; }
   .cert-why__card:nth-child(5) { grid-column: auto; }
+  .cert-pills--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cert-pills--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cert-pills--items { grid-template-columns: 1fr; }
   .cert-fields-row,
   .cert-order__row { grid-template-columns: 1fr; }
