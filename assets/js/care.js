@@ -52,7 +52,7 @@
     const filtered = topic === 'all' ? articles : articles.filter((a) => a.topic === topic);
     list.innerHTML = filtered.map((a, idx) => `
       <li style="animation-delay: ${Math.min(idx * 45, 240)}ms">
-        <button class="care-card" type="button" data-article-id="${esc(a.id)}">
+        <a class="care-card" href="care-article.html?id=${encodeURIComponent(a.id)}">
           <span class="care-card__media">
             <img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy">
             <span class="care-card__tag">${esc(topics[a.topic] || '')}</span>
@@ -61,16 +61,9 @@
           <span class="care-card__title">${esc(a.title)}</span>
           <span class="care-card__excerpt">${esc(a.excerpt)}</span>
           <span class="care-card__more">Читать статью →</span>
-        </button>
+        </a>
       </li>
     `).join('');
-
-    list.querySelectorAll('[data-article-id]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const found = articles.find((a) => a.id === btn.dataset.articleId);
-        openArticle(found);
-      });
-    });
   };
 
   const setTopic = (topic, pushUrl = true) => {
